@@ -36,7 +36,8 @@ def main() -> int:
         raise SystemExit("refusing to write the private build inside the public repository")
 
     public = json.loads((ROOT / "data" / "projects.json").read_text())
-    overlay = json.loads((private_dir / "projects.json").read_text())
+    overlay_path = private_dir / "projects.json"
+    overlay = json.loads(overlay_path.read_text()) if overlay_path.exists() else {"projects": []}
     private = overlay["projects"]
 
     ids = {p["id"] for p in public["projects"]}
