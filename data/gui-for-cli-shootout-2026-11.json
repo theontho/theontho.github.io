@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T23:10:43Z",
+  "generatedAt": "2026-11-10T23:12:21Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -16,9 +16,9 @@
     "Polish"
   ],
   "stats": {
-    "total": 29,
+    "total": 30,
     "done": 20,
-    "building": 4,
+    "building": 5,
     "queued": 5,
     "failed": 0,
     "activeHours": 29.6,
@@ -1959,6 +1959,42 @@
       "userNotes": null,
       "features": null,
       "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "react-native",
+      "name": "React Native (desktop)",
+      "language": "TypeScript",
+      "kind": "Cross-platform native",
+      "status": "building",
+      "wave": 8,
+      "mayId": "react-native",
+      "mayVisual": "failed",
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": "Linux renderer if one is credible, otherwise Windows via react-native-windows.",
       "lessons": null,
       "linux": {
         "readyMs": null,
