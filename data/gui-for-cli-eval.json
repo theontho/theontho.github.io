@@ -743,6 +743,29 @@
         "rssMb": 107.0,
         "artifactMb": 12.827
       }
+    },
+    {
+      "id": "react-native",
+      "name": "React Native (macOS / Windows)",
+      "language": "TypeScript",
+      "kind": "Cross-platform native",
+      "visual": "failed",
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": 7.3,
+      "batch": false,
+      "verdict": "The AI never got it to launch into the app. About 23k lines in one PR built a 31.4 MB react-native-macos app that passed its native launch marker but never showed the React UI. I closed it: “23kloc and still doesn't launch properly? just no.”",
+      "screenshot": null,
+      "link": {
+        "label": "PR #24",
+        "url": "https://github.com/WGSExtract/gui-for-cli-outdated/pull/24"
+      },
+      "macos": {
+        "readyMs": 169.4,
+        "metric": "native launch only, no UI",
+        "rssMb": 95.6,
+        "artifactMb": 31.4
+      }
     }
   ],
   "launcherNote": "Indented rows run the same WebUI inside a different launcher (browser, Tauri, Electron, WKWebView, Dioxus). They mostly tested packaging, startup, memory and size, not a new UI."

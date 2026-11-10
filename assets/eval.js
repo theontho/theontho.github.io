@@ -20,12 +20,13 @@ function h(tag, attrs = {}, ...children) {
   return el;
 }
 
-const visualValue = (s) => (s.visual === "ref" ? 6 : s.visual);
+const visualValue = (s) => (s.visual === "ref" ? 6 : s.visual === "failed" ? 0 : s.visual);
 const fmtMs = (ms) => (ms == null ? "" : ms >= 1000 ? `${(ms / 1000).toFixed(2)} s` : `${ms < 10 ? ms.toFixed(1) : Math.round(ms)} ms`);
 const fmtMb = (mb) => (mb == null ? "" : mb < 1 ? `${Math.round(mb * 1024)} KB` : `${mb < 10 ? mb.toFixed(1) : Math.round(mb)} MB`);
 
 function score(value, max = 5, cls = "") {
   if (value === "ref") return h("span", { class: "score ref", title: "Reference implementation" }, "Ref");
+  if (value === "failed") return h("span", { class: "score failed", title: "Never launched into the app" }, "No UI");
   if (value == null) return h("span", { class: "score none" }, "–");
   return h("span", { class: `score s${value} ${cls}`, title: `${value} of ${max}` }, String(value));
 }
@@ -61,13 +62,13 @@ function renderTable() {
   }
   rows = ordered;
   tbody.replaceChildren(...rows.map((s) => h("tr", {
-    class: nested(s) ? "child" : null,
-    tabindex: "0",
-    onclick: () => openShot(shots.findIndex((x) => x.id === s.id)),
-    onkeydown: (e) => { if (e.key === "Enter") openShot(shots.findIndex((x) => x.id === s.id)); },
+    class: [nested(s) ? "child" : "", s.screenshot ? "" : "no-shot"].join(" ").trim() || null,
+    tabindex: s.screenshot ? "0" : null,
+    onclick: s.screenshot ? () => openShot(shots.findIndex((x) => x.id === s.id)) : null,
+    onkeydown: s.screenshot ? (e) => { if (e.key === "Enter") openShot(shots.findIndex((x) => x.id === s.id)); } : null,
   },
   h("td", {}, h("div", { class: "tk" },
-    h("img", { src: BASE + s.screenshot, alt: "", loading: "lazy" }),
+    s.screenshot ? h("img", { src: BASE + s.screenshot, alt: "", loading: "lazy" }) : h("span", { class: "no-thumb", "aria-hidden": "true" }, "no UI"),
     nested(s) ? h("span", { class: "indent", "aria-hidden": "true" }, "↳") : null,
     h("span", {}, h("b", {}, s.name), h("small", {}, `${s.language} · ${s.kind}`)))),
   h("td", { class: "num" }, score(s.visual)),
@@ -77,7 +78,7 @@ function renderTable() {
   h("td", { class: "num", title: s.macos?.metric || "" }, fmtMs(s.macos?.readyMs), s.macos ? h("small", {}, s.macos.metric) : null),
   h("td", { class: "num" }, s.macos ? `${Math.round(s.macos.rssMb)} MB` : ""),
   h("td", { class: "num" }, fmtMb(s.macos?.artifactMb)),
-  h("td", { class: "verdict" }, s.verdict))));
+  h("td", { class: "verdict" }, s.verdict, s.link ? [" ", h("a", { href: s.link.url, onclick: (e) => e.stopPropagation() }, s.link.label)] : null))));
   document.getElementById("launcher-note").textContent = data.launcherNote || "";
   document.getElementById("eval-count").textContent = `${rows.length} of ${data.surfaces.length}`;
   document.querySelectorAll("#eval-table th[data-sort]").forEach((th) => {
@@ -86,7 +87,7 @@ function renderTable() {
 }
 
 function renderGallery() {
-  shots = [...data.surfaces].sort((a, b) => visualValue(b) - visualValue(a) || a.name.localeCompare(b.name));
+  shots = data.surfaces.filter((s) => s.screenshot).sort((a, b) => visualValue(b) - visualValue(a) || a.name.localeCompare(b.name));
   document.getElementById("eval-gallery").replaceChildren(...shots.map((s, i) =>
     h("figure", { class: "shot", onclick: () => openShot(i) },
       h("img", { src: BASE + s.screenshot, alt: `${s.name} screenshot`, loading: "lazy" }),

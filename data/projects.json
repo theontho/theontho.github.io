@@ -208,6 +208,7 @@
         "SwiftUI, AppKit, Tauri, Electron, Flutter, Compose, Slint, Gio, Iced, egui, ImGui, Raygui, Qt/QML, GTK4, Avalonia, wxPython, Textual and more, all running the WGS Extract bundle",
         "34 screenshots rated 1–5, with implementation difficulty, completeness and active hours per toolkit",
         "The fastest renderers (4–21 ms) were rated 2/5; Flutter, Compose Desktop, wxPython and Swift AppKit reached 4/5",
+        "React Native was the one outright failure: about 23k lines and the AI's desktop app still never launched into its UI",
         "Reusing one complete WebUI beat rewriting the app per toolkit; the WebUI launchers mostly tested packaging, startup and memory"
       ],
       "tech": [

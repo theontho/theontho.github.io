@@ -46,6 +46,8 @@ def main() -> int:
     eval_path = ROOT / "data" / "gui-for-cli-eval.json"
     if eval_path.exists():
         for surface in json.loads(eval_path.read_text())["surfaces"]:
+            if not surface.get("screenshot"):
+                continue
             path = ROOT / surface["screenshot"]
             referenced.add(path.resolve())
             if not path.is_file():

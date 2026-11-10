@@ -32,6 +32,7 @@
         <li><strong>The fastest prototype was rarely the right product.</strong> C++ ImGui, Rust ImGui, GTK4, Iced, egui and Makepad were ready in 4–21 ms with ~10–15 MB of memory, and all rated 2/5 for how well they showed the actual app.</li>
         <li><strong>Reusing a complete behaviour model beat rewriting it.</strong> Every WebUI shell (Tauri, Electron, WKWebView, browser) inherited a 5/5 experience from one TypeScript WebUI. Native rewrites had to rebuild setup, data sources, terminals, config and pickers each time.</li>
         <li><strong>Most rewrites stalled at "opens a window".</strong> Leaving out the two reference apps and counting the WebUI shells once, the 29 experimental surfaces averaged 2.55/5, median 2.</li>
+        <li><strong>React Native never launched.</strong> After about 23,000 lines and 7.3 active hours, the AI's React Native desktop app built and passed its native launch marker but never showed the app, so it got no screenshot or rating.</li>
         <li><strong>The best rewrites were Flutter, Compose Desktop, wxPython and Swift AppKit</strong> (4/5). Flutter also had the best Windows numbers, but took the longest parity work (difficulty 5/5).</li>
         <li><strong>Infrastructure cost more than any one toolkit.</strong> About 31 active hours went to the benchmark and screenshot harness and 48 to release, updater and installer packaging, against 2–10 hours per toolkit.</li>
         <li><strong>Outcome:</strong> SwiftUI and Tauri were kept as the product frontends. GUI for CLI later became a single Tauri app, which now ships inside <a href="https://github.com/WGSExtract/wgsextract-cli/tree/main/gui">WGS Extract</a>.</li>
@@ -44,7 +45,7 @@
       <div class="eval-controls">
         <label class="filter"><span>Kind</span><select id="kind-filter"><option value="all">All</option></select></label>
         <label class="filter"><span>Visual</span><select id="visual-filter">
-          <option value="all">Any</option><option value="ref">Reference</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option>
+          <option value="all">Any</option><option value="ref">Reference</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option><option value="failed">No UI</option>
         </select></label>
         <span class="eval-count" id="eval-count"></span>
       </div>

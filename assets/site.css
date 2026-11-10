@@ -335,6 +335,9 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 .score.diff.s1 { background: #4ade80; } .score.diff.s2 { background: #a3e635; } .score.diff.s3 { background: #facc15; }
 .score.diff.s4 { background: #fb923c; } .score.diff.s5 { background: #f87171; }
 .score.ref { background: var(--accent-2); color: #fff; }
+.score.failed { background: #7f1d1d; color: #fecaca; white-space: nowrap; }
+.eval-table tr.no-shot { cursor: default; }
+.no-thumb { display: inline-grid; place-items: center; width: 64px; height: 42px; flex: none; border-radius: 6px; border: 1px dashed #b91c1c; color: #fca5a5; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
 .score.none { background: transparent; color: var(--muted); font-weight: 500; }
 .footnote { color: var(--muted); font-size: .82rem; margin-top: 10px; max-width: 900px; }
 .eval-links { margin-top: 18px; }
