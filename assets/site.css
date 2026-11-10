@@ -305,10 +305,10 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 .lessons li { margin-bottom: 10px; }
 .eval-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; }
 .eval-count { color: var(--muted); font-size: .85rem; }
-.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.table-scroll { overflow: auto; max-height: calc(100vh - 80px); border: 1px solid var(--line); border-radius: 12px; }
 .eval-table { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 900px; }
 .eval-table th, .eval-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
-.eval-table thead th { background: var(--bg-2); color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.eval-table thead th { background: var(--bg-2); color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; position: sticky; top: 0; z-index: 2; box-shadow: inset 0 -1px 0 var(--line); }
 .eval-table th[data-sort] { cursor: pointer; }
 .eval-table th[aria-sort="descending"]::after { content: " ▾"; }
 .eval-table th[aria-sort="ascending"]::after { content: " ▴"; }
