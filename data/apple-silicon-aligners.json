@@ -1,0 +1,471 @@
+{
+  "title": "Apple Silicon aligner hillclimb",
+  "period": "4–10 November 2026",
+  "models": "Claude Opus 5.5 in GitHub Copilot CLI for most of the work, with GPT-6 Astra and GPT-6.1 Sol on the first day",
+  "machines": "M1 Pro (8P+2E cores, 32 GB) for the main measurements; a base M1 Mac mini (16 GB) and GitHub's virtual M1 runners (7 GiB) for small Macs",
+  "data": "hs38 (GRCh38 without ALTs) with the first 5M HG002 30x NovaSeq read pairs, 9 threads, unless noted",
+  "rule": "Every build had to write byte-identical alignments to its upstream release (only the @PG line differs), checked by hashing the SAM records.",
+  "headline": [
+    {
+      "value": "3.9×",
+      "label": "faster BWA with --metal (528.5 s → 136.0 s)"
+    },
+    {
+      "value": "−53%",
+      "label": "BWA on the CPU alone, exact (0.9.0 vs Bioconda bwa)"
+    },
+    {
+      "value": "−44%",
+      "label": "BWA-MEM2 on the CPU, and a third less memory"
+    },
+    {
+      "value": "½",
+      "label": "the energy per genome with --metal"
+    },
+    {
+      "value": "7.3 h",
+      "label": "BAM to report for a 35x genome on a 16 GB M1"
+    },
+    {
+      "value": "14",
+      "label": "prereleases in six days"
+    }
+  ],
+  "climbs": [
+    {
+      "id": "bwa-metal",
+      "title": "wgse-bwa --metal (BWA 0.7.19 on the GPU)",
+      "unit": "s",
+      "note": "Each step was measured in interleaved rounds against the previous version on AC power; rows from different sessions are not perfectly comparable.",
+      "steps": [
+        {
+          "label": "Bioconda bwa 0.7.19 (CPU)",
+          "value": 528.5,
+          "what": "Starting point: the packaged build",
+          "baseline": true
+        },
+        {
+          "label": "0.1.0 (CPU)",
+          "value": 527.4,
+          "what": "Native arm64 build; compiler tuning (LTO, PGO, mimalloc) changed ~1%"
+        },
+        {
+          "label": "0.2.0 --metal",
+          "value": 423.4,
+          "what": "SMEM seeding on the GPU"
+        },
+        {
+          "label": "0.3.0 --metal",
+          "value": 297.0,
+          "what": "Also suffix-array locate on the GPU"
+        },
+        {
+          "label": "0.4.0 --metal",
+          "value": 241.2,
+          "what": "Also mate rescue on the GPU"
+        },
+        {
+          "label": "0.5.0 --metal",
+          "value": 213.1,
+          "what": "Also seed extension on the GPU"
+        },
+        {
+          "label": "0.6.0 --metal",
+          "value": 147.1,
+          "what": "Faster kernels; pairing one chunk while the next maps"
+        },
+        {
+          "label": "0.7.0 --metal",
+          "value": 136.0,
+          "what": "Faster CPU share: interleaved locate, batched rescue, NEON"
+        },
+        {
+          "label": "0.7.1 --metal",
+          "value": 125.9,
+          "what": "Cheaper mate-rescue kernel shared with BWA-MEM2 (vs 130 s for 0.7.0 in the same rounds)"
+        }
+      ]
+    },
+    {
+      "id": "bwa-cpu",
+      "title": "wgse-bwa on the CPU only (no GPU)",
+      "unit": "s",
+      "note": "Exact replacements for upstream steps; the 0.8.0 and 0.9.0 rows are each from rounds interleaved with the version before.",
+      "steps": [
+        {
+          "label": "Bioconda bwa 0.7.19",
+          "value": 528.5,
+          "what": "Packaged build",
+          "baseline": true
+        },
+        {
+          "label": "0.7.1 (CPU)",
+          "value": 530.5,
+          "what": "Matches the packaged build"
+        },
+        {
+          "label": "0.8.0 (CPU)",
+          "value": 363.0,
+          "what": "16 interleaved suffix-array walks, batched 8-bit mate rescue, pointer sort, NEON unpacking (−32.8%)"
+        },
+        {
+          "label": "0.9.0 (CPU)",
+          "value": 246.4,
+          "what": "NEON seed extension and interleaved SMEM seeding of 8 pairs at once (−27.4% vs 0.8.0's 339 s)"
+        }
+      ]
+    },
+    {
+      "id": "mem2-metal",
+      "title": "wgse-bwa-mem2 (BWA-MEM2 2.3)",
+      "unit": "s",
+      "note": "Peak memory fell from 16.9 GiB to 11.5 GiB in 0.3.0 by not loading the 6.2 GB .0123 file.",
+      "steps": [
+        {
+          "label": "0.1.0 (CPU)",
+          "value": 447.5,
+          "what": "arm64 build through sse2neon",
+          "baseline": true
+        },
+        {
+          "label": "0.1.0 --metal",
+          "value": 395.7,
+          "what": "Seed extension batched on the GPU"
+        },
+        {
+          "label": "0.2.0 --metal",
+          "value": 161.2,
+          "what": "Also SMEM seeding and mate rescue on the GPU; overlap mapping and pairing"
+        },
+        {
+          "label": "0.3.0 --metal",
+          "value": 116.6,
+          "what": "No .0123 file (−5.4 GiB); seed while the previous chunk maps"
+        },
+        {
+          "label": "0.4.0 --metal",
+          "value": 110.2,
+          "what": "34 MB prefix table; cheaper kernels; 8-bit extensions on the CPU"
+        },
+        {
+          "label": "0.5.0 (CPU)",
+          "value": 219.0,
+          "what": "CPU backend alone with exact faster steps: −44% vs 0.4.1's best 394.9 s, 10.9 GiB instead of 16.3"
+        }
+      ]
+    }
+  ],
+  "minimap2": {
+    "title": "wgse-minimap2 (minimap2 2.31)",
+    "rows": [
+      {
+        "reads": "HiFi, 145k reads (map-hifi, .mmi)",
+        "bioconda": 98.8,
+        "v010": 74.1,
+        "metal": null,
+        "change": "−25.0%"
+      },
+      {
+        "reads": "ONT, 45.6k reads (map-ont, .mmi)",
+        "bioconda": 141.1,
+        "v010": 124.9,
+        "metal": null,
+        "change": "−11.5%"
+      },
+      {
+        "reads": "1M short-read pairs (sr, .mmi)",
+        "bioconda": 42.5,
+        "v010": 25.7,
+        "metal": null,
+        "change": "−39.5%"
+      },
+      {
+        "reads": "HiFi, 40k reads, index built from FASTA",
+        "bioconda": 55.3,
+        "v010": 31.2,
+        "metal": null,
+        "change": "−43.6%"
+      },
+      {
+        "reads": "ONT, 15k reads, index built from FASTA",
+        "bioconda": 66.2,
+        "v010": 37.2,
+        "metal": null,
+        "change": "−43.8%"
+      }
+    ],
+    "metalRows": [
+      {
+        "reads": "HiFi, 145k reads",
+        "bioconda": 116.6,
+        "v010": 89.7,
+        "metal": 71.5,
+        "change": "−20.3% vs 0.1.0"
+      },
+      {
+        "reads": "ONT, 45.6k reads",
+        "bioconda": 146.6,
+        "v010": 121.8,
+        "metal": 111.7,
+        "change": "−8.3% vs 0.1.0"
+      }
+    ],
+    "notes": [
+      "Index building went from 31.0 s to 7.4 s by sketching chromosomes on all threads with an exact warm-up.",
+      "0.2.0 --metal runs 85% of HiFi gap fills on the GPU at about 6.9 G cells/s, with 16 fibers per thread to keep batches full."
+    ]
+  },
+  "mem3": {
+    "title": "wgse-bwa-mem3 (bwa-mem3 0.16.0)",
+    "rows": [
+      {
+        "mode": "plain",
+        "bioconda": 69.0,
+        "cpu": 70.8,
+        "metal": 64.0,
+        "change": "−9.6%"
+      },
+      {
+        "mode": "--compat=bwa-mem",
+        "bioconda": 68.3,
+        "cpu": 68.5,
+        "metal": 63.9,
+        "change": "−6.7%"
+      },
+      {
+        "mode": "--compat=bwa-mem2",
+        "bioconda": 70.1,
+        "cpu": 69.5,
+        "metal": 63.6,
+        "change": "−8.5%"
+      },
+      {
+        "mode": "--fast",
+        "bioconda": 31.8,
+        "cpu": 32.5,
+        "metal": 33.2,
+        "change": "+2.3%"
+      }
+    ],
+    "notes": [
+      "bwa-mem3 already had NEON kernels, so the CPU build is upstream's code and no faster.",
+      "It then became WGS Extract's default stand-in for bwa and bwa-mem2 where memory allows: on a busy machine, 553 s → 175 s with bwa's exact records and 546 s → 75 s with bwa-mem2's."
+    ]
+  },
+  "energy": {
+    "note": "Package energy (CPU + GPU) with powermetrics on the 5M pairs, scaled to a 30x genome (×62). --metal draws more power but finishes so much sooner that it roughly halves the energy of both BWA tools.",
+    "rows": [
+      {
+        "aligner": "Bioconda bwa 0.7.19",
+        "time": 470.5,
+        "watts": 21.2,
+        "wh30x": 172
+      },
+      {
+        "aligner": "wgse-bwa 0.7.1 (CPU)",
+        "time": 479.6,
+        "watts": 20.8,
+        "wh30x": 172
+      },
+      {
+        "aligner": "wgse-bwa 0.7.1 --metal",
+        "time": 127.9,
+        "watts": 38.4,
+        "wh30x": 85
+      },
+      {
+        "aligner": "Bioconda bwa-mem2 2.3",
+        "time": 381.1,
+        "watts": 24.0,
+        "wh30x": 157
+      },
+      {
+        "aligner": "wgse-bwa-mem2 0.4.0 (CPU)",
+        "time": 459.8,
+        "watts": 21.1,
+        "wh30x": 164
+      },
+      {
+        "aligner": "wgse-bwa-mem2 0.4.0 --metal",
+        "time": 117.7,
+        "watts": 39.7,
+        "wh30x": 80
+      },
+      {
+        "aligner": "Bioconda bwa-mem3 0.16.0",
+        "time": 70.4,
+        "watts": 31.4,
+        "wh30x": 38
+      },
+      {
+        "aligner": "Bioconda minimap2 2.31 (sr)",
+        "time": 150.2,
+        "watts": 26.8,
+        "wh30x": 69
+      },
+      {
+        "aligner": "wgse-minimap2 0.1.0 (sr)",
+        "time": 118.8,
+        "watts": 30.1,
+        "wh30x": 62
+      }
+    ]
+  },
+  "smallMac": {
+    "title": "A base 16 GB M1 Mac mini",
+    "rows": [
+      {
+        "run": "wgse-bwa 0.7.0, CPU, 4 threads",
+        "time": 932.8
+      },
+      {
+        "run": "wgse-bwa 0.7.0 --metal, 4 threads",
+        "time": 214.8,
+        "what": "−77.0% vs the CPU with 4 threads"
+      },
+      {
+        "run": "wgse-bwa 0.7.0, CPU, 8 threads",
+        "time": 611.8
+      },
+      {
+        "run": "wgse-bwa 0.7.0 --metal, 8 threads",
+        "time": 211.6,
+        "what": "−65.4% vs the CPU with 8 threads"
+      }
+    ],
+    "notes": [
+      "A whole public HG002 35x genome went from BAM to personal report in 7.3 hours with default settings and the owner's apps open: realign 6 h 2 min (GPU-bound), SNP and indel calling 68 min, everything else under 4 min each.",
+      "Peak memory 8.4 GiB for one process (10.4 GiB summed), swap up to 4.8 GiB, about 166 GiB of free disk needed.",
+      "Accuracy against GIAB v4.2.1: SNPs 99.1% recall / 97.5% precision; indels 95.2% / 95.3%.",
+      "Measuring on this Mac fixed five defaults, including running wgse-bwa on Metal (about 4× faster than its CPU fallback) and calling SNPs per contig in parallel (849 s → 211 s)."
+    ]
+  },
+  "hosted": [
+    "On GitHub's virtual M1 runners (3 cores, 7 GiB), --metal was 4–5× faster than the CPU backends on chr1–3.",
+    "On the full human reference only wgse-bwa --metal reliably finished; the CPU runs and BWA-MEM2 (11–17 GiB) paged until they were stopped, which led to memory warnings in 0.4.1."
+  ],
+  "failed": [
+    "Compiler tuning: Apple clang already targets apple-m1; ThinLTO, full LTO, PGO and mimalloc each changed BWA by about 1% or less.",
+    "A GPU chaining kernel for minimap2, and parking an OS thread per read while its gap fills waited for the GPU.",
+    "Scoring minimap2 chaining predecessors eight at a time with NEON: most scans stop early.",
+    "For bwa-mem3: mimalloc as malloc, LTO, PGO, -mcpu=apple-m1 and the denser suffix array (re-sa -u 2, slower at 14.5 GiB).",
+    "Rescuing bwa-mem3 mates on the GPU: no faster on the medium tier.",
+    "BWA-MEM2's own index can't be built on a Mac: it needs about 73 GB of RAM, so it was built on Linux."
+  ],
+  "links": [
+    {
+      "label": "Aligner README (all measurements)",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/native/README.md"
+    },
+    {
+      "label": "A 30x genome on a 16 GB M1",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/docs/apple-silicon-16gb.md"
+    },
+    {
+      "label": "Hardware and acceleration guide",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/docs/hardware.md"
+    },
+    {
+      "label": "macos-aligners-14 release",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-14"
+    },
+    {
+      "label": "All aligner prereleases",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/releases?q=macos-aligners&expanded=true"
+    },
+    {
+      "label": "Issue #364: research, then build",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/issues/364"
+    },
+    {
+      "label": "Issue #549: the 16 GB M1 test",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/issues/549"
+    },
+    {
+      "label": "Aligner pull requests",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/pulls?q=is%3Apr+wgse-bwa+OR+wgse-minimap2+OR+wgse-bwa-mem3"
+    }
+  ],
+  "prs": [
+    [
+      407,
+      "Optional Apple Silicon BWA and BWA-MEM2 rebuilds (experimental --metal)"
+    ],
+    [
+      444,
+      "Add experimental Metal seeding to wgse-bwa"
+    ],
+    [
+      490,
+      "Speed up wgse-bwa --metal GPU path (0.6.0)"
+    ],
+    [
+      502,
+      "Speed up wgse-bwa --metal CPU threads (0.7.0)"
+    ],
+    [
+      524,
+      "Speed up wgse-bwa-mem2 --metal (0.2.0)"
+    ],
+    [
+      525,
+      "Speed up wgse-bwa-mem2 --metal (0.3.0)"
+    ],
+    [
+      536,
+      "Speed up wgse-bwa-mem2 --metal (0.4.0)"
+    ],
+    [
+      535,
+      "Aligner bench workflow for hosted macOS runners"
+    ],
+    [
+      537,
+      "Add wgse-minimap2 0.1.0: Apple Silicon minimap2 2.31 build"
+    ],
+    [
+      541,
+      "Use the Apple Silicon aligner builds in align/realign"
+    ],
+    [
+      550,
+      "Add wgse-bwa-mem3 0.1.0: Apple Silicon bwa-mem3 0.16.0 build"
+    ],
+    [
+      559,
+      "wgse-minimap2 0.2.0: --metal runs gap fills on the GPU"
+    ],
+    [
+      563,
+      "align: use Metal when the CPU run would exceed RAM anyway"
+    ],
+    [
+      565,
+      "Measure aligner energy with powermetrics"
+    ],
+    [
+      569,
+      "wgse-bwa-mem3 0.2.0: experimental --metal GPU seed extension"
+    ],
+    [
+      575,
+      "Document a 30x genome on a 16 GB Apple M1"
+    ],
+    [
+      581,
+      "wgse-bwa 0.8.0: exact batched CPU steps (−33%)"
+    ],
+    [
+      589,
+      "wgse-bwa-mem2 0.5.0: exact faster CPU steps (−44%)"
+    ],
+    [
+      590,
+      "align: wgse-bwa-mem3 stands in for bwa/bwa-mem2"
+    ],
+    [
+      596,
+      "wgse-bwa 0.9.0: NEON seed extension and interleaved CPU seeding (−27%)"
+    ]
+  ]
+}

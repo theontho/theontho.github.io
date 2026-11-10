@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>November 2026: Apple Silicon aligner hillclimb · Mahyar (Mac) McDonald</title>
+  <meta name="description" content="AI agents rebuilt BWA, BWA-MEM2, bwa-mem3 and minimap2 for Apple Silicon and Metal, one measured step at a time, with byte-identical alignments: BWA 3.9× faster, half the energy, a 30x genome on a 16 GB M1.">
+  <meta property="og:title" content="November 2026: Apple Silicon aligner hillclimb">
+  <meta property="og:description" content="BWA 3.9× faster on Metal with byte-identical alignments; every step measured.">
+  <meta property="og:image" content="https://theontho.github.io/screenshots/apple-silicon-aligners/hillclimb.webp">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/aligners.js" defer></script>
+</head>
+<body class="eval-page">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><a href="../?project=apple-silicon-aligners">← Project showcase</a> · WGS Extract performance study</p>
+      <p class="date-chip">November 2026 <small>a snapshot of that era's AI models</small></p>
+      <h1>Hill-climbing genome aligners on Apple Silicon</h1>
+      <p class="tagline">WGS Extract spends most of a genome's time in the aligner. Over six days, AI agents rebuilt BWA, BWA-MEM2, bwa-mem3 and minimap2 for Apple Silicon and its GPU, one measured step at a time. Every version had to write exactly the same alignments as upstream, and only kept a change if it was faster.</p>
+      <dl class="era" id="era"></dl>
+      <dl class="totals" id="headline"></dl>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="eval-section">
+      <h2>The climbs</h2>
+      <p class="section-blurb" id="method"></p>
+      <div id="climbs"></div>
+    </section>
+
+    <section class="eval-section">
+      <h2 id="mm2-title"></h2>
+      <p class="section-blurb">Against Bioconda's build, with 9 threads. All three builds wrote identical alignments.</p>
+      <div class="table-scroll"><table class="eval-table small-table" id="mm2-table"></table></div>
+      <h3 class="subhead">With <code>--metal</code> (a later, busier session; compare within a row)</h3>
+      <div class="table-scroll"><table class="eval-table small-table" id="mm2-metal-table"></table></div>
+      <ul class="lessons" id="mm2-notes"></ul>
+    </section>
+
+    <section class="eval-section">
+      <h2 id="mem3-title"></h2>
+      <div class="table-scroll"><table class="eval-table small-table" id="mem3-table"></table></div>
+      <ul class="lessons" id="mem3-notes"></ul>
+    </section>
+
+    <section class="eval-section">
+      <h2>Energy</h2>
+      <p class="section-blurb" id="energy-note"></p>
+      <div id="energy"></div>
+    </section>
+
+    <section class="eval-section">
+      <h2 id="small-title"></h2>
+      <p class="section-blurb">Same 5M pairs on hs38, with a display attached. The GPU sets the pace, so more CPU threads barely help it.</p>
+      <div id="small"></div>
+      <ul class="lessons" id="small-notes"></ul>
+      <h3 class="subhead">GitHub's hosted virtual M1s</h3>
+      <ul class="lessons" id="hosted"></ul>
+    </section>
+
+    <section class="eval-section">
+      <h2>What didn't help</h2>
+      <ul class="lessons" id="failed"></ul>
+    </section>
+
+    <section class="eval-section">
+      <h2>Sources</h2>
+      <ul class="link-list eval-links" id="links"></ul>
+      <h3 class="subhead">Key pull requests</h3>
+      <ul class="pr-list" id="prs"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p><a href="../">← Back to all projects</a></p>
+  </footer>
+</body>
+</html>

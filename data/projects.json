@@ -110,6 +110,11 @@
       ],
       "links": [
         {
+          "label": "Apple Silicon aligner hillclimb →",
+          "url": "apple-silicon-aligners/index.html",
+          "primary": true
+        },
+        {
           "label": "Docs site",
           "url": "https://wgsextract.github.io/wgsextract-cli/"
         },
@@ -263,6 +268,80 @@
       ],
       "noStats": true,
       "when": "May 2026"
+    },
+    {
+      "id": "apple-silicon-aligners",
+      "name": "Apple Silicon aligner hillclimb",
+      "category": "major",
+      "featured": true,
+      "when": "November 2026",
+      "repo": "WGSExtract/wgsextract-cli",
+      "noStats": true,
+      "role": "author",
+      "status": "finished",
+      "progress": "Ran 4–10 November 2026, mostly with Claude Opus 5.5 in GitHub Copilot CLI. 14 prereleases in six days; WGS Extract picks these builds automatically when they're installed on a Mac.",
+      "summary": "AI agents rebuilt BWA, BWA-MEM2, bwa-mem3 and minimap2 for Apple Silicon and Metal one measured step at a time, keeping byte-identical alignments: BWA ran 3.9× faster at half the energy.",
+      "highlights": [
+        "wgse-bwa --metal: 528.5 s → 125.9 s on 5M human read pairs, climbing version by version from GPU seeding to mate rescue, extension and overlap",
+        "Exact CPU-only rewrites too: BWA −53% and BWA-MEM2 −44% (with a third less memory) using interleaved walks and NEON",
+        "minimap2 up to −44% (multi-threaded index building), with --metal gap fills on the GPU for long reads",
+        "Energy measured with powermetrics: --metal halves the Wh per genome",
+        "A whole 35x genome from BAM to report in 7.3 hours on a base 16 GB M1"
+      ],
+      "tech": [
+        "C",
+        "C++",
+        "Metal",
+        "NEON",
+        "Bioinformatics",
+        "AI evaluation"
+      ],
+      "links": [
+        {
+          "label": "Open the results →",
+          "url": "apple-silicon-aligners/index.html",
+          "primary": true
+        },
+        {
+          "label": "Aligner README",
+          "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/native/README.md"
+        },
+        {
+          "label": "macos-aligners-14 release",
+          "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-14"
+        },
+        {
+          "label": "16 GB M1 genome",
+          "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/docs/apple-silicon-16gb.md"
+        }
+      ],
+      "screenshots": [
+        {
+          "src": "screenshots/apple-silicon-aligners/hillclimb.webp",
+          "caption": "wgse-bwa --metal, version by version",
+          "source": "Chart from the measurements"
+        },
+        {
+          "src": "screenshots/apple-silicon-aligners/bwa-cpu.webp",
+          "caption": "wgse-bwa on the CPU only",
+          "source": "Chart from the measurements"
+        },
+        {
+          "src": "screenshots/apple-silicon-aligners/bwa-mem2.webp",
+          "caption": "wgse-bwa-mem2 by version",
+          "source": "Chart from the measurements"
+        },
+        {
+          "src": "screenshots/apple-silicon-aligners/energy.webp",
+          "caption": "Energy per 30x genome",
+          "source": "Chart from the measurements"
+        },
+        {
+          "src": "screenshots/apple-silicon-aligners/m1-16gb.webp",
+          "caption": "A base 16 GB M1: CPU vs Metal",
+          "source": "Chart from the measurements"
+        }
+      ]
     },
     {
       "id": "dawnbreakers",
