@@ -47,4 +47,21 @@ uv run --with playwright --with pillow scripts/capture_screenshots.py ffmi-calcu
 
 Web targets use the local Google Chrome. Terminal targets run real commands from
 the local checkouts in `~/src` and replace the home directory and hostname in
-their output.
+their output. The Amaran dashboard targets read `AMARAN_DASHBOARD_URL`
+(default `http://127.0.0.1:2708/dashboard`) and blank the location fields
+before capturing.
+
+## Local copy with private projects
+
+`scripts/build_local.py` builds a separate, local-only copy of the site that
+also lists private and unpublished projects. Their data and screenshots live
+outside this repository in `~/src/project-showcase-private` (`projects.json`
+plus `screenshots/`), and the build goes to `~/src/project-showcase-private/site`:
+
+```sh
+python3 scripts/build_local.py
+python3 -m http.server 8000 --directory ~/src/project-showcase-private/site
+```
+
+The script refuses to write into this repository, and `check.py` and
+`update_stats.py` reject private entries in the public data.

@@ -25,7 +25,27 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parent.parent
 SRC = Path.home() / "src"
 
+AMARAN_URL = os.environ.get("AMARAN_DASHBOARD_URL", "http://127.0.0.1:2708/dashboard")
+# Blank the home coordinates in the page (DOM only; nothing is saved or sent).
+HIDE_LOCATION = (
+    "for (const id of ['circadian-setting-latitude','circadian-setting-longitude']) {"
+    " const el = document.getElementById(id); if (el) { el.type = 'text'; el.value = 'hidden'; } }"
+)
+
 WEB = {
+    "amaran-dashboard-status": dict(
+        url=AMARAN_URL,
+        out="amaran-cli/dashboard-status.webp",
+        wait=6000,
+        actions=[("js", HIDE_LOCATION)],
+        clip=dict(x=0, y=0, width=1440, height=1300),
+    ),
+    "amaran-dashboard-controls": dict(
+        url=AMARAN_URL,
+        out="amaran-cli/dashboard-controls.webp",
+        wait=6000,
+        clip=dict(x=0, y=1300, width=1440, height=1130),
+    ),
     "ffmi-calculator": dict(
         url="https://theontho.github.io/ffmi-calculator/",
         out="ffmi-calculator/calculator.webp",
@@ -149,7 +169,11 @@ def run_web(page, spec: dict) -> None:
     if spec.get("scroll"):
         page.mouse.wheel(0, spec["scroll"])
         page.wait_for_timeout(1000)
-    save_webp(page.screenshot(), ROOT / "screenshots" / spec["out"])
+    if spec.get("clip"):
+        png = page.screenshot(full_page=True, clip=spec["clip"])
+    else:
+        png = page.screenshot()
+    save_webp(png, ROOT / "screenshots" / spec["out"])
 
 
 def main(names: list[str]) -> int:

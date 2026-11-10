@@ -37,13 +37,14 @@ function hue(text) {
   return `hsl(${n} 70% 55%)`;
 }
 
-const repoUrl = (p) => `https://github.com/${p.repo}`;
+const repoUrl = (p) => (p.repo ? `https://github.com/${p.repo}` : null);
 const statsFor = (p) => (stats.projects || {})[p.id] || {};
 
 function matches(p) {
   if (state.category !== "all" && p.category !== state.category) return false;
   if (!state.query) return true;
-  const hay = [p.name, p.summary, p.progress, p.repo, ...(p.tech || []), ...(p.highlights || [])].join(" ").toLowerCase();
+  const hay = [p.name, p.summary, p.progress, p.repo, p.private ? "private" : "public", p.publish?.recommendation,
+    ...(p.tech || []), ...(p.highlights || [])].join(" ").toLowerCase();
   return state.query.toLowerCase().split(/\s+/).every((w) => hay.includes(w));
 }
 
@@ -69,7 +70,9 @@ function metaRow(p) {
   const s = statsFor(p);
   const items = [];
   if (p.role === "contributor" && s.merged_prs) items.push(`${s.merged_prs} merged PR${s.merged_prs > 1 ? "s" : ""}`);
+  if (p.role === "contributor" && s.open_prs) items.push(`${s.open_prs} open PR${s.open_prs > 1 ? "s" : ""}`);
   if (s.stars) items.push(`★ ${s.stars.toLocaleString()}${p.role === "contributor" ? " upstream" : ""}`);
+  if (s.local && s.commits) items.push(`${s.commits.toLocaleString()} commits`);
   if (s.release && p.role !== "contributor") items.push(s.release.tag);
   if (s.pushed_at) items.push(`updated ${timeAgo(s.pushed_at)}`);
   return h("div", { class: "meta" }, items.map((t) => h("span", {}, t)));
@@ -83,7 +86,7 @@ function card(p) {
   },
   thumb(p),
   h("div", { class: "card-body" },
-    statusBadge(p),
+    h("div", { class: "badges" }, statusBadge(p), p.private ? h("span", { class: "private-badge" }, "Private") : null),
     h("h3", {}, p.name),
     h("p", { class: "summary" }, p.summary),
     p.progress ? h("p", { class: "progress" }, p.progress) : null,
@@ -110,6 +113,11 @@ function renderProfile() {
   ];
   document.getElementById("totals").replaceChildren(
     ...totals.map(([n, label]) => h("div", {}, h("dt", {}, label), h("dd", {}, n))));
+  if (prof.local) {
+    document.body.classList.add("local-copy");
+    document.querySelector(".hero .eyebrow").textContent = "Local copy · includes private projects · do not publish";
+    document.title = `${document.title} (local)`;
+  }
   if (stats.generated_at) {
     document.getElementById("generated").textContent = ` (last refresh ${new Date(stats.generated_at).toLocaleDateString()})`;
   }
@@ -203,16 +211,17 @@ function openProject(id) {
     s.stars != null ? [p.role === "contributor" ? "Upstream stars" : "Stars", s.stars.toLocaleString()] : null,
     s.language ? ["Language", s.language] : null,
     s.release && p.role !== "contributor" ? ["Latest release", `${s.release.tag} · ${timeAgo(s.release.published_at)}`] : null,
+    s.commits ? ["Commits", s.commits.toLocaleString()] : null,
     s.pushed_at ? ["Last update", timeAgo(s.pushed_at)] : null,
-    s.created_at ? ["Started", new Date(s.created_at).toLocaleDateString(undefined, { year: "numeric", month: "short" })] : null,
+    s.created_at && p.role !== "contributor" ? ["Started", new Date(s.created_at).toLocaleDateString(undefined, { year: "numeric", month: "short" })] : null,
   ].filter(Boolean);
   const links = [
-    { label: p.role === "contributor" ? "Upstream repo" : "GitHub repo", url: repoUrl(p) },
+    repoUrl(p) ? { label: p.role === "contributor" ? "Upstream repo" : "GitHub repo", url: repoUrl(p) } : null,
     p.fork ? { label: "My fork", url: `https://github.com/${p.fork}` } : null,
     ...(p.links || []),
   ].filter(Boolean).filter((l, i, arr) => arr.findIndex((x) => x.url === l.url) === i);
   const shots = (p.screenshots || []).map((x) => ({ ...x, project: p }));
-  document.getElementById("dialog-body").replaceChildren(
+  document.getElementById("dialog-body").replaceChildren(...[
     h("div", { class: "dialog-head" },
       h("div", {},
         h("span", { class: "category-label" }, categoryById[p.category].title), " ",
@@ -225,12 +234,30 @@ function openProject(id) {
     h("div", { class: "dialog-cols" },
       h("div", {}, h("h3", {}, "Highlights"), h("ul", {}, (p.highlights || []).map((x) => h("li", {}, x)))),
       h("div", {},
-        h("h3", {}, "Links"), h("ul", { class: "link-list" }, links.map((l) => h("li", {}, h("a", { href: l.url }, l.label)))),
+        links.length ? h("h3", {}, "Links") : null,
+        links.length ? h("ul", { class: "link-list" }, links.map((l) => h("li", {}, h("a", { href: l.url }, l.label)))) : null,
         h("h3", {}, "Built with"), h("div", { class: "tags" }, (p.tech || []).map((t) => h("span", { class: "tag" }, t))))),
+    prList(p, s),
+    p.publish ? h("div", { class: "publish" },
+      h("h3", {}, "Going public"),
+      h("p", {}, h("strong", {}, p.publish.recommendation), p.publish.effort ? ` · effort ${p.publish.effort}` : "", p.publish.notes ? `. ${p.publish.notes}` : "")) : null,
     shots.length ? h("div", { class: "dialog-shots" }, shots.map((x, i) =>
       h("button", { type: "button", onclick: () => openLightbox(shots, i) },
-        h("img", { src: x.src, alt: x.caption, loading: "lazy" }), h("span", {}, x.caption)))) : null);
+        h("img", { src: x.src, alt: x.caption, loading: "lazy" }), h("span", {}, x.caption)))) : null,
+  ].filter(Boolean));
   if (!dialog.open) dialog.showModal();
+}
+
+function prList(p, s) {
+  const prs = s.pull_requests || [];
+  if (!prs.length) return null;
+  const date = (iso) => new Date(iso).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  return h("div", { class: "prs" },
+    h("h3", {}, `My pull requests (${prs.length})`),
+    h("ul", {}, prs.map((pr) => h("li", {},
+      h("span", { class: `pr-state pr-${pr.state}` }, pr.state),
+      h("a", { href: pr.url }, pr.title),
+      h("span", { class: "pr-date" }, ` #${pr.number} · ${date(pr.merged_at || pr.created_at)}`)))));
 }
 
 function openLightbox(list, index) {

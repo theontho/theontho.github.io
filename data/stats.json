@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T05:42:23+00:00",
+  "generated_at": "2026-11-10T05:53:47+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
@@ -9,6 +9,7 @@
       "created_at": "2026-05-02T02:30:04Z",
       "open_issues": 34,
       "archived": false,
+      "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
       "release": {
         "tag": "v0.8.6",
@@ -23,6 +24,7 @@
       "created_at": "2026-05-07T18:39:48Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/WGSExtract/gui-for-cli-outdated",
       "release": {
         "tag": "v0.8.6",
@@ -37,6 +39,7 @@
       "created_at": "2026-06-10T07:17:24Z",
       "open_issues": 1,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/dawnbreakers"
     },
     "amaran-cli": {
@@ -47,6 +50,7 @@
       "created_at": "2025-10-27T05:31:57Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/amaran-cli",
       "release": {
         "tag": "v1.12.0",
@@ -61,6 +65,7 @@
       "created_at": "2026-05-02T03:52:58Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/reddit-zst-to-parquet"
     },
     "email-sort": {
@@ -71,6 +76,7 @@
       "created_at": "2026-05-02T19:19:42Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/email-sort"
     },
     "ai-node-management": {
@@ -81,6 +87,7 @@
       "created_at": "2026-08-31T02:14:01Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/ai-node-management"
     },
     "ffmi-calculator": {
@@ -91,6 +98,7 @@
       "created_at": "2026-07-22T01:56:15Z",
       "open_issues": 9,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/ffmi-calculator"
     },
     "exercise-video-annotator": {
@@ -101,6 +109,7 @@
       "created_at": "2026-07-22T05:24:49Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/exercise-video-annotator"
     },
     "hypr-control": {
@@ -111,6 +120,7 @@
       "created_at": "2026-09-19T08:40:14Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/hypr-control"
     },
     "skill-dump": {
@@ -121,6 +131,7 @@
       "created_at": "2026-05-05T17:52:51Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/skill-dump"
     },
     "python-template": {
@@ -131,6 +142,7 @@
       "created_at": "2026-05-02T23:21:16Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/python-template"
     },
     "ts-cli-template": {
@@ -141,6 +153,7 @@
       "created_at": "2026-05-02T23:43:23Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/ts-cli-template"
     },
     "apple-template": {
@@ -151,22 +164,163 @@
       "created_at": "2026-05-03T20:51:41Z",
       "open_issues": 2,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
       "stars": 2257,
       "forks": 192,
       "language": "Rust",
-      "pushed_at": "2026-11-10T05:38:50Z",
+      "pushed_at": "2026-11-10T05:52:56Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 157,
+      "open_issues": 151,
       "archived": false,
+      "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
       "release": {
         "tag": "v20261108.1",
         "published_at": "2026-11-09T07:44:22Z"
       },
-      "merged_prs": 17
+      "merged_prs": 17,
+      "open_prs": 0,
+      "pull_requests": [
+        {
+          "number": 1005,
+          "title": "feat: open remote folders in VS Code and follow the app's light or dark theme",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/1005",
+          "state": "merged",
+          "created_at": "2026-11-02T20:13:29Z",
+          "merged_at": "2026-11-03T18:05:12Z"
+        },
+        {
+          "number": 947,
+          "title": "test: keep config and host script tests off this machine's desktop and installs",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/947",
+          "state": "merged",
+          "created_at": "2026-10-31T22:02:05Z",
+          "merged_at": "2026-11-01T02:39:03Z"
+        },
+        {
+          "number": 945,
+          "title": "fix: paste text with Ctrl+V on Linux, as desktop universal paste sends it",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/945",
+          "state": "merged",
+          "created_at": "2026-10-31T20:33:42Z",
+          "merged_at": "2026-11-03T03:49:16Z"
+        },
+        {
+          "number": 944,
+          "title": "chore: make just ci pass on main again",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/944",
+          "state": "merged",
+          "created_at": "2026-10-31T19:54:09Z",
+          "merged_at": "2026-10-31T20:15:28Z"
+        },
+        {
+          "number": 793,
+          "title": "perf(ssh): share one SSH login per host for the app's short commands",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/793",
+          "state": "merged",
+          "created_at": "2026-10-24T06:13:21Z",
+          "merged_at": "2026-10-25T21:34:16Z"
+        },
+        {
+          "number": 792,
+          "title": "feat: show GPU and video memory per host in the sidebar and status bar",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/792",
+          "state": "merged",
+          "created_at": "2026-10-24T05:27:04Z",
+          "merged_at": "2026-10-25T00:00:48Z"
+        },
+        {
+          "number": 791,
+          "title": "fix: show avatars for SSH checkouts without a Git directory and retry idle hosts",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/791",
+          "state": "merged",
+          "created_at": "2026-10-24T04:26:50Z",
+          "merged_at": "2026-10-25T01:07:19Z"
+        },
+        {
+          "number": 748,
+          "title": "fix: create worktrees in the repository a moved workspace is in",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/748",
+          "state": "merged",
+          "created_at": "2026-10-20T20:35:11Z",
+          "merged_at": "2026-10-21T23:41:27Z"
+        },
+        {
+          "number": 737,
+          "title": "fix: name the SSH user when a new device rejects every key",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/737",
+          "state": "merged",
+          "created_at": "2026-10-20T05:37:33Z",
+          "merged_at": "2026-10-21T00:05:25Z"
+        },
+        {
+          "number": 735,
+          "title": "fix: show repository owner avatars for workspaces on SSH devices",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/735",
+          "state": "merged",
+          "created_at": "2026-10-20T05:03:23Z",
+          "merged_at": "2026-10-21T22:32:20Z"
+        },
+        {
+          "number": 734,
+          "title": "fix: open the SSH setup workspace while another device is showing",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/734",
+          "state": "merged",
+          "created_at": "2026-10-20T05:01:13Z",
+          "merged_at": "2026-10-20T22:03:36Z"
+        },
+        {
+          "number": 691,
+          "title": "fix(macos): let pane programs request camera, location, and other privacy access",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/691",
+          "state": "merged",
+          "created_at": "2026-10-18T19:48:55Z",
+          "merged_at": "2026-10-18T22:29:42Z"
+        },
+        {
+          "number": 614,
+          "title": "feat(cloud): add Azure VMs and sandboxes as devices",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/614",
+          "state": "merged",
+          "created_at": "2026-10-17T02:44:26Z",
+          "merged_at": "2026-10-18T01:36:21Z"
+        },
+        {
+          "number": 604,
+          "title": "fix: support personal fork checkouts that name the base repository as upstream",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/604",
+          "state": "merged",
+          "created_at": "2026-10-16T18:26:24Z",
+          "merged_at": "2026-10-17T16:04:44Z"
+        },
+        {
+          "number": 596,
+          "title": "feat: prefill detailed hardware, commit, and error logs in bug reports",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/596",
+          "state": "merged",
+          "created_at": "2026-10-16T08:24:14Z",
+          "merged_at": "2026-10-17T15:26:21Z"
+        },
+        {
+          "number": 594,
+          "title": "feat(tabs): reopen recently closed tabs with cmd-shift-t",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/594",
+          "state": "merged",
+          "created_at": "2026-10-16T06:54:15Z",
+          "merged_at": "2026-10-17T01:51:58Z"
+        },
+        {
+          "number": 593,
+          "title": "feat(tabs): move a tab to another workspace from its context menu",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/593",
+          "state": "merged",
+          "created_at": "2026-10-16T06:44:51Z",
+          "merged_at": "2026-10-17T05:27:26Z"
+        }
+      ]
     },
     "nutritiontracker": {
       "stars": 12,
@@ -176,18 +330,108 @@
       "created_at": "2026-05-19T17:25:26Z",
       "open_issues": 11,
       "archived": false,
+      "private": false,
       "url": "https://github.com/gregmushen/nutritiontracker",
-      "merged_prs": 3
-    },
-    "nearly": {
-      "stars": 0,
-      "forks": 0,
-      "language": "Swift",
-      "pushed_at": "2026-05-09T02:14:20Z",
-      "created_at": "2026-05-07T05:55:10Z",
-      "open_issues": 0,
-      "archived": false,
-      "url": "https://github.com/theontho/nearly"
+      "merged_prs": 3,
+      "open_prs": 9,
+      "pull_requests": [
+        {
+          "number": 17,
+          "title": "feat: add complete Nutrition Tracker CLI coverage",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/17",
+          "state": "open",
+          "created_at": "2026-08-03T05:38:22Z",
+          "merged_at": null
+        },
+        {
+          "number": 16,
+          "title": "feat: log arbitrary events against user-defined types",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/16",
+          "state": "open",
+          "created_at": "2026-08-02T23:41:53Z",
+          "merged_at": null
+        },
+        {
+          "number": 15,
+          "title": "feat: make deployment portable and add a systemd path for small hosts",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/15",
+          "state": "open",
+          "created_at": "2026-08-02T20:44:41Z",
+          "merged_at": null
+        },
+        {
+          "number": 14,
+          "title": "feat: rank search by source quality and stop punctuation crashing FTS5",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/14",
+          "state": "open",
+          "created_at": "2026-08-02T20:44:09Z",
+          "merged_at": null
+        },
+        {
+          "number": 13,
+          "title": "feat: import personal Cronometer exports with upstream provenance",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/13",
+          "state": "open",
+          "created_at": "2026-08-02T20:44:07Z",
+          "merged_at": null
+        },
+        {
+          "number": 12,
+          "title": "feat: import the UK, Canadian, Danish and Australian food composition datasets",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/12",
+          "state": "open",
+          "created_at": "2026-08-02T20:43:34Z",
+          "merged_at": null
+        },
+        {
+          "number": 11,
+          "title": "feat: track food data provenance and import USDA FNDDS",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/11",
+          "state": "open",
+          "created_at": "2026-08-02T20:43:09Z",
+          "merged_at": null
+        },
+        {
+          "number": 9,
+          "title": "feat: retain compact Open Food Facts product metadata",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/9",
+          "state": "open",
+          "created_at": "2026-08-02T01:05:52Z",
+          "merged_at": null
+        },
+        {
+          "number": 8,
+          "title": "feat: add opt-in multi-user data isolation",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/8",
+          "state": "open",
+          "created_at": "2026-08-02T00:39:22Z",
+          "merged_at": null
+        },
+        {
+          "number": 7,
+          "title": "feat: import Open Food Facts from Parquet",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/7",
+          "state": "merged",
+          "created_at": "2026-08-02T00:39:20Z",
+          "merged_at": "2026-08-02T04:21:05Z"
+        },
+        {
+          "number": 6,
+          "title": "feat: identify Nutrition Tracker Service locally",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/6",
+          "state": "merged",
+          "created_at": "2026-07-27T04:56:26Z",
+          "merged_at": "2026-08-02T04:20:40Z"
+        },
+        {
+          "number": 5,
+          "title": "fix: recover USDA JSON omissions from CSV",
+          "url": "https://github.com/gregmushen/nutritiontracker/pull/5",
+          "state": "merged",
+          "created_at": "2026-07-27T02:06:31Z",
+          "merged_at": "2026-08-02T04:20:20Z"
+        }
+      ]
     },
     "pi-browser": {
       "stars": 4,
@@ -197,8 +441,20 @@
       "created_at": "2026-09-15T18:30:27Z",
       "open_issues": 1,
       "archived": false,
+      "private": false,
       "url": "https://github.com/portlandiator/PI_browser",
-      "merged_prs": 0
+      "merged_prs": 0,
+      "open_prs": 1,
+      "pull_requests": [
+        {
+          "number": 53,
+          "title": "Word study, translation research and a concordance of authorized renderings",
+          "url": "https://github.com/portlandiator/PI_browser/pull/53",
+          "state": "open",
+          "created_at": "2026-11-06T03:46:27Z",
+          "merged_at": null
+        }
+      ]
     },
     "yleaf": {
       "stars": 40,
@@ -208,12 +464,24 @@
       "created_at": "2019-06-11T12:43:06Z",
       "open_issues": 0,
       "archived": false,
+      "private": false,
       "url": "https://github.com/genid/Yleaf",
       "release": {
         "tag": "v4.1.7",
         "published_at": "2026-11-04T16:54:24Z"
       },
-      "merged_prs": 1
+      "merged_prs": 1,
+      "open_prs": 0,
+      "pull_requests": [
+        {
+          "number": 60,
+          "title": "VCF input on Windows: bcftools query formats without literal newlines",
+          "url": "https://github.com/genid/Yleaf/pull/60",
+          "state": "merged",
+          "created_at": "2026-10-25T16:08:37Z",
+          "merged_at": "2026-10-25T17:11:14Z"
+        }
+      ]
     },
     "wgsextract-dev-repo": {
       "stars": 3,
@@ -223,6 +491,7 @@
       "created_at": "2025-12-28T22:00:23Z",
       "open_issues": 3,
       "archived": false,
+      "private": false,
       "url": "https://github.com/theontho/WGSExtractRepo"
     }
   }

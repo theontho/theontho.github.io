@@ -4,19 +4,49 @@
     "handle": "theontho",
     "tagline": "Hobby projects that scratch my own itches: genomics tools, games, home-lab automation, local-AI pipelines and the occasional calculator.",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/theontho" },
-      { "label": "WGS Extract org", "url": "https://github.com/WGSExtract" },
-      { "label": "Discord", "url": "https://discord.gg/65K2cB3ppP" }
+      {
+        "label": "GitHub",
+        "url": "https://github.com/theontho"
+      },
+      {
+        "label": "WGS Extract org",
+        "url": "https://github.com/WGSExtract"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.gg/65K2cB3ppP"
+      }
     ]
   },
   "statuses": {
-    "active": { "label": "Active", "description": "Being worked on right now." },
-    "beta": { "label": "Usable, rough edges", "description": "Works for real tasks, but expect sharp corners." },
-    "stable": { "label": "Stable", "description": "Done enough to rely on; maintained as needed." },
-    "early": { "label": "Early", "description": "A young project or experiment." },
-    "contributing": { "label": "Contributing", "description": "Someone else's project that I contribute to." },
-    "merged": { "label": "Merged into another project", "description": "Its work now lives in another project." },
-    "superseded": { "label": "Superseded", "description": "Replaced by a newer project." }
+    "active": {
+      "label": "Active",
+      "description": "Being worked on right now."
+    },
+    "beta": {
+      "label": "Usable, rough edges",
+      "description": "Works for real tasks, but expect sharp corners."
+    },
+    "stable": {
+      "label": "Stable",
+      "description": "Done enough to rely on; maintained as needed."
+    },
+    "early": {
+      "label": "Early",
+      "description": "A young project or experiment."
+    },
+    "contributing": {
+      "label": "Contributing",
+      "description": "Someone else's project that I contribute to."
+    },
+    "merged": {
+      "label": "Merged into another project",
+      "description": "Its work now lives in another project."
+    },
+    "superseded": {
+      "label": "Superseded",
+      "description": "Replaced by a newer project."
+    }
   },
   "categories": [
     {
@@ -68,17 +98,47 @@
         "Ships a cross-platform desktop app (Tauri) built with GUI for CLI, plus one-line installers",
         "Built to be AI-agent friendly: everything is a CLI command with structured output"
       ],
-      "tech": ["Python", "TypeScript", "Tauri", "Bioinformatics"],
+      "tech": [
+        "Python",
+        "TypeScript",
+        "Tauri",
+        "Bioinformatics"
+      ],
       "links": [
-        { "label": "Docs site", "url": "https://wgsextract.github.io/wgsextract-cli/" },
-        { "label": "Desktop app", "url": "https://wgsextract.github.io/wgsextract-cli/app/" },
-        { "label": "Releases", "url": "https://github.com/WGSExtract/wgsextract-cli/releases" }
+        {
+          "label": "Docs site",
+          "url": "https://wgsextract.github.io/wgsextract-cli/"
+        },
+        {
+          "label": "Desktop app",
+          "url": "https://wgsextract.github.io/wgsextract-cli/app/"
+        },
+        {
+          "label": "Releases",
+          "url": "https://github.com/WGSExtract/wgsextract-cli/releases"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/wgsextract-cli/desktop-app.webp", "caption": "The WGS Extract desktop app", "source": "Project website" },
-        { "src": "screenshots/wgsextract-cli/docs-site.webp", "caption": "Documentation site", "source": "Live site capture" },
-        { "src": "screenshots/wgsextract-cli/cli.webp", "caption": "The command-line interface", "source": "Project website" },
-        { "src": "screenshots/wgsextract-cli/app-site.webp", "caption": "Desktop app download page (v6 alpha)", "source": "Live site capture" }
+        {
+          "src": "screenshots/wgsextract-cli/desktop-app.webp",
+          "caption": "The WGS Extract desktop app",
+          "source": "Project website"
+        },
+        {
+          "src": "screenshots/wgsextract-cli/docs-site.webp",
+          "caption": "Documentation site",
+          "source": "Live site capture"
+        },
+        {
+          "src": "screenshots/wgsextract-cli/cli.webp",
+          "caption": "The command-line interface",
+          "source": "Project website"
+        },
+        {
+          "src": "screenshots/wgsextract-cli/app-site.webp",
+          "caption": "Desktop app download page (v6 alpha)",
+          "source": "Live site capture"
+        }
       ]
     },
     {
@@ -96,12 +156,24 @@
         "Explored a dozen desktop frameworks first (SwiftUI, Electron and more) and benchmarked them before settling on Tauri",
         "Over 600 commits and 22 releases before it was folded into WGS Extract"
       ],
-      "tech": ["TypeScript", "Node", "Tauri", "Rust"],
+      "tech": [
+        "TypeScript",
+        "Node",
+        "Tauri",
+        "Rust"
+      ],
       "links": [
-        { "label": "Current home", "url": "https://github.com/WGSExtract/wgsextract-cli/tree/main/gui" }
+        {
+          "label": "Current home",
+          "url": "https://github.com/WGSExtract/wgsextract-cli/tree/main/gui"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/gui-for-cli/wgsextract-bundle.webp", "caption": "Running the WGS Extract example bundle", "source": "Repository README" }
+        {
+          "src": "screenshots/gui-for-cli/wgsextract-bundle.webp",
+          "caption": "Running the WGS Extract example bundle",
+          "source": "Repository README"
+        }
       ]
     },
     {
@@ -112,26 +184,62 @@
       "repo": "theontho/dawnbreakers",
       "role": "author",
       "status": "active",
-      "progress": "A playable, non-combat prototype with about ten chapters, mini-games, journeys, a map editor, and English, Persian and Chinese text.",
-      "summary": "A 2.5D isometric web RPG inspired by Nabíl's narrative The Dawn-Breakers. You explore historical places, talk to people and follow the story chapter by chapter.",
+      "progress": "21 chapters are built, so every part of Nabíl's narrative now has a place in the game: 65 maps, from Karbilá in 1843 to the Black Pit of Ṭihrán in 1853. It also has mini-games, journeys, a map editor, and English, Persian and Chinese text.",
+      "summary": "A 2.5D isometric web RPG that follows Nabíl's narrative The Dawn-Breakers through 21 chapters. You explore historical places, talk to people and follow the story.",
       "highlights": [
-        "Isometric exploration, reflective dialogue, journals and chapter progression",
-        "Historical set pieces from Karbilá, Shíráz, Iṣfahán, Baghdád and the mountain prisons",
-        "Animated sunrise title screen with its own soundtrack",
+        "21 chapters, from the Forerunners in Karbilá (1843) through Shíráz, Mecca, Badasht, Ṭabarsí, Nayríz and Zanján, to the Black Pit of Ṭihrán (1852–53)",
+        "Isometric exploration, reflective dialogue, a journal with objectives, and chapter progression with saves",
+        "Mini-games, journey maps between cities, and a built-in map editor",
+        "Animated sunrise title screen with its own soundtrack; English, Persian and Chinese text",
         "Most of the code, art, music, writing and translation was made with AI, and the game says so"
       ],
-      "tech": ["TypeScript", "Phaser 3", "Vite"],
+      "tech": [
+        "TypeScript",
+        "Phaser 3",
+        "Vite"
+      ],
       "links": [
-        { "label": "Play it", "url": "https://theontho.github.io/dawnbreakers/" }
+        {
+          "label": "Play it",
+          "url": "https://theontho.github.io/dawnbreakers/"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/dawnbreakers/shrine-court.webp", "caption": "Karbilá: the shrine court", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/isfahan-bridge.webp", "caption": "Iṣfahán, by the river", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/shiraz-dusk.webp", "caption": "Shíráz, the city at dusk", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/palm-groves.webp", "caption": "Karbilá: the palm groves on the canal", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/exile-road.webp", "caption": "The road west, at dawn", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/sunrise-title.webp", "caption": "Sunrise title screen", "source": "In-game capture" },
-        { "src": "screenshots/dawnbreakers/menu.webp", "caption": "Night title screen and menu", "source": "Live site capture" }
+        {
+          "src": "screenshots/dawnbreakers/shrine-court.webp",
+          "caption": "Karbilá: the shrine court",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/isfahan-bridge.webp",
+          "caption": "Iṣfahán, by the river",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/shiraz-dusk.webp",
+          "caption": "Shíráz, the city at dusk",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/palm-groves.webp",
+          "caption": "Karbilá: the palm groves on the canal",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/exile-road.webp",
+          "caption": "The road west, at dawn",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/sunrise-title.webp",
+          "caption": "Sunrise title screen",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/menu.webp",
+          "caption": "Night title screen and menu",
+          "source": "Live site capture"
+        }
       ]
     },
     {
@@ -141,20 +249,43 @@
       "repo": "theontho/amaran-cli",
       "role": "author",
       "status": "stable",
-      "progress": "Published on npm as amaran-light-cli with 25 releases. It runs my desk lights every day.",
-      "summary": "Command-line control for Aputure Amaran lights through Amaran Desktop or directly over Bluetooth Mesh, with circadian lighting that follows the sun.",
+      "progress": "Published on npm as amaran-light-cli with 25 releases. A Raspberry Pi runs the daemon, dashboard and circadian service for my desk lights every day.",
+      "summary": "Controls Aputure Amaran lights from the command line or a local web dashboard, through Amaran Desktop or directly over Bluetooth Mesh, with circadian lighting that follows the sun.",
       "highlights": [
-        "auto-cct sets colour temperature and brightness from the sun's position at your location",
-        "A background service applies it every minute; weather-aware adjustments",
-        "A local BLE Mesh daemon, so the vendor app is optional",
-        "Presets, scenes, groups, effects, fan profiles and thermal telemetry"
+        "A local control dashboard: live per-light readback with estimated lux, brightness/lux/Kelvin sliders, and colour, effects, fan and group controls",
+        "auto-cct sets colour temperature and brightness from the sun's position, with live-weather adjustment and a daily Kelvin/intensity/lux graph",
+        "A background service applies it every minute, with per-light caps and temporary manual overrides",
+        "Its own Bluetooth Mesh daemon, so the vendor app is optional; runs on macOS or Linux (systemd)",
+        "Presets, scenes, groups, effects, fan profiles and thermal telemetry from the CLI too"
       ],
-      "tech": ["TypeScript", "Node", "Bluetooth Mesh"],
+      "tech": [
+        "TypeScript",
+        "Node",
+        "Bluetooth Mesh",
+        "Web dashboard"
+      ],
       "links": [
-        { "label": "npm", "url": "https://www.npmjs.com/package/amaran-light-cli" }
+        {
+          "label": "npm",
+          "url": "https://www.npmjs.com/package/amaran-light-cli"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/amaran-cli/help.webp", "caption": "amaran-cli --help", "source": "Real CLI output" }
+        {
+          "src": "screenshots/amaran-cli/dashboard-status.webp",
+          "caption": "Dashboard: live light status and the circadian schedule (location hidden)",
+          "source": "Live dashboard capture"
+        },
+        {
+          "src": "screenshots/amaran-cli/dashboard-controls.webp",
+          "caption": "Dashboard: power, white light, colour, effects and fan controls",
+          "source": "Live dashboard capture"
+        },
+        {
+          "src": "screenshots/amaran-cli/help.webp",
+          "caption": "amaran-cli --help",
+          "source": "Real CLI output"
+        }
       ]
     },
     {
@@ -172,12 +303,24 @@
         "Resilient transfers over FTP/FTPS, rsync/SSH, NFS or local disks",
         "Writes a JSON manifest with row counts and column stats for every Parquet file"
       ],
-      "tech": ["Python", "DuckDB", "Parquet", "zstd"],
+      "tech": [
+        "Python",
+        "DuckDB",
+        "Parquet",
+        "zstd"
+      ],
       "links": [
-        { "label": "Arctic Shift (data source)", "url": "https://github.com/ArthurHeitmann/arctic_shift" }
+        {
+          "label": "Arctic Shift (data source)",
+          "url": "https://github.com/ArthurHeitmann/arctic_shift"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/reddit-zst-to-parquet/help.webp", "caption": "Subcommands", "source": "Real CLI output" }
+        {
+          "src": "screenshots/reddit-zst-to-parquet/help.webp",
+          "caption": "Subcommands",
+          "source": "Real CLI output"
+        }
       ]
     },
     {
@@ -195,10 +338,18 @@
         "Works with any OpenAI-compatible server (LM Studio, Ollama, vLLM), and with several machines at once",
         "Exports ban and unsubscribe lists, with a browser-based unsubscribe fallback"
       ],
-      "tech": ["Python", "SQLite", "Local LLMs"],
+      "tech": [
+        "Python",
+        "SQLite",
+        "Local LLMs"
+      ],
       "links": [],
       "screenshots": [
-        { "src": "screenshots/email-sort/help.webp", "caption": "Pipeline commands", "source": "Real CLI output" }
+        {
+          "src": "screenshots/email-sort/help.webp",
+          "caption": "Pipeline commands",
+          "source": "Real CLI output"
+        }
       ]
     },
     {
@@ -216,7 +367,13 @@
         "A Docker Compose Orca appliance published only on the host's Tailscale address",
         "A cross-platform hardware and agent-tool inventory dashboard generator"
       ],
-      "tech": ["Python", "Shell", "PowerShell", "Docker", "Tailscale"],
+      "tech": [
+        "Python",
+        "Shell",
+        "PowerShell",
+        "Docker",
+        "Tailscale"
+      ],
       "links": [],
       "screenshots": []
     },
@@ -236,12 +393,22 @@
         "Population defaults for 190 regions; metric, imperial and stone/pound units",
         "Shareable URLs, plus a terminal CLI that uses the same calculation code"
       ],
-      "tech": ["JavaScript", "Next.js"],
+      "tech": [
+        "JavaScript",
+        "Next.js"
+      ],
       "links": [
-        { "label": "Use it", "url": "https://theontho.github.io/ffmi-calculator/" }
+        {
+          "label": "Use it",
+          "url": "https://theontho.github.io/ffmi-calculator/"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/ffmi-calculator/calculator.webp", "caption": "Muscle-gain and weight-loss projections", "source": "Live site capture" }
+        {
+          "src": "screenshots/ffmi-calculator/calculator.webp",
+          "caption": "Muscle-gain and weight-loss projections",
+          "source": "Live site capture"
+        }
       ]
     },
     {
@@ -259,10 +426,18 @@
         "Synchronized multi-camera review UI for turning proposals into ground truth",
         "Accuracy evaluation and a personal classifier trained on your own clips"
       ],
-      "tech": ["Python", "MediaPipe", "Computer vision"],
+      "tech": [
+        "Python",
+        "MediaPipe",
+        "Computer vision"
+      ],
       "links": [],
       "screenshots": [
-        { "src": "screenshots/exercise-video-annotator/multicam-pose-review.webp", "caption": "Multi-camera pose review (video hidden for privacy)", "source": "Repository README" }
+        {
+          "src": "screenshots/exercise-video-annotator/multicam-pose-review.webp",
+          "caption": "Multi-camera pose review (video hidden for privacy)",
+          "source": "Repository README"
+        }
       ]
     },
     {
@@ -280,10 +455,19 @@
         "Network, Tailscale, Bluetooth, sound, displays, appearance, printers and controllers",
         "Startup-command management with Hyprland validation and rollback"
       ],
-      "tech": ["Python", "QML", "Quickshell", "Hyprland"],
+      "tech": [
+        "Python",
+        "QML",
+        "Quickshell",
+        "Hyprland"
+      ],
       "links": [],
       "screenshots": [
-        { "src": "screenshots/hypr-control/system-settings.webp", "caption": "Settings overview", "source": "Repository README" }
+        {
+          "src": "screenshots/hypr-control/system-settings.webp",
+          "caption": "Settings overview",
+          "source": "Repository README"
+        }
       ]
     },
     {
@@ -301,10 +485,18 @@
         "Tools for agent coordination, audited sudo and 1Password sessions, and more",
         "Can also be installed from agent skill marketplaces"
       ],
-      "tech": ["Python", "Shell", "Markdown"],
+      "tech": [
+        "Python",
+        "Shell",
+        "Markdown"
+      ],
       "links": [],
       "screenshots": [
-        { "src": "screenshots/skill-dump/help.webp", "caption": "skill-dump --help", "source": "Real CLI output" }
+        {
+          "src": "screenshots/skill-dump/help.webp",
+          "caption": "skill-dump --help",
+          "source": "Real CLI output"
+        }
       ]
     },
     {
@@ -316,8 +508,15 @@
       "status": "stable",
       "progress": "The starting point for my Python CLIs.",
       "summary": "A best-practice starter for Python CLI projects.",
-      "highlights": ["uv, Ruff, Mypy and Pytest", "src/ layout and GitHub Actions CI", "AGENTS.md, CLAUDE.md and GEMINI.md for AI-assisted development"],
-      "tech": ["Python", "uv"],
+      "highlights": [
+        "uv, Ruff, Mypy and Pytest",
+        "src/ layout and GitHub Actions CI",
+        "AGENTS.md, CLAUDE.md and GEMINI.md for AI-assisted development"
+      ],
+      "tech": [
+        "Python",
+        "uv"
+      ],
       "links": [],
       "screenshots": []
     },
@@ -330,8 +529,15 @@
       "status": "stable",
       "progress": "The starting point for my TypeScript CLIs.",
       "summary": "A best-practice starter for TypeScript CLIs on Bun.",
-      "highlights": ["Bun runtime and tests, Commander.js, and Biome", "Platform-standard config paths validated with zod", "Compiles to a single binary"],
-      "tech": ["TypeScript", "Bun"],
+      "highlights": [
+        "Bun runtime and tests, Commander.js, and Biome",
+        "Platform-standard config paths validated with zod",
+        "Compiles to a single binary"
+      ],
+      "tech": [
+        "TypeScript",
+        "Bun"
+      ],
       "links": [],
       "screenshots": []
     },
@@ -344,8 +550,16 @@
       "status": "stable",
       "progress": "The starting point for my iOS and macOS apps.",
       "summary": "A best-practice starter for iOS apps, macOS apps and Swift command-line tools.",
-      "highlights": ["Swift 6 with SwiftPM as the source of truth", "Shared SwiftUI code for iOS and macOS, generated with Tuist", "swift-format, Swift Testing and GitHub Actions CI"],
-      "tech": ["Swift", "SwiftUI", "Tuist"],
+      "highlights": [
+        "Swift 6 with SwiftPM as the source of truth",
+        "Shared SwiftUI code for iOS and macOS, generated with Tuist",
+        "swift-format, Swift Testing and GitHub Actions CI"
+      ],
+      "tech": [
+        "Swift",
+        "SwiftUI",
+        "Tuist"
+      ],
       "links": [],
       "screenshots": []
     },
@@ -365,14 +579,31 @@
         "Shared one SSH login per host for the app's short commands",
         "Open remote folders in VS Code, reopen closed tabs, and move tabs between workspaces"
       ],
-      "tech": ["Rust", "GPUI"],
+      "tech": [
+        "Rust",
+        "GPUI"
+      ],
       "links": [
-        { "label": "sheprd.org", "url": "https://sheprd.org" },
-        { "label": "My pull requests", "url": "https://github.com/sheprd-labs/sheprd/pulls?q=is%3Apr+author%3Atheontho" }
+        {
+          "label": "sheprd.org",
+          "url": "https://sheprd.org"
+        },
+        {
+          "label": "My pull requests",
+          "url": "https://github.com/sheprd-labs/sheprd/pulls?q=is%3Apr+author%3Atheontho"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/herdr/site.webp", "caption": "Sheprd's website", "source": "Live site capture" },
-        { "src": "screenshots/herdr/gpu-load-sidebar.webp", "caption": "Per-host GPU load in the sidebar (my contribution)", "source": "Upstream docs" }
+        {
+          "src": "screenshots/herdr/site.webp",
+          "caption": "Sheprd's website",
+          "source": "Live site capture"
+        },
+        {
+          "src": "screenshots/herdr/gpu-load-sidebar.webp",
+          "caption": "Per-host GPU load in the sidebar (my contribution)",
+          "source": "Upstream docs"
+        }
       ]
     },
     {
@@ -391,36 +622,27 @@
         "Proposed: food-data provenance, source-quality search ranking, and multi-user data isolation",
         "A full CLI and a portable systemd deployment"
       ],
-      "tech": ["Python", "FastAPI", "SQLite"],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "SQLite"
+      ],
       "links": [
-        { "label": "My fork", "url": "https://github.com/theontho/nutritiontracker" },
-        { "label": "My pull requests", "url": "https://github.com/gregmushen/nutritiontracker/pulls?q=is%3Apr+author%3Atheontho" }
+        {
+          "label": "My fork",
+          "url": "https://github.com/theontho/nutritiontracker"
+        },
+        {
+          "label": "My pull requests",
+          "url": "https://github.com/gregmushen/nutritiontracker/pulls?q=is%3Apr+author%3Atheontho"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/nutritiontracker/service.webp", "caption": "The local service landing page", "source": "Fork README" }
-      ]
-    },
-    {
-      "id": "nearly",
-      "name": "Nearly (a Clearly fork)",
-      "category": "contrib",
-      "repo": "theontho/nearly",
-      "upstream": "Shpigford/clearly",
-      "role": "contributor",
-      "status": "early",
-      "progress": "A personal fork, 14 commits ahead of Clearly.",
-      "summary": "My fork of the Clearly Markdown editor and knowledge base for Mac and iOS, adding vault chat and large-vault performance work.",
-      "highlights": [
-        "Vault chat through CLI agents or any OpenAI-compatible API",
-        "Faster previews and search for very large Markdown documents and vaults, on macOS and iOS",
-        "Debug fixture vaults for testing"
-      ],
-      "tech": ["Swift", "SwiftUI"],
-      "links": [
-        { "label": "Upstream: Clearly", "url": "https://github.com/Shpigford/clearly" }
-      ],
-      "screenshots": [
-        { "src": "screenshots/nearly/editor.webp", "caption": "The editor (upstream screenshot)", "source": "Upstream Clearly website" }
+        {
+          "src": "screenshots/nutritiontracker/service.webp",
+          "caption": "The local service landing page",
+          "source": "Fork README"
+        }
       ]
     },
     {
@@ -437,13 +659,26 @@
         "Proposed word-study and translation-research views",
         "A concordance of authorized renderings"
       ],
-      "tech": ["JavaScript", "Static site"],
+      "tech": [
+        "JavaScript",
+        "Static site"
+      ],
       "links": [
-        { "label": "Live site", "url": "https://portlandiator.github.io/PI_browser/" },
-        { "label": "My pull request", "url": "https://github.com/portlandiator/PI_browser/pull/53" }
+        {
+          "label": "Live site",
+          "url": "https://portlandiator.github.io/PI_browser/"
+        },
+        {
+          "label": "My pull request",
+          "url": "https://github.com/portlandiator/PI_browser/pull/53"
+        }
       ],
       "screenshots": [
-        { "src": "screenshots/pi-browser/reading-room.webp", "caption": "The catalog view", "source": "Live site capture" }
+        {
+          "src": "screenshots/pi-browser/reading-room.webp",
+          "caption": "The catalog view",
+          "source": "Live site capture"
+        }
       ]
     },
     {
@@ -456,9 +691,19 @@
       "status": "contributing",
       "progress": "One merged pull request.",
       "summary": "Y-chromosome haplogroup inference from sequencing data. I fixed VCF input on Windows while bringing Yleaf into WGS Extract.",
-      "highlights": ["Fixed bcftools query formatting for VCF input on Windows (merged)"],
-      "tech": ["Python", "Bioinformatics"],
-      "links": [],
+      "highlights": [
+        "Fixed bcftools query formatting for VCF input on Windows (merged)"
+      ],
+      "tech": [
+        "Python",
+        "Bioinformatics"
+      ],
+      "links": [
+        {
+          "label": "My pull requests",
+          "url": "https://github.com/genid/Yleaf/pulls?q=is%3Apr+author%3Atheontho"
+        }
+      ],
       "screenshots": []
     },
     {
@@ -470,10 +715,18 @@
       "status": "superseded",
       "progress": "Replaced by wgsextract-cli and its desktop app.",
       "summary": "My first attempt at a modern development setup for the original WGS Extract app: dev workflow scripts, release caching and tests.",
-      "highlights": ["A dev.py workflow for init, launch, release cache and library updates", "Worked on Windows 11 and Apple silicon"],
-      "tech": ["Python"],
+      "highlights": [
+        "A dev.py workflow for init, launch, release cache and library updates",
+        "Worked on Windows 11 and Apple silicon"
+      ],
+      "tech": [
+        "Python"
+      ],
       "links": [
-        { "label": "WGSE.bio", "url": "https://WGSE.bio/" }
+        {
+          "label": "WGSE.bio",
+          "url": "https://WGSE.bio/"
+        }
       ],
       "screenshots": []
     }

@@ -33,6 +33,8 @@ def main() -> int:
             errors.append(f"{pid}: unknown status {p.get('status')!r}")
         if p.get("role") not in ("author", "contributor"):
             errors.append(f"{pid}: role must be author or contributor")
+        if p.get("private") or p.get("publish"):
+            errors.append(f"{pid}: private projects belong in the local overlay, not the public data")
         for shot in p.get("screenshots", []):
             path = ROOT / shot["src"]
             referenced.add(path.resolve())
