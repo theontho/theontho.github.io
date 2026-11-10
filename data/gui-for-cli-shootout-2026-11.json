@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T21:34:57Z",
+  "generatedAt": "2026-11-10T21:35:08Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -23,7 +23,7 @@
     "failed": 0,
     "activeHours": 24.0,
     "meanSelfVisual": 4.03,
-    "meanMyVisual": 4.73,
+    "meanMyVisual": 4.62,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.71,
     "vsMay": {
@@ -36,11 +36,11 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 13,
-        "newMean": 4.77,
-        "mayMean": 2.69,
+        "n": 14,
+        "newMean": 4.64,
+        "mayMean": 2.71,
         "better": 13,
-        "same": 0,
+        "same": 1,
         "worse": 0
       },
       "selfVisual": {
@@ -1265,8 +1265,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.0,
-      "myVisual": null,
-      "myNotes": null,
+      "myVisual": 3,
+      "myNotes": "Provisional, from the main screenshot: remarkably faithful for a terminal (layout, scrim, dialog, icons), but monospace cell grid, one text size and a pixelated app icon.",
       "userVisual": null,
       "userNotes": null,
       "features": [
