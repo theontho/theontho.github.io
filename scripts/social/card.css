@@ -1,0 +1,40 @@
+/* Social preview cards: 1200×630, rendered by scripts/social_previews.py.
+   Colours and type come from assets/site.css (dark palette). */
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body { background: var(--bg); color: var(--text); font-family: var(--font), "Noto Sans", "Liberation Sans", sans-serif; }
+.sc-card {
+  position: relative; width: 1200px; height: 630px; box-sizing: border-box; padding: 56px 60px;
+  display: grid; grid-template-columns: 520px 1fr; gap: 44px; align-items: center;
+  background:
+    radial-gradient(900px 420px at 10% -10%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
+    radial-gradient(760px 420px at 100% 110%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 70%),
+    var(--bg);
+}
+.sc-text { display: flex; flex-direction: column; gap: 18px; }
+.sc-eyebrow { margin: 0; color: var(--accent); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 19px; }
+h1 { margin: 0; font-size: 64px; line-height: 1.04; letter-spacing: -.025em; }
+.sc-sub { margin: 0; color: var(--muted); font-size: 26px; line-height: 1.3; }
+.sc-chips { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.sc-chip { padding: 7px 18px; border-radius: 999px; background: var(--accent); color: #17130a; font-weight: 800; font-size: 22px; }
+.sc-live { display: inline-flex; align-items: center; gap: 9px; padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 20px;
+  color: var(--s-active); border: 2px solid color-mix(in srgb, var(--s-active) 55%, transparent); background: color-mix(in srgb, var(--s-active) 14%, transparent); }
+.sc-live::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--s-active); box-shadow: 0 0 0 5px color-mix(in srgb, var(--s-active) 25%, transparent); }
+.sc-stats { display: flex; gap: 34px; margin-top: 6px; }
+.sc-stat { display: flex; flex-direction: column; }
+.sc-stat b { font-size: 50px; line-height: 1; letter-spacing: -.02em; }
+.sc-stat b small { font-size: 26px; color: var(--muted); font-weight: 600; }
+.sc-stat span { color: var(--muted); font-size: 18px; margin-top: 6px; }
+.sc-stat.sc-hi b { color: var(--accent); }
+.sc-foot { color: var(--muted); font-size: 19px; }
+.sc-foot b { color: var(--text); font-weight: 600; }
+.sc-bar { display: flex; height: 14px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); overflow: hidden; width: 440px; }
+.sc-bar .sc-done { background: var(--s-active); }
+.sc-bar .sc-building { background: repeating-linear-gradient(45deg, var(--s-beta) 0 7px, color-mix(in srgb, var(--s-beta) 55%, transparent) 7px 14px); }
+.sc-grid { display: grid; gap: 12px; align-content: center; }
+.sc-tile { position: relative; margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .45); aspect-ratio: 16 / 10; }
+.sc-tile img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.sc-tile figcaption { position: absolute; left: 6px; bottom: 6px; display: flex; align-items: center; gap: 6px; max-width: calc(100% - 12px);
+  padding: 3px 8px 3px 3px; border-radius: 8px; background: rgba(8, 10, 16, .82); color: #e6e9f2; font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; }
+.score { display: inline-grid; place-items: center; min-width: 22px; height: 20px; padding: 0 5px; border-radius: 5px; font-weight: 800; font-size: 13px; color: #111; }
+.s5 { background: #4ade80; } .s4 { background: #a3e635; } .s3 { background: #facc15; } .s2 { background: #fb923c; } .s1 { background: #f87171; }

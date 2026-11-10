@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="scripts/social/card.css">
+<style>.sc-grid { grid-template-columns: repeat(${columns}, 1fr); gap: 10px; } .sc-card { grid-template-columns: 540px 1fr; }</style>
+</head><body><main class="sc-card">
+  <section class="sc-text">
+    <div class="sc-chips"><span class="sc-chip">Nov 2026 · Claude Opus 5.5</span><span class="sc-live">LIVE</span></div>
+    <h1>The GUI shootout, again</h1>
+    <p class="sc-sub">29 Linux UI toolkits, each built from scratch by one AI agent.</p>
+    <div class="sc-stats">
+      <div class="sc-stat"><b>${done}<small>/${total}</small></b><span>toolkits done</span></div>
+      <div class="sc-stat sc-hi"><b>${now}</b><span>${now_label}</span></div>
+      <div class="sc-stat"><b>${may}</b><span>May, same toolkits</span></div>
+    </div>
+    <div class="sc-bar"><span class="sc-done" style="width: ${done_pct}%"></span><span class="sc-building" style="width: ${building_pct}%"></span></div>
+  </section>
+  <section class="sc-grid">${tiles}</section>
+</main></body></html>

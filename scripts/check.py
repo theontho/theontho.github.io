@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -69,6 +70,30 @@ def main() -> int:
     on_disk = {p.resolve() for p in (ROOT / "screenshots").rglob("*") if p.is_file()}
     for orphan in sorted(on_disk - referenced):
         errors.append(f"unused screenshot {orphan.relative_to(ROOT)}")
+
+    # Social preview images (Open Graph / Twitter cards), made by scripts/social_previews.py.
+    site_url = "https://theontho.github.io/"
+    social_used: set[Path] = set()
+    for page in sorted(ROOT.rglob("*.html")):
+        rel = page.relative_to(ROOT)
+        if rel.parts[0] in ("scripts", "node_modules") or rel.parts[0].startswith("."):
+            continue
+        text = page.read_text()
+        for prop, url in re.findall(r'<meta (?:property|name)="((?:og|twitter):image)" content="([^"]+)"', text):
+            if not url.startswith(site_url):
+                errors.append(f"{rel}: {prop} must be an absolute {site_url} URL")
+                continue
+            path = (ROOT / url.removeprefix(site_url)).resolve()
+            social_used.add(path)
+            if not path.is_file():
+                errors.append(f"{rel}: {prop} {url} does not exist")
+    social_dir = ROOT / "assets" / "social"
+    if social_dir.is_dir():
+        for orphan in sorted({p.resolve() for p in social_dir.iterdir() if p.is_file()} - social_used):
+            errors.append(f"unused social preview {orphan.relative_to(ROOT)}")
+        for img in social_dir.iterdir():
+            if img.stat().st_size > 300_000:
+                errors.append(f"social preview {img.relative_to(ROOT)} is over 300 KB")
 
     stats_path = ROOT / "data" / "stats.json"
     if stats_path.exists():
