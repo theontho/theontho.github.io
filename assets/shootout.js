@@ -100,9 +100,20 @@ function shotList(t) {
   }));
 }
 
+function windowsFacts(w) {
+  return [
+    w.readyMs != null && `ready ${fmtMs(w.readyMs)}`,
+    w.rssMb != null && `${fmtMb(w.rssMb)} working set`,
+    w.sizeMb != null && `${fmtMb(w.sizeMb)} on disk`,
+  ].filter(Boolean).join(", ");
+}
+
 function windowsCell(w) {
   if (!w?.status) return dash();
-  return [statusBadge(w.status), w.readyMs != null ? h("small", {}, fmtMs(w.readyMs)) : null];
+  const facts = windowsFacts(w);
+  return h("span", { class: "win-cell", title: [facts, w.notes].filter(Boolean).join(". ") || null },
+    statusBadge(w.status), w.readyMs != null ? h("small", {}, fmtMs(w.readyMs)) : null,
+    w.rssMb != null ? h("small", {}, fmtMb(w.rssMb)) : null);
 }
 
 function detailRow(t) {
@@ -113,7 +124,9 @@ function detailRow(t) {
   if (t.userNotes) facts.push(h("p", {}, h("b", {}, "Owner: "), t.userNotes));
   const build = [t.linux?.build && `Build: ${t.linux.build}.`, t.linux?.note].filter(Boolean).join(" ");
   if (build) facts.push(h("p", { class: "muted" }, build));
-  if (t.windows?.notes) facts.push(h("p", { class: "muted" }, h("b", {}, "Windows: "), t.windows.notes));
+  const win = [t.windows?.status && t.windows.status !== "done" ? STATUS_LABEL[t.windows.status] : null,
+    t.windows && windowsFacts(t.windows), t.windows?.notes].filter(Boolean);
+  if (win.length) facts.push(h("p", { class: "muted" }, h("b", {}, "Windows: "), win.join(". ").replace(/\.\./g, ".")));
   if (!facts.length) facts.push(h("p", { class: "muted" }, t.status === "building" ? "Being built now." : t.status === "queued" ? "Not started yet." : "No details yet."));
   const features = t.features ? h("ul", { class: "features", "aria-label": "Feature checklist" },
     data.features.map((label, i) => h("li", { class: `feat feat-${t.features[i]}`, title: `${label}: ${FEATURE_LABEL[t.features[i]]}` },
