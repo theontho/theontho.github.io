@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T23:12:21Z",
+  "generatedAt": "2026-11-10T23:19:27Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -95,7 +95,8 @@
           "caption": "The reference WebUI at 1280×800 with the first-launch setup dialog",
           "sha": "55b2a26ba120427b"
         }
-      ]
+      ],
+      "may": null
     },
     {
       "id": "flutter",
@@ -182,7 +183,12 @@
           "caption": "Windows 11, command streaming (demo bundle)",
           "sha": "e55dbb1a98a475d5"
         }
-      ]
+      ],
+      "may": {
+        "name": "Flutter",
+        "visual": 4,
+        "screenshot": "screenshots/gui-for-cli/eval/flutter.webp"
+      }
     },
     {
       "id": "compose",
@@ -259,7 +265,12 @@
           "caption": "Dark theme",
           "sha": "5e2b9206ca2f89f2"
         }
-      ]
+      ],
+      "may": {
+        "name": "Compose Desktop",
+        "visual": 4,
+        "screenshot": "screenshots/gui-for-cli/eval/compose-desktop.webp"
+      }
     },
     {
       "id": "wx",
@@ -336,7 +347,12 @@
           "caption": "Dependency check exits 127 with an error tab",
           "sha": "e9519734e3cea359"
         }
-      ]
+      ],
+      "may": {
+        "name": "wxPython",
+        "visual": 4,
+        "screenshot": "screenshots/gui-for-cli/eval/wx.webp"
+      }
     },
     {
       "id": "qt-qml",
@@ -413,7 +429,12 @@
           "caption": "Dark theme",
           "sha": "5bdfc48301621398"
         }
-      ]
+      ],
+      "may": {
+        "name": "Qt 6 / QML",
+        "visual": 3,
+        "screenshot": "screenshots/gui-for-cli/eval/qt-qml.webp"
+      }
     },
     {
       "id": "gtk4-rust",
@@ -490,7 +511,12 @@
           "caption": "Dark theme",
           "sha": "246da8a3e7c89213"
         }
-      ]
+      ],
+      "may": {
+        "name": "GTK4 / libadwaita",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/gtk4.webp"
+      }
     },
     {
       "id": "slint",
@@ -567,7 +593,12 @@
           "caption": "Dark theme after a failed setup",
           "sha": "f33ed689d96797d4"
         }
-      ]
+      ],
+      "may": {
+        "name": "Slint",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/slint.webp"
+      }
     },
     {
       "id": "avalonia",
@@ -649,7 +680,12 @@
           "caption": "Windows 11",
           "sha": "c3ca12af635df68d"
         }
-      ]
+      ],
+      "may": {
+        "name": "Avalonia",
+        "visual": 1,
+        "screenshot": "screenshots/gui-for-cli/eval/avalonia.webp"
+      }
     },
     {
       "id": "pyside6",
@@ -726,7 +762,8 @@
           "caption": "Dark theme, Info / BAM page",
           "sha": "89a023ea04146584"
         }
-      ]
+      ],
+      "may": null
     },
     {
       "id": "egui",
@@ -803,7 +840,12 @@
           "caption": "Cancelled command, dark theme",
           "sha": "2418c9728fa288d5"
         }
-      ]
+      ],
+      "may": {
+        "name": "egui",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/egui.webp"
+      }
     },
     {
       "id": "iced",
@@ -880,7 +922,12 @@
           "caption": "Dark theme, Microarray page",
           "sha": "f4fbb13aefc18f5f"
         }
-      ]
+      ],
+      "may": {
+        "name": "Iced",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/iced.webp"
+      }
     },
     {
       "id": "tkinter",
@@ -957,7 +1004,12 @@
           "caption": "Dark theme",
           "sha": "f1e88b5e7a75330f"
         }
-      ]
+      ],
+      "may": {
+        "name": "Tkinter",
+        "visual": 3,
+        "screenshot": "screenshots/gui-for-cli/eval/tkinter.webp"
+      }
     },
     {
       "id": "gtk4-adw",
@@ -1034,7 +1086,8 @@
           "caption": "Dark theme",
           "sha": "1c853834593c2b44"
         }
-      ]
+      ],
+      "may": null
     },
     {
       "id": "fyne",
@@ -1111,7 +1164,12 @@
           "caption": "Dark theme, Microarray page",
           "sha": "2e6e7bd944b39784"
         }
-      ]
+      ],
+      "may": {
+        "name": "Fyne",
+        "visual": 3,
+        "screenshot": "screenshots/gui-for-cli/eval/fyne.webp"
+      }
     },
     {
       "id": "gio",
@@ -1188,7 +1246,12 @@
           "caption": "Dark theme, Library page",
           "sha": "3d71ff989402a593"
         }
-      ]
+      ],
+      "may": {
+        "name": "Gio",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/gio.webp"
+      }
     },
     {
       "id": "toga",
@@ -1265,7 +1328,12 @@
           "caption": "Dark theme",
           "sha": "40d33eb065be5574"
         }
-      ]
+      ],
+      "may": {
+        "name": "Toga / BeeWare",
+        "visual": 3,
+        "screenshot": "screenshots/gui-for-cli/eval/toga.webp"
+      }
     },
     {
       "id": "textual",
@@ -1342,7 +1410,12 @@
           "caption": "Dark theme",
           "sha": "da42c8ea2abcd0cc"
         }
-      ]
+      ],
+      "may": {
+        "name": "Python Textual",
+        "visual": 3,
+        "screenshot": "screenshots/gui-for-cli/eval/textual.webp"
+      }
     },
     {
       "id": "gpui",
@@ -1419,7 +1492,12 @@
           "caption": "Dark theme, Microarray page",
           "sha": "6d4758b84c3f7e28"
         }
-      ]
+      ],
+      "may": {
+        "name": "GPUI",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/gpui.webp"
+      }
     },
     {
       "id": "makepad",
@@ -1496,7 +1574,12 @@
           "caption": "Confirmation dialog on the Library page",
           "sha": "35a0b5edd24f2c61"
         }
-      ]
+      ],
+      "may": {
+        "name": "Makepad",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/makepad.webp"
+      }
     },
     {
       "id": "dioxus",
@@ -1532,7 +1615,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Dioxus WebUI",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/dioxus.webp"
+      }
     },
     {
       "id": "xilem",
@@ -1568,7 +1656,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Xilem / Vello",
+        "visual": 1,
+        "screenshot": "screenshots/gui-for-cli/eval/xilem-vello.webp"
+      }
     },
     {
       "id": "moonframe",
@@ -1645,7 +1738,8 @@
           "caption": "Dark theme, demo settings after setup",
           "sha": "44be269f93f7ddf8"
         }
-      ]
+      ],
+      "may": null
     },
     {
       "id": "zenbu-ui",
@@ -1722,7 +1816,8 @@
           "caption": "Dark theme",
           "sha": "28e37d3829f6607b"
         }
-      ]
+      ],
+      "may": null
     },
     {
       "id": "freya",
@@ -1758,7 +1853,8 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": null
     },
     {
       "id": "floem",
@@ -1794,7 +1890,8 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": null
     },
     {
       "id": "qt-widgets",
@@ -1830,7 +1927,8 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": null
     },
     {
       "id": "imgui-cpp",
@@ -1866,7 +1964,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Dear ImGui (C++)",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/imgui-cpp.webp"
+      }
     },
     {
       "id": "imgui-rust",
@@ -1902,7 +2005,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Dear ImGui (Rust)",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/imgui.webp"
+      }
     },
     {
       "id": "raygui-rust",
@@ -1938,7 +2046,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Raygui (Rust)",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/raygui.webp"
+      }
     },
     {
       "id": "raygui-c",
@@ -1974,7 +2087,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "Raygui (C)",
+        "visual": 2,
+        "screenshot": "screenshots/gui-for-cli/eval/raygui-c.webp"
+      }
     },
     {
       "id": "react-native",
@@ -2010,7 +2128,12 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [],
+      "may": {
+        "name": "React Native (macOS / Windows)",
+        "visual": "failed",
+        "screenshot": null
+      }
     }
   ]
 }
