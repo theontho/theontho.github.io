@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mahyar (Mac) McDonald · Projects</title>
+  <meta name="description" content="A showcase of Mahyar (Mac) McDonald's projects: genomics tools, a web RPG, home-lab automation, local-AI pipelines and more.">
+  <meta property="og:title" content="Mahyar (Mac) McDonald · Projects">
+  <meta property="og:description" content="What I've been building, how it's going, and screenshots.">
+  <meta property="og:image" content="https://theontho.github.io/screenshots/dawnbreakers/shrine-court.webp">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Project showcase</p>
+      <h1 id="name">Mahyar (Mac) McDonald</h1>
+      <p class="tagline" id="tagline"></p>
+      <ul class="hero-links" id="profile-links"></ul>
+      <dl class="totals" id="totals"></dl>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="Filter projects">
+    <div class="wrap toolbar-inner">
+      <div class="chips" id="chips" role="toolbar" aria-label="Categories"></div>
+      <label class="search">
+        <span class="visually-hidden">Search projects</span>
+        <input id="search" type="search" placeholder="Search projects, tech…" autocomplete="off">
+      </label>
+      <div class="view-toggle" role="group" aria-label="View">
+        <button type="button" data-view="projects" aria-pressed="true">Projects</button>
+        <button type="button" data-view="gallery" aria-pressed="false">Gallery</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="featured" class="featured" aria-label="Featured projects"></section>
+    <div id="projects"></div>
+    <section id="gallery" class="gallery-section" hidden>
+      <h2>Gallery</h2>
+      <p class="section-blurb">Every screenshot, from every project. Click one to enlarge it.</p>
+      <div class="gallery" id="gallery-grid"></div>
+    </section>
+    <p class="empty" id="empty" hidden>No projects match that search.</p>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Stats come from GitHub and refresh daily<span id="generated"></span>. Built as a plain static site; <a href="https://github.com/theontho/theontho.github.io">source on GitHub</a>.</p>
+  </footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Screenshot viewer">
+    <figure>
+      <img id="lightbox-img" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous screenshot">‹</button>
+    <button type="button" class="lb-nav lb-next" aria-label="Next screenshot">›</button>
+    <button type="button" class="lb-close" aria-label="Close">×</button>
+  </dialog>
+
+  <noscript><p class="wrap">This page needs JavaScript to list projects. You can browse them at <a href="https://github.com/theontho">github.com/theontho</a>.</p></noscript>
+</body>
+</html>
