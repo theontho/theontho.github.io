@@ -1,6 +1,8 @@
 "use strict";
 
-const state = { category: "all", query: "", view: "projects", project: null };
+const FILTERS = ["visibility", "kind", "status", "tech", "has", "publish"];
+const state = { category: "all", query: "", view: "projects", project: null,
+  visibility: "all", kind: "all", status: "all", tech: "all", has: "all", publish: "all" };
 let data, stats, categoryById, galleryList = [], lightboxIndex = 0;
 
 function h(tag, attrs = {}, ...children) {
@@ -40,8 +42,32 @@ function hue(text) {
 const repoUrl = (p) => (p.repo ? `https://github.com/${p.repo}` : null);
 const statsFor = (p) => (stats.projects || {})[p.id] || {};
 
-function matches(p) {
-  if (state.category !== "all" && p.category !== state.category) return false;
+const KINDS = {
+  mine: { label: "My projects", test: (p) => p.role === "author" },
+  contrib: { label: "Contributions", test: (p) => p.role === "contributor" },
+  replaced: { label: "Replaced by a newer project", test: (p) => !!(p.superseded_by || p.superseded_note) },
+  current: { label: "Not replaced", test: (p) => !(p.superseded_by || p.superseded_note) },
+};
+const HAS = {
+  screenshots: { label: "Has screenshots", test: (p) => (p.screenshots || []).length > 0 },
+  release: { label: "Has releases", test: (p) => !!statsFor(p).release && p.role !== "contributor" },
+  prs: { label: "Has my pull requests", test: (p) => (statsFor(p).pull_requests || []).length > 0 },
+  live: { label: "Has a live site or download", test: (p) => (p.links || []).some((l) => /play|use it|live|docs site|desktop app|npm|sheprd\.org/i.test(l.label)) },
+};
+
+function passesFilters(p, skip) {
+  if (skip !== "category" && state.category !== "all" && p.category !== state.category) return false;
+  if (state.visibility !== "all" && (state.visibility === "private") !== !!p.private) return false;
+  if (state.kind !== "all" && !KINDS[state.kind]?.test(p)) return false;
+  if (state.status !== "all" && p.status !== state.status) return false;
+  if (state.tech !== "all" && !(p.tech || []).includes(state.tech)) return false;
+  if (state.has !== "all" && !HAS[state.has]?.test(p)) return false;
+  if (state.publish !== "all" && p.publish?.recommendation !== state.publish) return false;
+  return true;
+}
+
+function matches(p, skip) {
+  if (!passesFilters(p, skip)) return false;
   if (!state.query) return true;
   const hay = [p.name, p.summary, p.progress, p.repo, p.private ? "private" : "public", p.publish?.recommendation,
     ...(p.tech || []), ...(p.highlights || [])].join(" ").toLowerCase();
@@ -63,7 +89,7 @@ function thumb(p) {
   const lang = (p.tech || [])[0] || "";
   return h("div", { class: "thumb" },
     h("div", { class: "placeholder", style: `--hue:${hue(p.id)}`, "aria-hidden": "true" },
-      h("div", {}, h("b", {}, p.name.split(/\s+/).map((w) => w[0]).join("").slice(0, 3).toUpperCase()), lang)));
+      h("div", {}, h("b", {}, p.name.replace(/\(.*?\)/g, "").split(/[\s-]+/).filter((w) => /^[\p{L}\p{N}]/u.test(w)).map((w) => w[0]).join("").slice(0, 3).toUpperCase()), lang)));
 }
 
 function metaRow(p) {
@@ -78,6 +104,25 @@ function metaRow(p) {
   return h("div", { class: "meta" }, items.map((t) => h("span", {}, t)));
 }
 
+const byId = (id) => data.projects.find((x) => x.id === id);
+
+function replacedLine(p) {
+  const next = p.superseded_by && byId(p.superseded_by);
+  if (!next && !p.superseded_note) return null;
+  return h("p", { class: "replaced" }, "↳ ",
+    next ? ["Replaced by ", h("a", { href: `?project=${next.id}`, onclick: (e) => { e.preventDefault(); e.stopPropagation(); openProject(next.id); } }, next.name), next.private ? " (private)" : ""]
+      : p.superseded_note);
+}
+
+function earlierVersions(p) {
+  const older = data.projects.filter((x) => x.superseded_by === p.id);
+  if (!older.length) return null;
+  return h("div", { class: "earlier" }, h("h3", {}, "Earlier versions"),
+    h("ul", {}, older.map((o) => h("li", {},
+      h("a", { href: `?project=${o.id}`, onclick: (e) => { e.preventDefault(); openProject(o.id); } }, o.name),
+      o.private ? " (private)" : "", `: ${o.summary}`))));
+}
+
 function card(p) {
   return h("article", {
     class: "card", tabindex: "0", role: "button", "aria-label": `${p.name}: details`,
@@ -90,6 +135,7 @@ function card(p) {
     h("h3", {}, p.name),
     h("p", { class: "summary" }, p.summary),
     p.progress ? h("p", { class: "progress" }, p.progress) : null,
+    replacedLine(p),
     h("div", { class: "tags" }, (p.tech || []).map((t) => h("span", { class: "tag" }, t))),
     metaRow(p)));
 }
@@ -125,21 +171,55 @@ function renderProfile() {
 
 function renderChips() {
   const counts = Object.fromEntries(data.categories.map((c) => [c.id, 0]));
-  data.projects.forEach((p) => counts[p.category]++);
+  const visible = data.projects.filter((p) => matches(p, "category"));
+  visible.forEach((p) => counts[p.category]++);
   const chip = (id, label, count) => h("button", {
     type: "button", class: "chip", "aria-pressed": String(state.category === id),
     onclick: () => { state.category = id; update(); },
   }, label, h("span", { class: "count" }, count));
   document.getElementById("chips").replaceChildren(
-    chip("all", "All", data.projects.length),
-    ...data.categories.filter((c) => counts[c.id]).map((c) => chip(c.id, c.title, counts[c.id])));
+    chip("all", "All", visible.length),
+    ...data.categories.filter((c) => counts[c.id] || state.category === c.id).map((c) => chip(c.id, c.title, counts[c.id])));
+  renderFilters();
   document.querySelectorAll(".view-toggle button").forEach((b) =>
     b.setAttribute("aria-pressed", String(b.dataset.view === state.view)));
 }
 
+function renderFilters() {
+  const count = (fn) => data.projects.filter(fn).length;
+  const select = (key, label, options) => {
+    const opts = options.filter(([, , n]) => n > 0 || state[key] !== "all");
+    if (opts.length < 2 && state[key] === "all") return null;
+    return h("label", { class: "filter" + (state[key] !== "all" ? " active" : "") },
+      h("span", {}, label),
+      h("select", { onchange: (e) => { state[key] = e.target.value; update(); } },
+        h("option", { value: "all" }, "Any"),
+        opts.map(([value, text, n]) => h("option", { value, selected: state[key] === value }, `${text} (${n})`))));
+  };
+  const techCounts = {};
+  data.projects.forEach((p) => (p.tech || []).forEach((t) => { techCounts[t] = (techCounts[t] || 0) + 1; }));
+  const techs = Object.entries(techCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const recs = [...new Set(data.projects.map((p) => p.publish?.recommendation).filter(Boolean))];
+  const controls = [
+    select("visibility", "Visibility", [
+      ["public", "Public", count((p) => !p.private)], ["private", "Private", count((p) => p.private)]]),
+    select("kind", "Type", Object.entries(KINDS).map(([k, v]) => [k, v.label, count(v.test)])),
+    select("status", "Status", Object.entries(data.statuses).map(([k, v]) => [k, v.label, count((p) => p.status === k)])),
+    select("tech", "Tech", techs.map(([t, n]) => [t, t, n])),
+    select("has", "Has", Object.entries(HAS).map(([k, v]) => [k, v.label, count(v.test)])),
+    recs.length ? select("publish", "Going public", recs.map((r) => [r, r, count((p) => p.publish?.recommendation === r)])) : null,
+  ].filter(Boolean);
+  const active = FILTERS.some((k) => state[k] !== "all") || state.category !== "all" || state.query;
+  document.getElementById("filters").replaceChildren(...controls, ...[
+    active ? h("button", { type: "button", class: "clear", onclick: () => {
+      FILTERS.forEach((k) => { state[k] = "all"; });
+      state.category = "all"; state.query = ""; document.getElementById("search").value = ""; update();
+    } }, "Clear filters") : null].filter(Boolean));
+}
+
 function renderFeatured() {
   const el = document.getElementById("featured");
-  const show = state.view === "projects" && state.category === "all" && !state.query;
+  const show = state.view === "projects" && state.category === "all" && !state.query && FILTERS.every((k) => state[k] === "all");
   el.hidden = !show;
   if (!show) return;
   el.replaceChildren(...data.projects.filter((p) => p.featured).map((p) => {
@@ -184,6 +264,7 @@ function syncUrl() {
   if (state.category !== "all") params.set("category", state.category);
   if (state.view !== "projects") params.set("view", state.view);
   if (state.query) params.set("q", state.query);
+  FILTERS.forEach((k) => { if (state[k] !== "all") params.set(k, state[k]); });
   if (state.project) params.set("project", state.project);
   const qs = params.toString();
   history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
@@ -230,6 +311,7 @@ function openProject(id) {
       h("button", { type: "button", class: "close", "aria-label": "Close", onclick: () => dialog.close() }, "×")),
     h("p", { class: "dialog-summary" }, p.summary),
     p.progress ? h("p", { class: "progress" }, h("strong", {}, "How it's going: "), p.progress) : null,
+    replacedLine(p),
     h("div", { class: "stat-row" }, statItems.map(([k, v]) => h("div", { class: "stat" }, k, h("b", {}, v)))),
     h("div", { class: "dialog-cols" },
       h("div", {}, h("h3", {}, "Highlights"), h("ul", {}, (p.highlights || []).map((x) => h("li", {}, x)))),
@@ -238,6 +320,7 @@ function openProject(id) {
         links.length ? h("ul", { class: "link-list" }, links.map((l) => h("li", {}, h("a", { href: l.url }, l.label)))) : null,
         h("h3", {}, "Built with"), h("div", { class: "tags" }, (p.tech || []).map((t) => h("span", { class: "tag" }, t))))),
     prList(p, s),
+    earlierVersions(p),
     p.publish ? h("div", { class: "publish" },
       h("h3", {}, "Going public"),
       h("p", {}, h("strong", {}, p.publish.recommendation), p.publish.effort ? ` · effort ${p.publish.effort}` : "", p.publish.notes ? `. ${p.publish.notes}` : "")) : null,
@@ -315,6 +398,7 @@ async function main() {
   if (categoryById[params.get("category")]) state.category = params.get("category");
   if (params.get("view") === "gallery") state.view = "gallery";
   state.query = params.get("q") || "";
+  FILTERS.forEach((k) => { if (params.get(k)) state[k] = params.get(k); });
   renderProfile();
   wire();
   update();

@@ -44,6 +44,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -105,6 +106,24 @@ img { max-width: 100%; display: block; }
   border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--text);
 }
 .view-toggle { display: flex; gap: 4px; }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex-basis: 100%; }
+.filter { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--muted); }
+.filter select {
+  font: inherit; font-size: .84rem; color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 8px; padding: 4px 8px; width: auto; max-width: 200px;
+}
+.filter.active select { border-color: var(--accent); }
+.filter.active span { color: var(--accent); }
+.clear {
+  font: inherit; font-size: .82rem; cursor: pointer; padding: 4px 10px; border-radius: 8px;
+  border: 1px dashed var(--line); background: transparent; color: var(--muted);
+}
+.clear:hover { color: var(--text); border-color: var(--accent); }
+.replaced { margin: 0; font-size: .85rem; color: var(--muted); }
+.earlier { margin-top: 20px; }
+.earlier h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 6px 0 8px; }
+.earlier ul { margin: 0; padding-left: 18px; font-size: .92rem; }
+.earlier li { margin-bottom: 6px; }
 button:focus-visible, a:focus-visible, input:focus-visible, .card:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 
 /* Featured */
@@ -245,6 +264,9 @@ body.local-copy .hero .eyebrow { color: #f87171; }
   .toolbar { position: static; }
   .chips { flex-wrap: nowrap; overflow-x: auto; flex-basis: 100%; padding-bottom: 4px; scrollbar-width: none; }
   .chip { white-space: nowrap; }
+  .filters { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+  .filter { flex-direction: column; align-items: stretch; gap: 2px; font-size: .75rem; }
+  .filter select { max-width: none; width: 100%; }
   .dialog-cols { grid-template-columns: 1fr; }
   .dialog-body { padding: 20px 18px 24px; }
   .search input { width: 100%; }

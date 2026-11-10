@@ -55,6 +55,9 @@ def main() -> int:
         for shot in p.get("screenshots", []):
             if not (private_dir / shot["src"]).is_file():
                 errors.append(f"{p['id']}: missing {shot['src']}")
+    for p in private:
+        if p.get("superseded_by") and p["superseded_by"] not in ids:
+            errors.append(f"{p['id']}: superseded_by {p['superseded_by']!r} is not a project id")
     if errors:
         print("\n".join(f"error: {e}" for e in errors), file=sys.stderr)
         return 1
