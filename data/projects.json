@@ -189,7 +189,8 @@
       "highlights": [
         "21 chapters, from the Forerunners in Karbilá (1843) through Shíráz, Mecca, Badasht, Ṭabarsí, Nayríz and Zanján, to the Black Pit of Ṭihrán (1852–53)",
         "Isometric exploration, reflective dialogue, a journal with objectives, and chapter progression with saves",
-        "Mini-games, journey maps between cities, and a built-in map editor",
+        "Journeys between chapters: each road plays out under the true night sky for its date and place (real Hipparcos stars, the moon in its phase, twilight), with the days rolling by until dawn at the arrival",
+        "Mini-games and a built-in map editor",
         "Animated sunrise title screen with its own soundtrack; English, Persian and Chinese text",
         "Most of the code, art, music, writing and translation was made with AI, and the game says so"
       ],
@@ -206,6 +207,11 @@
       ],
       "screenshots": [
         {
+          "src": "screenshots/dawnbreakers/sunrise-title.webp",
+          "caption": "The sunrise title card, just after the sun clears the horizon",
+          "source": "Live site capture"
+        },
+        {
           "src": "screenshots/dawnbreakers/shrine-court.webp",
           "caption": "Karbilá: the shrine court",
           "source": "In-game capture"
@@ -213,6 +219,31 @@
         {
           "src": "screenshots/dawnbreakers/isfahan-bridge.webp",
           "caption": "Iṣfahán, by the river",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/journey-into-the-gulf.webp",
+          "caption": "Journey: Into the Gulf, autumn 1844",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/journey-black-standard.webp",
+          "caption": "Journey: The Black Standard, autumn 1848",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/journey-meanwhile-west.webp",
+          "caption": "Journey: Meanwhile, in the West, spring 1847",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/journey-winter-passes.webp",
+          "caption": "Journey: Over the Winter Passes, January 1850",
+          "source": "In-game capture"
+        },
+        {
+          "src": "screenshots/dawnbreakers/journey-quran-gate.webp",
+          "caption": "Journey: Out by the Qur'án Gate, at dawn",
           "source": "In-game capture"
         },
         {
@@ -228,11 +259,6 @@
         {
           "src": "screenshots/dawnbreakers/exile-road.webp",
           "caption": "The road west, at dawn",
-          "source": "In-game capture"
-        },
-        {
-          "src": "screenshots/dawnbreakers/sunrise-title.webp",
-          "caption": "Sunrise title screen",
           "source": "In-game capture"
         },
         {
