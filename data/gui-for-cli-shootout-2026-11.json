@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:13:11Z",
+  "generatedAt": "2026-11-10T22:18:58Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 29,
-    "done": 17,
+    "done": 18,
     "building": 4,
-    "queued": 8,
+    "queued": 7,
     "failed": 0,
-    "activeHours": 25.5,
+    "activeHours": 26.8,
     "meanSelfVisual": 4.03,
     "meanMyVisual": 4.59,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.71,
+    "meanMayVisualDone": 2.67,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -44,10 +44,10 @@
         "worse": 0
       },
       "selfVisual": {
-        "n": 14,
-        "newMean": 4.04,
-        "mayMean": 2.71,
-        "better": 11,
+        "n": 15,
+        "newMean": 4.03,
+        "mayMean": 2.67,
+        "better": 12,
         "same": 3,
         "worse": 0
       }
@@ -1370,27 +1370,37 @@
       "name": "Makepad",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": "makepad",
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 4,
+      "activeHours": 1.25,
       "myVisual": null,
       "myNotes": null,
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "partial",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Pages are built at runtime by a custom widget that instantiates Makepad's live-DSL templates from the bundle JSON; the main window is very close to the reference and nearly the whole workflow works.",
+      "lessons": "Makepad's DSL is static, so a dynamic widget tree needed custom code, and two text bugs (word wrap, RTL scripts) had to be fixed in a vendored, patched makepad-draw. There are no native file dialogs, RTL layout or dark theme.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 323,
+        "rssMb": 502.0,
+        "sizeMb": 60,
+        "build": "1 min 52 s clean release (-j2); ~10 s incremental",
+        "note": "About 270 MB of the RSS is a bare Makepad window under software GL (llvmpipe). Size is a 9.2 MB binary, 2.9 MB of resources and ~48 MB of Makepad fonts read from the cargo registry."
       },
       "windows": {
         "status": null,
@@ -1399,7 +1409,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "84353c4909f5be91"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-page-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "069fb0dbb2459fde"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-demo-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "fb5f21a6edb51c09"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "695c9999d81784f3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-locale-ar.webp",
+          "caption": "Arabic text after the bidi patch; the layout is not mirrored",
+          "sha": "896e576a5355171c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-confirm.webp",
+          "caption": "Confirmation dialog on the Library page",
+          "sha": "35a0b5edd24f2c61"
+        }
+      ]
     },
     {
       "id": "dioxus",
@@ -1442,7 +1483,7 @@
       "name": "Xilem / Vello",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 5,
       "mayId": "xilem-vello",
       "mayVisual": 1,
