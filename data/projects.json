@@ -178,6 +178,10 @@
           "primary": true
         },
         {
+          "label": "November 2026 rerun (live) →",
+          "url": "gui-for-cli/2026-11/index.html"
+        },
+        {
           "label": "old-experimental branch",
           "url": "https://github.com/WGSExtract/gui-for-cli-outdated/tree/old-experimental"
         },
@@ -225,6 +229,10 @@
           "label": "Open the evaluation →",
           "url": "gui-for-cli/index.html",
           "primary": true
+        },
+        {
+          "label": "November 2026 rerun (live) →",
+          "url": "gui-for-cli/2026-11/index.html"
         },
         {
           "label": "old-experimental branch",

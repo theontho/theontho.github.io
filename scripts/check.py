@@ -53,6 +53,19 @@ def main() -> int:
             if not path.is_file():
                 errors.append(f"gui-for-cli-eval: missing screenshot {surface['screenshot']}")
 
+    shootout_path = ROOT / "data" / "gui-for-cli-shootout-2026-11.json"
+    if shootout_path.exists():
+        for toolkit in json.loads(shootout_path.read_text())["toolkits"]:
+            for shot in toolkit.get("shots", []):
+                path = ROOT / shot["src"]
+                referenced.add(path.resolve())
+                if not shot.get("caption"):
+                    errors.append(f"shootout-2026-11 {toolkit['id']}: screenshot {shot['src']} needs a caption")
+                if path.suffix != ".webp":
+                    errors.append(f"shootout-2026-11 {toolkit['id']}: {shot['src']} is not WebP")
+                if not path.is_file():
+                    errors.append(f"shootout-2026-11 {toolkit['id']}: missing screenshot {shot['src']}")
+
     on_disk = {p.resolve() for p in (ROOT / "screenshots").rglob("*") if p.is_file()}
     for orphan in sorted(on_disk - referenced):
         errors.append(f"unused screenshot {orphan.relative_to(ROOT)}")

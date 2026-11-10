@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>November 2026: the GUI shootout, again · Mahyar (Mac) McDonald</title>
+  <meta name="description" content="A live rerun of the May 2026 GUI toolkit evaluation: one AI agent per toolkit rebuilds the same desktop app from scratch on 29 Linux UI toolkits, with Claude Opus 5.5.">
+  <meta property="og:title" content="November 2026: the GUI shootout, again">
+  <meta property="og:description" content="29 UI toolkits, one app each, built from scratch by Claude Opus 5.5. Live results, screenshots and ratings against the May 2026 run.">
+  <meta property="og:image" content="https://theontho.github.io/screenshots/gui-for-cli/shootout-2026-11/webui-reference-webui.webp">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script src="../../assets/shootout.js" defer></script>
+</head>
+<body class="eval-page shootout-page">
+  <a class="skip" href="#results">Skip to results</a>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><a href="../../?project=gui-for-cli">← Project showcase</a> · <a href="../">May 2026 evaluation</a></p>
+      <p class="hero-chips">
+        <span class="date-chip">November 2026 <small>Claude Opus 5.5, Linux</small></span>
+        <span class="live-badge" id="live-badge"><span class="live-dot" aria-hidden="true"></span><b>Live</b> <span id="live-updated">loading…</span></span>
+      </p>
+      <h1>November 2026: the GUI shootout, again</h1>
+      <p class="tagline">In May 2026 AI agents built the same desktop app, GUI for CLI running the real WGS Extract bundle, on about 30 UI toolkits. Six months on, I'm rerunning it with a newer model: one agent per toolkit, from scratch, on 29 Linux desktop toolkits, followed by a Windows pass. This page updates as each one lands.</p>
+      <dl class="era" id="era"></dl>
+      <div class="run-progress">
+        <div class="run-progress-bar" id="progress-bar" role="progressbar" aria-label="Toolkits finished" aria-valuemin="0" aria-valuemax="29" aria-valuenow="0">
+          <span class="run-progress-done"></span><span class="run-progress-building"></span>
+        </div>
+        <p class="run-progress-label" id="progress-label" aria-live="polite"></p>
+      </div>
+      <dl class="totals" id="totals"></dl>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="eval-section" id="results">
+      <h2>How each one is doing</h2>
+      <p class="section-blurb">Ratings are 1–5 for how close the running window gets to the reference app and how much of the real workflow works. <em>Self</em> is the building agent's own rating, <em>Supervisor</em> is the supervising AI agent's rating of the screenshots, and <em>Owner</em> is mine, done at the end. The arrow by May's score compares it with the best new rating available (owner, then supervisor, then self). Timings are from a shared 8-core machine under Xvfb, so compare them loosely. Click a row for its screenshots, or ▸ for details.</p>
+      <div class="eval-controls">
+        <label class="filter"><span>Kind</span><select id="kind-filter"><option value="all">All</option></select></label>
+        <label class="filter"><span>Status</span><select id="status-filter">
+          <option value="all">All</option><option value="done">Done</option><option value="building">Building</option><option value="queued">Queued</option><option value="failed">Failed</option>
+        </select></label>
+        <span class="eval-count" id="eval-count"></span>
+      </div>
+      <div class="table-scroll">
+        <table class="eval-table shootout-table" id="shootout-table">
+          <thead><tr>
+            <th data-sort="order">Toolkit</th>
+            <th data-sort="language">Language</th>
+            <th data-sort="status">Status</th>
+            <th data-sort="myVisual" class="num" title="The supervising AI agent's visual rating">Supervisor</th>
+            <th data-sort="userVisual" class="num" title="My own visual rating, done at the end">Owner</th>
+            <th data-sort="mayVisual" class="num" title="Visual rating in the May 2026 run, with the change to the best new rating">May visual</th>
+            <th data-sort="selfVisual" class="num" title="The building agent's self-rated visual">Self visual</th>
+            <th data-sort="completeness" class="num" title="Self-rated, 5 = product-like for the WGS Extract workflow">Complete</th>
+            <th data-sort="difficulty" class="num" title="Self-rated, 1 easy – 5 very hard">Difficulty</th>
+            <th data-sort="activeHours" class="num">Active h</th>
+            <th data-sort="readyMs" class="num" title="Start to the GFC_READY marker, Linux under Xvfb">Linux ready</th>
+            <th data-sort="rssMb" class="num" title="Resident memory at readiness">Memory</th>
+            <th data-sort="sizeMb" class="num" title="What run.sh needs, excluding system runtimes">Size</th>
+            <th data-sort="windows">Windows</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="footnote">Self-reported values come from each agent's report. Sizes exclude system libraries (GTK, Qt, the JVM where it is shared); Python sizes include an app-local environment when the agent made one. Ratings marked “–” have not been given yet.</p>
+    </section>
+
+    <section class="eval-section">
+      <h2>Screenshots</h2>
+      <p class="section-blurb">The reference first, then each finished toolkit's first-launch screen, best rated first. Click one to see that toolkit's other states.</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="eval-section">
+      <h2>Against May</h2>
+      <p class="section-blurb">How the November builds compare with the same toolkits in May 2026. Until the supervisor and I have rated them, the comparison uses the agents' self-ratings, which are generous.</p>
+      <div id="vs-may"></div>
+    </section>
+
+    <section class="eval-section">
+      <h2>How it's run</h2>
+      <ul class="lessons">
+        <li><strong>From scratch.</strong> Each toolkit is built by one agent that may not read the May implementations, their git history or the May write-up. It works only in its own folder.</li>
+        <li><strong>Same app, same bundle.</strong> Every build loads the WGS Extract bundle from disk at runtime: pages, controls, strings in 22 languages, data-source scripts, actions and setup steps. Native windows with real controls; embedding the WebUI is not allowed.</li>
+        <li><strong>Nine checks, in priority order:</strong> bundle loading, sidebar, page rendering, localisation, data sources, actions with streamed output and cancel, setup, saved config, and polish. Each agent marks them done, partial or missing.</li>
+        <li><strong>Linux under Xvfb at 1280×800.</strong> One shared harness captures every screenshot. Apps print a <code>GFC_READY</code> marker once the sidebar and first page are drawn; ready time and memory are taken there.</li>
+        <li><strong>Claude Opus 5.5 at high effort</strong> in OpenCode, four agents at a time, with a supervisor agent handing out the queue. Windows builds follow on an Azure VM.</li>
+        <li><strong>Rated by hand at the end.</strong> The agents' self-ratings come first, the supervisor rates the screenshots, and I give the final owner rating once all of them are in.</li>
+      </ul>
+      <ul class="link-list eval-links" id="links"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p><a href="../">← May 2026 evaluation</a> · <a href="../../">All projects</a></p>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Screenshot viewer">
+    <figure>
+      <img id="lightbox-img" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous screenshot">‹</button>
+    <button type="button" class="lb-nav lb-next" aria-label="Next screenshot">›</button>
+    <button type="button" class="lb-close" aria-label="Close">×</button>
+  </dialog>
+</body>
+</html>
