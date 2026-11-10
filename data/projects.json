@@ -261,7 +261,8 @@
           "source": "Evaluation screenshot (May 2026)"
         }
       ],
-      "noStats": true
+      "noStats": true,
+      "when": "May 2026"
     },
     {
       "id": "dawnbreakers",

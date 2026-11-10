@@ -74,6 +74,8 @@ function matches(p, skip) {
   return state.query.toLowerCase().split(/\s+/).every((w) => hay.includes(w));
 }
 
+const whenBadge = (p) => (p.when ? h("span", { class: "when-badge", title: "When this was done" }, p.when) : null);
+
 function statusBadge(p) {
   const s = data.statuses[p.status] || { label: p.status };
   return h("span", { class: `status status-${p.status}`, title: s.description || "" }, s.label);
@@ -131,7 +133,7 @@ function card(p) {
   },
   thumb(p),
   h("div", { class: "card-body" },
-    h("div", { class: "badges" }, statusBadge(p), p.private ? h("span", { class: "private-badge" }, "Private") : null),
+    h("div", { class: "badges" }, statusBadge(p), whenBadge(p), p.private ? h("span", { class: "private-badge" }, "Private") : null),
     h("h3", {}, p.name),
     h("p", { class: "summary" }, p.summary),
     p.progress ? h("p", { class: "progress" }, p.progress) : null,
@@ -229,7 +231,7 @@ function renderFeatured() {
       style: img ? `background-image:url('${img.src}')` : "",
       onclick: () => openProject(p.id),
       onkeydown: (e) => { if (e.key === "Enter") openProject(p.id); },
-    }, h("div", { class: "feature-text" }, statusBadge(p), h("h3", {}, p.name), h("p", {}, p.summary)));
+    }, h("div", { class: "feature-text" }, h("div", { class: "badges" }, statusBadge(p), whenBadge(p)), h("h3", {}, p.name), h("p", {}, p.summary)));
   }));
 }
 
@@ -306,7 +308,7 @@ function openProject(id) {
     h("div", { class: "dialog-head" },
       h("div", {},
         h("span", { class: "category-label" }, categoryById[p.category].title), " ",
-        statusBadge(p),
+        statusBadge(p), " ", whenBadge(p),
         h("h2", { id: "dialog-title" }, p.name)),
       h("button", { type: "button", class: "close", "aria-label": "Close", onclick: () => dialog.close() }, "×")),
     h("p", { class: "dialog-summary" }, p.summary),
