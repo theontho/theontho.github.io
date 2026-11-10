@@ -40,7 +40,7 @@ function hue(text) {
 }
 
 const repoUrl = (p) => (p.repo ? `https://github.com/${p.repo}` : null);
-const statsFor = (p) => (stats.projects || {})[p.id] || {};
+const statsFor = (p) => (p.noStats ? {} : (stats.projects || {})[p.id] || {});
 
 const KINDS = {
   mine: { label: "My projects", test: (p) => p.role === "author" },

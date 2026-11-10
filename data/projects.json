@@ -43,6 +43,10 @@
       "label": "Merged into another project",
       "description": "Its work now lives in another project."
     },
+    "finished": {
+      "label": "Finished",
+      "description": "A completed experiment or study; the results are in."
+    },
     "superseded": {
       "label": "Superseded",
       "description": "Replaced by a newer project."
@@ -148,36 +152,29 @@
       "repo": "WGSExtract/gui-for-cli-outdated",
       "role": "author",
       "status": "merged",
-      "progress": "The evaluation ran 7–26 May 2026 with GPT-5.5 in GitHub Copilot CLI (plus GPT-5.4 and Claude Opus 4.7). SwiftUI and Tauri won. The framework then became a single Tauri app that now ships inside WGS Extract; the experiments live on the old-experimental branch.",
-      "summary": "An evaluation of how well AI agents could build the same data-driven desktop app on about 30 UI platform combinations, which became the framework behind the WGS Extract desktop app.",
+      "progress": "Folded into WGS Extract as a single Tauri app. The ~30-toolkit experiments live on the old-experimental branch; see the AI desktop UI evaluation.",
+      "summary": "Turns a portable CLI-tool bundle into an installable desktop app. It started as the testbed for my AI desktop UI evaluation and became the framework behind the WGS Extract desktop app.",
       "highlights": [
-        "The same app, running the real WGS Extract bundle, built by AI in SwiftUI, AppKit, Tauri, Electron, Flutter, Compose, Slint, Gio, Iced, egui, ImGui, Raygui, Qt/QML, GTK4, Avalonia, wxPython, Textual and more",
-        "Every real window benchmarked for startup, memory and size on macOS, plus a Windows pass",
-        "34 screenshots hand-rated: the experimental rewrites averaged 2.55/5; only Flutter, Compose Desktop, wxPython and Swift AppKit reached 4/5",
-        "Lesson: the fastest renderers (ImGui, GTK4, Iced: 4–21 ms) were rarely the best products; reusing one complete WebUI behaviour model beat rewriting it",
-        "Data-driven pages: setup steps, long-running commands, data sources, localisation, file pickers and terminal output"
+        "One TypeScript app: a web UI and a local Node backend, packaged as a native app with Tauri",
+        "Data-driven pages: setup steps, long-running commands, dynamic data sources, localisation, file pickers and terminal output",
+        "Served as the shared app for the AI desktop UI evaluation across about 30 toolkits",
+        "Over 600 commits and 22 releases before it was folded into WGS Extract"
       ],
       "tech": [
         "TypeScript",
+        "Node",
         "Tauri",
-        "Swift",
-        "Rust",
-        "Dart",
-        "AI evaluation"
+        "Rust"
       ],
       "links": [
         {
-          "label": "Evaluation results →",
+          "label": "AI desktop UI evaluation →",
           "url": "gui-for-cli/index.html",
           "primary": true
         },
         {
           "label": "old-experimental branch",
           "url": "https://github.com/WGSExtract/gui-for-cli-outdated/tree/old-experimental"
-        },
-        {
-          "label": "Platform lessons article",
-          "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/site_src/platform-lessons.md"
         },
         {
           "label": "Current home",
@@ -189,28 +186,82 @@
           "src": "screenshots/gui-for-cli/wgsextract-bundle.webp",
           "caption": "Running the WGS Extract example bundle",
           "source": "Repository README"
+        }
+      ]
+    },
+    {
+      "id": "desktop-ui-eval",
+      "name": "AI desktop UI evaluation: one app, ~30 toolkits",
+      "category": "major",
+      "featured": true,
+      "repo": "WGSExtract/gui-for-cli-outdated",
+      "role": "author",
+      "status": "finished",
+      "progress": "Ran 7–26 May 2026 with GPT-5.5 in GitHub Copilot CLI (plus GPT-5.4 and Claude Opus 4.7). The rewrites averaged 2.55/5; SwiftUI and Tauri won, and Tauri now ships in WGS Extract.",
+      "summary": "I had AI agents build the same real desktop app in about 30 UI toolkits, then benchmarked every window and hand-rated every screenshot to see how well each one came out.",
+      "highlights": [
+        "SwiftUI, AppKit, Tauri, Electron, Flutter, Compose, Slint, Gio, Iced, egui, ImGui, Raygui, Qt/QML, GTK4, Avalonia, wxPython, Textual and more, all running the WGS Extract bundle",
+        "34 screenshots rated 1–5, with implementation difficulty, completeness and active hours per toolkit",
+        "The fastest renderers (4–21 ms) were rated 2/5; Flutter, Compose Desktop, wxPython and Swift AppKit reached 4/5",
+        "Reusing one complete WebUI beat rewriting the app per toolkit; the WebUI launchers mostly tested packaging, startup and memory"
+      ],
+      "tech": [
+        "AI evaluation",
+        "Swift",
+        "Rust",
+        "Dart",
+        "Kotlin",
+        "TypeScript",
+        "Python"
+      ],
+      "links": [
+        {
+          "label": "Open the evaluation →",
+          "url": "gui-for-cli/index.html",
+          "primary": true
         },
         {
+          "label": "old-experimental branch",
+          "url": "https://github.com/WGSExtract/gui-for-cli-outdated/tree/old-experimental"
+        },
+        {
+          "label": "Platform lessons article",
+          "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/site_src/platform-lessons.md"
+        }
+      ],
+      "screenshots": [
+        {
           "src": "screenshots/gui-for-cli/eval/flutter.webp",
-          "caption": "Flutter rewrite: rated 4/5",
+          "caption": "Flutter: rated 4/5, the strongest rewrite",
           "source": "Evaluation screenshot (May 2026)"
         },
         {
           "src": "screenshots/gui-for-cli/eval/compose-desktop.webp",
-          "caption": "Compose Desktop rewrite: rated 4/5",
+          "caption": "Compose Desktop: rated 4/5",
+          "source": "Evaluation screenshot (May 2026)"
+        },
+        {
+          "src": "screenshots/gui-for-cli/eval/swiftui-macos.webp",
+          "caption": "SwiftUI: the native reference",
           "source": "Evaluation screenshot (May 2026)"
         },
         {
           "src": "screenshots/gui-for-cli/eval/slint.webp",
-          "caption": "Slint rewrite: rated 2/5 despite excellent footprint",
+          "caption": "Slint: rated 2/5 despite an excellent footprint",
           "source": "Evaluation screenshot (May 2026)"
         },
         {
           "src": "screenshots/gui-for-cli/eval/imgui-cpp.webp",
-          "caption": "C++ Dear ImGui: fastest (3.6 ms) and rated 2/5",
+          "caption": "C++ Dear ImGui: fastest (3.6 ms), rated 2/5",
+          "source": "Evaluation screenshot (May 2026)"
+        },
+        {
+          "src": "screenshots/gui-for-cli/eval/avalonia.webp",
+          "caption": "Avalonia: rated 1/5 (a config error on screen)",
           "source": "Evaluation screenshot (May 2026)"
         }
-      ]
+      ],
+      "noStats": true
     },
     {
       "id": "dawnbreakers",

@@ -135,7 +135,7 @@
       "id": "tauri",
       "name": "Tauri WebUI",
       "language": "TypeScript + Rust",
-      "kind": "WebUI shell",
+      "kind": "WebUI launcher",
       "visual": 5,
       "difficulty": 4,
       "completeness": 5,
@@ -148,13 +148,14 @@
         "metric": "web app rendered",
         "rssMb": 172.5,
         "artifactMb": 123.985
-      }
+      },
+      "parent": "webui"
     },
     {
       "id": "electron",
       "name": "Electron WebUI",
       "language": "TypeScript",
-      "kind": "WebUI shell",
+      "kind": "WebUI launcher",
       "visual": 5,
       "difficulty": 3,
       "completeness": 5,
@@ -167,13 +168,14 @@
         "metric": "web app rendered",
         "rssMb": 537.1,
         "artifactMb": 282.321
-      }
+      },
+      "parent": "webui"
     },
     {
       "id": "webview-shell",
       "name": "WKWebView shell",
       "language": "Swift + TypeScript",
-      "kind": "WebUI shell",
+      "kind": "WebUI launcher",
       "visual": 5,
       "difficulty": 2,
       "completeness": 4,
@@ -186,13 +188,14 @@
         "metric": "web app rendered",
         "rssMb": 93.1,
         "artifactMb": 114.459
-      }
+      },
+      "parent": "webui"
     },
     {
       "id": "browser-webui",
       "name": "Browser WebUI",
       "language": "TypeScript",
-      "kind": "WebUI shell",
+      "kind": "WebUI launcher",
       "visual": 5,
       "difficulty": 2,
       "completeness": 5,
@@ -205,7 +208,8 @@
         "metric": "web app rendered",
         "rssMb": 1048.0,
         "artifactMb": 0.66
-      }
+      },
+      "parent": "webui"
     },
     {
       "id": "tui",
@@ -667,7 +671,7 @@
       "id": "dioxus",
       "name": "Dioxus WebUI",
       "language": "Rust",
-      "kind": "WebUI shell",
+      "kind": "WebUI launcher",
       "visual": 2,
       "difficulty": 3,
       "completeness": 3,
@@ -680,7 +684,8 @@
         "metric": "window shown",
         "rssMb": 159.7,
         "artifactMb": 120.455
-      }
+      },
+      "parent": "webui"
     },
     {
       "id": "nodegui",
@@ -739,5 +744,6 @@
         "artifactMb": 12.827
       }
     }
-  ]
+  ],
+  "launcherNote": "Indented rows run the same WebUI inside a different launcher (browser, Tauri, Electron, WKWebView, Dioxus). They mostly tested packaging, startup, memory and size, not a new UI."
 }

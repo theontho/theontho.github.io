@@ -43,21 +43,32 @@ function renderTable() {
   rows = data.surfaces.filter((s) =>
     (filters.kind === "all" || s.kind === filters.kind) &&
     (filters.visual === "all" || String(s.visual) === filters.visual));
-  rows.sort((a, b) => {
+  const compare = (a, b) => {
     const va = sortValue(a, sort.key), vb = sortValue(b, sort.key);
     if (va == null && vb == null) return a.name.localeCompare(b.name);
     if (va == null) return 1;
     if (vb == null) return -1;
     const cmp = typeof va === "string" ? va.localeCompare(vb) : va - vb;
     return cmp * sort.dir || a.name.localeCompare(b.name);
-  });
+  };
+  // Launchers of the WebUI stay indented under it; they stand alone only when it is filtered out.
+  const shown = new Set(rows.map((r) => r.id));
+  const nested = (r) => r.parent && shown.has(r.parent);
+  const ordered = [];
+  for (const top of rows.filter((r) => !nested(r)).sort(compare)) {
+    ordered.push(top);
+    ordered.push(...rows.filter((r) => r.parent === top.id).sort(compare));
+  }
+  rows = ordered;
   tbody.replaceChildren(...rows.map((s) => h("tr", {
+    class: nested(s) ? "child" : null,
     tabindex: "0",
     onclick: () => openShot(shots.findIndex((x) => x.id === s.id)),
     onkeydown: (e) => { if (e.key === "Enter") openShot(shots.findIndex((x) => x.id === s.id)); },
   },
   h("td", {}, h("div", { class: "tk" },
     h("img", { src: BASE + s.screenshot, alt: "", loading: "lazy" }),
+    nested(s) ? h("span", { class: "indent", "aria-hidden": "true" }, "↳") : null,
     h("span", {}, h("b", {}, s.name), h("small", {}, `${s.language} · ${s.kind}`)))),
   h("td", { class: "num" }, score(s.visual)),
   h("td", { class: "num" }, score(s.completeness)),
@@ -67,6 +78,7 @@ function renderTable() {
   h("td", { class: "num" }, s.macos ? `${Math.round(s.macos.rssMb)} MB` : ""),
   h("td", { class: "num" }, fmtMb(s.macos?.artifactMb)),
   h("td", { class: "verdict" }, s.verdict))));
+  document.getElementById("launcher-note").textContent = data.launcherNote || "";
   document.getElementById("eval-count").textContent = `${rows.length} of ${data.surfaces.length}`;
   document.querySelectorAll("#eval-table th[data-sort]").forEach((th) => {
     th.setAttribute("aria-sort", th.dataset.sort === sort.key ? (sort.dir < 0 ? "descending" : "ascending") : "none");
