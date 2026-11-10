@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:13:00Z",
+  "generatedAt": "2026-11-10T22:13:11Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -23,7 +23,7 @@
     "failed": 0,
     "activeHours": 25.5,
     "meanSelfVisual": 4.03,
-    "meanMyVisual": 4.62,
+    "meanMyVisual": 4.59,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.71,
     "vsMay": {
@@ -1486,8 +1486,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.5,
-      "myVisual": null,
-      "myNotes": null,
+      "myVisual": 4,
+      "myNotes": "Provisional, from the main screenshot: close layout and dialog; different icon set, slightly larger scale, and a debug line left in the terminal panel.",
       "userVisual": null,
       "userNotes": null,
       "features": [
