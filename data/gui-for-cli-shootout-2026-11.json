@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T23:19:27Z",
+  "generatedAt": "2026-11-10T23:42:27Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -52,7 +52,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 2
+    "windowsDone": 3
   },
   "toolkits": [
     {
@@ -228,7 +228,7 @@
         "note": "Measured at load average ~7.4; 862–935 ms at normal load."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -392,11 +392,11 @@
         "note": "Single binary; needs the system Qt 6 runtime."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 624,
+        "rssMb": 127,
+        "sizeMb": 51.5,
+        "notes": "Warm median of 5; ~340 ms is the bundle's PowerShell config script before the window; first launches on a freshly booted VM took 15–20 s. Qt 6.10.1."
       },
       "shots": [
         {
@@ -428,6 +428,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-dark.webp",
           "caption": "Dark theme",
           "sha": "5bdfc48301621398"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "768b26ba6aa8945e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-windows-setup.webp",
+          "caption": "Windows 11, real Windows setup steps running",
+          "sha": "8e59cdb31406e142"
         }
       ],
       "may": {
