@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T21:25:18Z",
+  "generatedAt": "2026-11-10T21:34:57Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 29,
-    "done": 15,
+    "done": 16,
     "building": 4,
-    "queued": 10,
+    "queued": 9,
     "failed": 0,
-    "activeHours": 23.0,
-    "meanSelfVisual": 4.1,
+    "activeHours": 24.0,
+    "meanSelfVisual": 4.03,
     "meanMyVisual": 4.73,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.69,
+    "meanMayVisualDone": 2.71,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -44,11 +44,11 @@
         "worse": 0
       },
       "selfVisual": {
-        "n": 13,
-        "newMean": 4.12,
-        "mayMean": 2.69,
+        "n": 14,
+        "newMean": 4.04,
+        "mayMean": 2.71,
         "better": 11,
-        "same": 2,
+        "same": 3,
         "worse": 0
       }
     },
@@ -1257,27 +1257,37 @@
       "name": "Textual",
       "language": "Python",
       "kind": "Terminal",
-      "status": "building",
+      "status": "done",
       "wave": 4,
       "mayId": "textual",
       "mayVisual": 3,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
+      "selfVisual": 3,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.0,
       "myVisual": null,
       "myNotes": null,
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "A terminal UI with the reference's layout, colours and full workflow, shown in a vendored kitty terminal that also draws the real bundle icon.",
+      "lessons": "A TUI is a monospace cell grid, so there is no large title and controls are flat one-row fields. Shipping it as a window means vendoring a terminal, and Textual has no native dialogs or RTL.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 871,
+        "rssMb": 288.4,
+        "sizeMb": 194,
+        "build": "2.4 s clean (kitty download + uv sync; nothing compiled)",
+        "note": "About 237 MB of the RSS and 163 MB of the size are the vendored kitty terminal; the Python app alone is ~60 MB RSS and 33 MB."
       },
       "windows": {
         "status": null,
@@ -1286,7 +1296,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-main.webp",
+          "caption": "First launch with the setup dialog, in kitty",
+          "sha": "9fbed9c173c717b1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "ce87f21bd966f2a6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-demo-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "3b69a99d056934bb"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "be13871a20634374"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-arabic.webp",
+          "caption": "Arabic, right-to-left (mirrored by hand)",
+          "sha": "6eb21ece8632fea5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-dark.webp",
+          "caption": "Dark theme",
+          "sha": "da42c8ea2abcd0cc"
+        }
+      ]
     },
     {
       "id": "gpui",
@@ -1473,7 +1514,7 @@
       "name": "Zenbu UI",
       "language": "C",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 5,
       "mayId": null,
       "mayVisual": null,
