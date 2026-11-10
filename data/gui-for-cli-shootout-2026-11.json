@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:37:16Z",
+  "generatedAt": "2026-11-10T23:10:43Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -52,7 +52,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 1
+    "windowsDone": 2
   },
   "toolkits": [
     {
@@ -135,11 +135,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1055,
+        "rssMb": 219,
+        "sizeMb": 29.2,
+        "notes": "Warm median of 5; 4.8 s first launch after VM boot; ~0.9 s is engine start on a GPU-less VM."
       },
       "shots": [
         {
@@ -171,6 +171,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-action-exit.webp",
           "caption": "Dependency check exits 127 with an error tab",
           "sha": "5e44153859127247"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "b5df34d634a4977c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-windows-running.webp",
+          "caption": "Windows 11, command streaming (demo bundle)",
+          "sha": "e55dbb1a98a475d5"
         }
       ]
     },
@@ -366,7 +376,7 @@
         "note": "Single binary; needs the system Qt 6 runtime."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
