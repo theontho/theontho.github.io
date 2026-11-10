@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="scripts/social/card.css">
+<style>
+  .sc-card { grid-template-columns: 560px 1fr; }
+  h1 { font-size: 54px; }
+  .sc-stat b { font-size: 46px; }
+  .sc-charts { display: flex; flex-direction: column; gap: 12px; }
+  .sc-chart { margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 10px 28px rgba(0, 0, 0, .45); }
+  .sc-chart img { display: block; width: 100%; height: auto; }
+</style>
+</head><body><main class="sc-card">
+  <section class="sc-text">
+    <div class="sc-chips"><span class="sc-chip">${period}</span></div>
+    <h1>${title}</h1>
+    <p class="sc-sub">BWA, BWA-MEM2, bwa-mem3 and minimap2 rebuilt for Apple Silicon and Metal, with byte-identical alignments.</p>
+    <div class="sc-stats">${stats}</div>
+  </section>
+  <section class="sc-charts">${charts}</section>
+</main></body></html>

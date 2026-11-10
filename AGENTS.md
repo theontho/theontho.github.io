@@ -10,4 +10,9 @@
   `python3 -m http.server` and look at it before pushing.
 - Screenshots are WebP, at most 1600 px wide, stored in `screenshots/<project-id>/`,
   and every file must be referenced from `data/projects.json`.
+- Every HTML page needs full Open Graph/Twitter tags with a 1200×630 card in
+  `assets/social/`. After changing projects or their screenshots, run
+  `uv run --with playwright scripts/social_previews.py` (it also writes the
+  `p/<id>/` share pages that give each project its own card) and look at the
+  images; `scripts/check.py` fails on missing or stale ones.
 - Keep it a plain static site with no build step or dependencies.

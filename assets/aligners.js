@@ -73,7 +73,12 @@ function render(d) {
   $("small-notes").replaceChildren(...d.smallMac.notes.map((n) => h("li", {}, n)));
   $("hosted").replaceChildren(...d.hosted.map((n) => h("li", {}, n)));
   $("failed").replaceChildren(...d.failed.map((n) => h("li", {}, n)));
-  $("links").replaceChildren(...d.links.map((l) => h("li", {}, h("a", { href: l.url }, l.label))));
+  if (d.release) {
+    document.querySelectorAll("[data-release-tag]").forEach((el) => { el.textContent = d.release.tag; });
+    document.querySelectorAll("[data-release-link]").forEach((el) => { el.href = d.release.url; });
+  }
+  const latest = d.release ? [{ label: `${d.release.tag} (latest build)`, url: d.release.url }] : [];
+  $("links").replaceChildren(...[...latest, ...d.links].map((l) => h("li", {}, h("a", { href: l.url }, l.label))));
   $("prs").replaceChildren(...d.prs.map(([n, t]) => h("li", {}, h("a", { href: `${REPO}/pull/${n}` }, `#${n}`), ` ${t}`)));
 }
 

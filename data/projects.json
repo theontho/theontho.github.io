@@ -110,7 +110,7 @@
       ],
       "links": [
         {
-          "label": "Apple Silicon aligner hillclimb →",
+          "label": "Apple Silicon genome aligner hillclimb →",
           "url": "apple-silicon-aligners/index.html",
           "primary": true
         },
@@ -201,6 +201,7 @@
     {
       "id": "desktop-ui-eval",
       "name": "AI desktop UI evaluation: one app, ~30 toolkits",
+      "page": "gui-for-cli/index.html",
       "category": "major",
       "featured": true,
       "repo": "WGSExtract/gui-for-cli-outdated",
@@ -279,8 +280,67 @@
       "when": "May 2026"
     },
     {
+      "id": "gui-shootout-2026-11",
+      "name": "GUI shootout, November 2026",
+      "page": "gui-for-cli/2026-11/index.html",
+      "category": "major",
+      "featured": true,
+      "when": "November 2026",
+      "noStats": true,
+      "role": "author",
+      "status": "active",
+      "progress": "Running now with Claude Opus 5.5; the results page updates live as each toolkit lands, and a Windows pass follows on an Azure VM.",
+      "summary": "A rerun of the May evaluation: one AI agent per toolkit rebuilds the same desktop app from scratch on about 30 Linux UI toolkits, then the best ones are ported to Windows. Live results, screenshots and May-vs-November comparisons.",
+      "highlights": [
+        "Same app and bundle as May, stricter rules: from scratch, no old code, native windows only, no embedded WebUI",
+        "Flutter, Compose, Qt, GTK4, Slint, Avalonia, egui, Iced, Gio, GPUI, Makepad, Tkinter, Textual and more, including new entries such as Moonframe and Freya",
+        "Every build is captured by one Xvfb harness at 1280×800 with a readiness marker, ready time and memory",
+        "Before/after view: each toolkit's May screenshot next to its November build, with both ratings",
+        "So far the supervisor's ratings sit far above May's on the same toolkits; Avalonia went from 1/5 to 5/5"
+      ],
+      "tech": [
+        "AI evaluation",
+        "Rust",
+        "Python",
+        "Go",
+        "C++",
+        "Dart",
+        "Kotlin",
+        "C#"
+      ],
+      "links": [
+        {
+          "label": "Open the live results →",
+          "url": "gui-for-cli/2026-11/index.html",
+          "primary": true
+        },
+        {
+          "label": "May 2026 evaluation",
+          "url": "gui-for-cli/index.html"
+        }
+      ],
+      "screenshots": [
+        {
+          "src": "screenshots/gui-shootout-2026-11/results.webp",
+          "caption": "The live results page: progress, ratings and every toolkit",
+          "source": "Results page (November 2026)"
+        },
+        {
+          "src": "screenshots/gui-shootout-2026-11/before-after.webp",
+          "caption": "Before → after: May's builds next to November's",
+          "source": "Results page (November 2026)"
+        },
+        {
+          "src": "screenshots/gui-shootout-2026-11/gpui.webp",
+          "caption": "GPUI: nearly identical to the reference app",
+          "source": "Shootout screenshot (November 2026)"
+        }
+      ]
+    },
+    {
       "id": "apple-silicon-aligners",
-      "name": "Apple Silicon aligner hillclimb",
+      "name": "Apple Silicon genome aligner hillclimb",
+      "page": "apple-silicon-aligners/index.html",
       "category": "major",
       "featured": true,
       "when": "November 2026",

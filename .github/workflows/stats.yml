@@ -24,16 +24,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update_stats.py
+      - name: Find the newest aligner prerelease
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/update_aligner_release.py
       - name: Validate after refresh
         run: python3 scripts/check.py
       - name: Commit if changed
         run: |
-          if git diff --quiet data/stats.json; then
+          if git diff --quiet data/stats.json data/apple-silicon-aligners.json; then
             echo "No changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stats.json
+          git add data/stats.json data/apple-silicon-aligners.json
           git commit -m "Refresh GitHub stats"
           git push

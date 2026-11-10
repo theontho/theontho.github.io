@@ -69,6 +69,7 @@ def main() -> int:
     shutil.copytree(ROOT / "assets", out / "assets")
     shutil.copytree(ROOT / "gui-for-cli", out / "gui-for-cli")
     shutil.copytree(ROOT / "apple-silicon-aligners", out / "apple-silicon-aligners")
+    shutil.copytree(ROOT / "p", out / "p")
     shutil.copytree(ROOT / "screenshots", out / "screenshots")
     if (private_dir / "screenshots").is_dir():
         shutil.copytree(private_dir / "screenshots", out / "screenshots", dirs_exist_ok=True)

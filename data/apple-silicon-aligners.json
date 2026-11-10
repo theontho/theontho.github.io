@@ -1,5 +1,10 @@
 {
-  "title": "Apple Silicon aligner hillclimb",
+  "title": "Apple Silicon genome aligner hillclimb",
+  "release": {
+    "tag": "macos-aligners-14",
+    "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-14",
+    "publishedAt": "2026-11-10T04:01:09Z"
+  },
   "period": "4–10 November 2026",
   "models": "Claude Opus 5.5 in GitHub Copilot CLI for most of the work, with GPT-6 Astra and GPT-6.1 Sol on the first day",
   "machines": "M1 Pro (8P+2E cores, 32 GB) for the main measurements; a base M1 Mac mini (16 GB) and GitHub's virtual M1 runners (7 GiB) for small Macs",
@@ -364,10 +369,6 @@
     {
       "label": "Hardware and acceleration guide",
       "url": "https://github.com/WGSExtract/wgsextract-cli/blob/main/docs/hardware.md"
-    },
-    {
-      "label": "macos-aligners-14 release",
-      "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-14"
     },
     {
       "label": "All aligner prereleases",

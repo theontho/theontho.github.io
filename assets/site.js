@@ -302,6 +302,8 @@ function openProject(id) {
     repoUrl(p) ? { label: p.role === "contributor" ? "Upstream repo" : "GitHub repo", url: repoUrl(p) } : null,
     p.fork ? { label: "My fork", url: `https://github.com/${p.fork}` } : null,
     ...(p.links || []),
+    // p/<id>/ carries the project's own social card, which /?project=<id> can't.
+    p.private ? null : { label: "Share link", url: `p/${p.id}/` },
   ].filter(Boolean).filter((l, i, arr) => arr.findIndex((x) => x.url === l.url) === i);
   const shots = (p.screenshots || []).map((x) => ({ ...x, project: p }));
   document.getElementById("dialog-body").replaceChildren(...[

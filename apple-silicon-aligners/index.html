@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>November 2026: Apple Silicon aligner hillclimb · Mahyar (Mac) McDonald</title>
+  <title>November 2026: Apple Silicon genome aligner hillclimb · Mahyar (Mac) McDonald</title>
   <meta name="description" content="AI agents rebuilt BWA, BWA-MEM2, bwa-mem3 and minimap2 for Apple Silicon and Metal, one measured step at a time, with byte-identical alignments: BWA 3.9× faster, half the energy, a 30x genome on a 16 GB M1.">
-  <meta property="og:title" content="November 2026: Apple Silicon aligner hillclimb">
-  <meta property="og:description" content="BWA 3.9× faster on Metal with byte-identical alignments; every step measured.">
-  <meta property="og:image" content="https://theontho.github.io/screenshots/apple-silicon-aligners/hillclimb.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mahyar (Mac) McDonald">
+  <meta property="og:url" content="https://theontho.github.io/apple-silicon-aligners/">
+  <meta property="og:title" content="November 2026: Apple Silicon genome aligner hillclimb">
+  <meta property="og:description" content="BWA, BWA-MEM2, bwa-mem3 and minimap2 rebuilt for Apple Silicon and Metal with byte-identical alignments: BWA 3.9× faster, half the energy, every step measured. Free to download.">
+  <meta property="og:image" content="https://theontho.github.io/assets/social/apple-silicon-aligners.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Apple Silicon genome aligner hillclimb (November 2026): BWA 3.9× faster with --metal, with the version-by-version chart">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="November 2026: Apple Silicon genome aligner hillclimb">
+  <meta name="twitter:description" content="BWA, BWA-MEM2, bwa-mem3 and minimap2 rebuilt for Apple Silicon and Metal with byte-identical alignments: BWA 3.9× faster, half the energy, every step measured. Free to download.">
+  <meta name="twitter:image" content="https://theontho.github.io/assets/social/apple-silicon-aligners.jpg">
+  <meta name="twitter:image:alt" content="Apple Silicon genome aligner hillclimb (November 2026): BWA 3.9× faster with --metal, with the version-by-version chart">
   <meta name="color-scheme" content="dark light">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
@@ -20,12 +32,57 @@
       <p class="date-chip">November 2026 <small>a snapshot of that era's AI models</small></p>
       <h1>Hill-climbing genome aligners on Apple Silicon</h1>
       <p class="tagline">WGS Extract spends most of a genome's time in the aligner. Over six days, AI agents rebuilt BWA, BWA-MEM2, bwa-mem3 and minimap2 for Apple Silicon and its GPU, one measured step at a time. Every version had to write exactly the same alignments as upstream, and only kept a change if it was faster.</p>
+      <section class="cta" aria-labelledby="cta-title">
+        <h2 id="cta-title">Get the aligners</h2>
+        <p>Free and open source, for Apple Silicon Macs on macOS 13 or later. They write the same alignments as upstream BWA, BWA-MEM2, bwa-mem3 and minimap2.</p>
+        <ul class="cta-buttons">
+          <li><a class="cta-btn primary" data-release-link href="https://github.com/WGSExtract/wgsextract-cli/releases?q=macos-aligners&amp;expanded=true">Download the latest build <small data-release-tag>macos-aligners-14</small></a></li>
+          <li><a class="cta-btn" href="#use-them">How to install and run</a></li>
+          <li><a class="cta-btn" href="https://github.com/WGSExtract/wgsextract-cli/tree/main/native">Source code</a></li>
+          <li><a class="cta-btn" href="https://github.com/WGSExtract/wgsextract-cli/blob/main/native/README.md">README</a></li>
+          <li><a class="cta-btn" href="https://github.com/WGSExtract/wgsextract-cli">WGS Extract <small>uses them automatically</small></a></li>
+        </ul>
+      </section>
       <dl class="era" id="era"></dl>
       <dl class="totals" id="headline"></dl>
     </div>
   </header>
 
   <main class="wrap">
+    <section class="eval-section" id="use-them">
+      <h2>Use them</h2>
+      <p class="section-blurb">From the <a href="https://github.com/WGSExtract/wgsextract-cli/blob/main/native/README.md#installing">aligner README</a>. Download with <code>gh</code> (or <code>curl</code>) rather than a browser, so Gatekeeper's quarantine flag doesn't stop these ad-hoc-signed builds.</p>
+      <ol class="steps">
+        <li>
+          <h3>Download the latest build and check it</h3>
+          <p>Continue only if every archive reports <code>OK</code>.</p>
+          <pre><code>mkdir wgse-aligners &amp;&amp; cd wgse-aligners
+gh release download <span data-release-tag>macos-aligners-14</span> -R WGSExtract/wgsextract-cli
+gh release view <span data-release-tag>macos-aligners-14</span> -R WGSExtract/wgsextract-cli --json assets \
+  --jq '.assets[] | "\(.digest | ltrimstr("sha256:"))  \(.name)"' |
+  shasum -a 256 -c</code></pre>
+        </li>
+        <li>
+          <h3>Unpack and put them on <code>PATH</code></h3>
+          <p>Add the <code>export</code> to your shell profile to keep it.</p>
+          <pre><code>for archive in wgse-*-macos-arm64.tar.gz; do tar -xzf "$archive"; done
+for dir in wgse-*-macos-arm64; do PATH="$PWD/$dir/bin:$PATH"; done
+export PATH</code></pre>
+        </li>
+        <li>
+          <h3>Run one directly</h3>
+          <p>Same commands and index files as upstream; <code>--metal</code> (experimental) runs part of the work on the GPU.</p>
+          <pre><code>wgse-bwa mem -t 9 hs38.fa R1.fastq.gz R2.fastq.gz &gt; out.sam
+wgse-bwa --metal mem -t 9 hs38.fa R1.fastq.gz R2.fastq.gz &gt; out.sam</code></pre>
+        </li>
+        <li>
+          <h3>Or let WGS Extract use them</h3>
+          <p>When they're on <code>PATH</code>, <a href="https://github.com/WGSExtract/wgsextract-cli">WGS Extract</a>'s <code>align</code> and <code>realign</code> run them in place of bwa, bwa-mem2 and minimap2.</p>
+          <pre><code>wgsextract align --r1 sample_R1.fastq.gz --r2 sample_R2.fastq.gz --ref hs38.fa</code></pre>
+        </li>
+      </ol>
+    </section>
+
     <section class="eval-section">
       <h2>The climbs</h2>
       <p class="section-blurb" id="method"></p>
@@ -72,6 +129,17 @@
       <ul class="link-list eval-links" id="links"></ul>
       <h3 class="subhead">Key pull requests</h3>
       <ul class="pr-list" id="prs"></ul>
+    </section>
+
+    <section class="eval-section cta-end" aria-labelledby="cta-end-title">
+      <h2 id="cta-end-title">Get the aligners</h2>
+      <ul class="link-list">
+        <li><a class="primary" data-release-link href="https://github.com/WGSExtract/wgsextract-cli/releases?q=macos-aligners&amp;expanded=true">Latest build: <span data-release-tag>macos-aligners-14</span></a></li>
+        <li><a href="#use-them">Install and run</a></li>
+        <li><a href="https://github.com/WGSExtract/wgsextract-cli/tree/main/native">Source code</a></li>
+        <li><a href="https://github.com/WGSExtract/wgsextract-cli/blob/main/native/README.md">README</a></li>
+        <li><a href="https://github.com/WGSExtract/wgsextract-cli">WGS Extract</a></li>
+      </ul>
     </section>
   </main>
 

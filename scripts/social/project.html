@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="scripts/social/card.css">
+<style>
+  .sc-card { grid-template-columns: ${text_width}px 1fr; }
+  h1 { font-size: ${title_size}px; }
+  .sc-sub { font-size: 23px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .sc-status { display: inline-flex; align-items: center; gap: 9px; padding: 6px 15px; border-radius: 999px; font-weight: 700; font-size: 19px;
+    color: var(--sc); border: 2px solid color-mix(in srgb, var(--sc) 50%, transparent); background: color-mix(in srgb, var(--sc) 14%, transparent); }
+  .sc-status::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--sc); }
+  .sc-grid { grid-template-columns: repeat(${columns}, 1fr); }
+  .sc-mono { display: grid; place-items: center; align-content: center; gap: 22px; height: 470px; border-radius: 18px; border: 1px solid var(--line);
+    background: linear-gradient(135deg, color-mix(in srgb, ${hue} 30%, var(--bg-2)), var(--bg-2) 72%); }
+  .sc-mono b { font-size: 120px; line-height: 1; letter-spacing: -.04em; }
+  .sc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 460px; }
+  .sc-tags span { padding: 4px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); font-size: 17px; }
+</style>
+</head><body><main class="sc-card">
+  <section class="sc-text">
+    <p class="sc-eyebrow">${category}</p>
+    <div class="sc-chips"><span class="sc-status status-${status}">${status_label}</span>${when}</div>
+    <h1>${name}</h1>
+    <p class="sc-sub">${summary}</p>
+    <p class="sc-foot"><b>theontho.github.io</b> · Mahyar (Mac) McDonald</p>
+  </section>
+  <section class="sc-grid">${visual}</section>
+</main></body></html>
