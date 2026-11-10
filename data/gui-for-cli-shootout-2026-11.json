@@ -1,0 +1,1719 @@
+{
+  "generatedAt": "2026-11-10T21:08:56Z",
+  "title": "November 2026: the GUI shootout, again",
+  "period": "November 2026",
+  "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
+  "links": [],
+  "features": [
+    "Bundle loaded from disk",
+    "Sidebar",
+    "Page rendering",
+    "Localisation",
+    "Data sources",
+    "Actions",
+    "Setup",
+    "Saved config",
+    "Polish"
+  ],
+  "stats": {
+    "total": 29,
+    "done": 14,
+    "building": 4,
+    "queued": 11,
+    "failed": 0,
+    "activeHours": 22.0,
+    "meanSelfVisual": 4.11,
+    "meanMyVisual": null,
+    "meanUserVisual": null,
+    "meanMayVisualDone": 2.67,
+    "vsMay": {
+      "userVisual": {
+        "n": 0,
+        "newMean": null,
+        "mayMean": null,
+        "better": 0,
+        "same": 0,
+        "worse": 0
+      },
+      "myVisual": {
+        "n": 0,
+        "newMean": null,
+        "mayMean": null,
+        "better": 0,
+        "same": 0,
+        "worse": 0
+      },
+      "selfVisual": {
+        "n": 12,
+        "newMean": 4.12,
+        "mayMean": 2.67,
+        "better": 10,
+        "same": 2,
+        "worse": 0
+      }
+    },
+    "windowsDone": 0
+  },
+  "toolkits": [
+    {
+      "id": "webui",
+      "name": "WebUI (reference)",
+      "language": "TypeScript",
+      "kind": "Reference",
+      "status": "reference",
+      "wave": 0,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": "The reference app every toolkit was compared against, shown in Chromium with the first-launch setup dialog.",
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/webui-reference-webui.webp",
+          "caption": "The reference WebUI at 1280×800 with the first-launch setup dialog",
+          "sha": "55b2a26ba120427b"
+        }
+      ]
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter",
+      "language": "Dart",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 1,
+      "mayId": "flutter",
+      "mayVisual": 4,
+      "selfVisual": 4.5,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Close to pixel-level with the reference, with every page, data source, action and setup step working.",
+      "lessons": "Fonts were the main fight: the Linux engine ignores fontconfig aliases, so the agent loads Chromium's faces itself. dart:io cannot create process groups, so cancel uses setsid plus a watchdog.",
+      "linux": {
+        "readyMs": 614,
+        "rssMb": 333.7,
+        "sizeMb": 26,
+        "build": "~25 s clean release build once the SDK is warm",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "486e99cc50c68382"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "e9f1afe4d031654b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-running.webp",
+          "caption": "Streaming output from a test action",
+          "sha": "b948f8ae51e27041"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-rtl-he.webp",
+          "caption": "Hebrew, right-to-left",
+          "sha": "9366657ff4e61040"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-dark.webp",
+          "caption": "Dark theme",
+          "sha": "7af8f9d94e44b381"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/flutter-action-exit.webp",
+          "caption": "Dependency check exits 127 with an error tab",
+          "sha": "5e44153859127247"
+        }
+      ]
+    },
+    {
+      "id": "compose",
+      "name": "Compose Desktop",
+      "language": "Kotlin",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 1,
+      "mayId": "compose-desktop",
+      "mayVisual": 4,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 2.5,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok"
+      ],
+      "summary": "Every control is hand-made from Compose foundation primitives styled after the reference CSS, so the window is close to pixel-for-pixel.",
+      "lessons": "Material looks nothing like the reference and AWT cannot pick folders on Linux, so controls are custom and the picker shells out to zenity. The JVM tax shows in startup, memory and a 187 MB distributable.",
+      "linux": {
+        "readyMs": 1543,
+        "rssMb": 257.1,
+        "sizeMb": 187,
+        "build": "~31 s clean with dependencies cached; jlink JRE + AppCDS",
+        "note": "Measured at load average ~7.4; 862–935 ms at normal load."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "cbd8ff4d2a5289e3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "ccee64e722e7a4f9"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-demo-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "af1fc19c767e426f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "885f21052e5a888e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "73b7d1622dd51d4a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-dark.webp",
+          "caption": "Dark theme",
+          "sha": "5e2b9206ca2f89f2"
+        }
+      ]
+    },
+    {
+      "id": "wx",
+      "name": "wxPython",
+      "language": "Python",
+      "kind": "Python GUI",
+      "status": "done",
+      "wave": 1,
+      "mayId": "wx",
+      "mayVisual": 4,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 2.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Native GTK entries, choices and file choosers sit inside custom-drawn chrome, very close to the reference.",
+      "lessons": "There are no Linux wxPython wheels, so it runs from a ~1 GB conda-forge environment, and a GLX probing hang under a fresh Xvfb needed a bundled Mesa. wx itself was the easy part.",
+      "linux": {
+        "readyMs": 458,
+        "rssMb": 136.1,
+        "sizeMb": 991,
+        "build": "~11 min cold (pixi install of wxPython, GTK and Mesa); 0.3 s warm",
+        "note": "Size is the app-local conda-forge environment, mostly GTK and Mesa."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "511bcaec910b106e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "bdaf88d5b7dc0b46"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-setup-running.webp",
+          "caption": "Setup running with streamed installer output",
+          "sha": "80ff6ef376e8d01e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "7e22c099bae8bfd4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-confirm-sheet.webp",
+          "caption": "Typed confirmation sheet (test bundle)",
+          "sha": "83957db340f35696"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-action-exit-status.webp",
+          "caption": "Dependency check exits 127 with an error tab",
+          "sha": "e9519734e3cea359"
+        }
+      ]
+    },
+    {
+      "id": "qt-qml",
+      "name": "Qt 6 / QML",
+      "language": "C++ + QML",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 1,
+      "mayId": "qt-qml",
+      "mayVisual": 3,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.1,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "A C++ backend with a compiled-in QML front end; the full workflow works and the screenshots are almost identical to the reference.",
+      "lessons": "Qt Quick fit the app well. CSS grid sizing, native select popups and Chromium's font fallbacks had to be approximated, and without a SIGTERM handler killed apps orphaned their child processes.",
+      "linux": {
+        "readyMs": 472,
+        "rssMb": 225.1,
+        "sizeMb": 4.3,
+        "build": "84 s clean (cmake + make, -j2)",
+        "note": "Single binary; needs the system Qt 6 runtime."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "6634e1d050ca9b6e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "bbf0fff3afbd1229"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-running-command.webp",
+          "caption": "A command streaming output, with Cancel",
+          "sha": "ffe993330ddf8663"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-setup-running.webp",
+          "caption": "Setup progress",
+          "sha": "ff5aad45cdf46201"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "a8962c5b8ef3ff1a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-qml-dark.webp",
+          "caption": "Dark theme",
+          "sha": "5bdfc48301621398"
+        }
+      ]
+    },
+    {
+      "id": "gtk4-rust",
+      "name": "GTK4 / libadwaita (Rust)",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 2,
+      "mayId": "gtk4",
+      "mayVisual": 2,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.4,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Native GTK 4 and libadwaita covering the whole workflow, close to the reference with deliberate native touches such as Adwaita dialogs and header-bar controls.",
+      "lessons": "Rebuilding the page on every change loses focus, so widgets get stable names to restore it, and Rc/RefCell re-entrancy needs care. Without a window manager, RTL windows land off-screen.",
+      "linux": {
+        "readyMs": 328,
+        "rssMb": 167.0,
+        "sizeMb": 2.4,
+        "build": "2 min 10 s clean release (-j2, thin LTO)",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-main.webp",
+          "caption": "First launch with the Adwaita setup dialog",
+          "sha": "3d4504c083e4fada"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "5646cddad2cb13dc"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-running-command.webp",
+          "caption": "Dependency check exits 127 in a terminal tab",
+          "sha": "b88e3a3bcac71829"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-setup-running.webp",
+          "caption": "Setup running with live step status",
+          "sha": "df9bfd5281c3f0ee"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "f205a9b14baba0e5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-dark.webp",
+          "caption": "Dark theme",
+          "sha": "246da8a3e7c89213"
+        }
+      ]
+    },
+    {
+      "id": "slint",
+      "name": "Slint",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 2,
+      "mayId": "slint",
+      "mayVisual": 2,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 3.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Every page renders through custom Slint components tuned against the reference CSS; the main window is very close to the reference.",
+      "lessons": "Slint cannot create widgets at runtime, so every control shape is declared up front and chosen by kind. Bindings break once the user types, and there is no RTL layout direction.",
+      "linux": {
+        "readyMs": 333,
+        "rssMb": 157.2,
+        "sizeMb": 26,
+        "build": "~5 min clean release (-j4); 70–130 s incremental",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "49bb464dc3b9d9d6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "4c75e2570c7c99a4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "e0b1cac576921e27"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-setup.webp",
+          "caption": "Setup running (demo bundle)",
+          "sha": "8b42364facf93245"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-rtl.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "fc64f9f8cba296a8"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-dark.webp",
+          "caption": "Dark theme after a failed setup",
+          "sha": "f33ed689d96797d4"
+        }
+      ]
+    },
+    {
+      "id": "avalonia",
+      "name": "Avalonia",
+      "language": "C#",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 2,
+      "mayId": "avalonia",
+      "mayVisual": 1,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.2,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "Plain C# with no XAML, rebuilt from the bundle on each change, shipped as a 22 MB NativeAOT binary that is ready in about 0.2 s.",
+      "lessons": "No hard blockers: building the UI in code worked well. The real library table and genome dropdowns could only be checked in their error state, without the installed CLI runtime.",
+      "linux": {
+        "readyMs": 212,
+        "rssMb": 123.1,
+        "sizeMb": 35,
+        "build": "59 s clean NativeAOT publish (2 cores)",
+        "note": "No .NET runtime needed at run time."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "847e4f7854c79bd4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "340f2017978bedb3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-demo-streaming.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "9f116ee818a4ec0b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-demo-setup-progress.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "68da9a25c40f8dab"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-rtl-he.webp",
+          "caption": "Hebrew, right-to-left",
+          "sha": "c8632b999f14da29"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-dark.webp",
+          "caption": "Dark theme, Library page",
+          "sha": "bde4a52343862dda"
+        }
+      ]
+    },
+    {
+      "id": "pyside6",
+      "name": "PySide6 (Qt Widgets)",
+      "language": "Python",
+      "kind": "Python GUI",
+      "status": "done",
+      "wave": 2,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 0.9,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Qt Widgets in Python with a stylesheet generated from the reference's CSS variables; it differs mainly in font rendering and scrollbars.",
+      "lessons": "No blockers, since the wheels bundle Qt. Qt has no CSS grid or flex-wrap, so it needed a custom flow layout, and controls update in place because re-rendering loses focus.",
+      "linux": {
+        "readyMs": 414,
+        "rssMb": 96.4,
+        "sizeMb": 116,
+        "build": "0.4 s (uv sync; nothing compiled)",
+        "note": "Size excludes the 115 MB uv-managed CPython."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "6ed3c8fafd9dfb62"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "5283ba8f780142b5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-action-running.webp",
+          "caption": "Streaming output (demo bundle)",
+          "sha": "2c6eba783c469a90"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "c360f6411e2f8c65"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "f3b1cde21c7a07b0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-dark.webp",
+          "caption": "Dark theme, Info / BAM page",
+          "sha": "89a023ea04146584"
+        }
+      ]
+    },
+    {
+      "id": "egui",
+      "name": "egui",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "status": "done",
+      "wave": 3,
+      "mayId": "egui",
+      "mayVisual": 2,
+      "selfVisual": 5,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "Every widget is hand-painted in immediate mode, so the screenshots line up with the reference almost pixel for pixel.",
+      "lessons": "API churn in egui 0.37 made existing examples stale. egui has no bidi, so RTL needed hand-written reordering, and the custom widgets lack accessibility.",
+      "linux": {
+        "readyMs": 227,
+        "rssMb": 120.1,
+        "sizeMb": 13,
+        "build": "~4 min clean release (-j4); 12–15 s incremental",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "6d71235acabe0739"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "d0521a909d8445e6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-test-run.webp",
+          "caption": "Streaming output (test bundle)",
+          "sha": "401649a5816abbd7"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-test-setup.webp",
+          "caption": "Setup steps finished (test bundle)",
+          "sha": "41006d0ff234214d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "8a76206685b7289c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-test-cancel.webp",
+          "caption": "Cancelled command, dark theme",
+          "sha": "2418c9728fa288d5"
+        }
+      ]
+    },
+    {
+      "id": "iced",
+      "name": "Iced",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 3,
+      "mayId": "iced",
+      "mayVisual": 2,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.6,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Elm-style Iced on the tiny-skia CPU renderer, matching the reference almost pixel for pixel with the lowest memory use so far.",
+      "lessons": "Two tiny-skia renderer bugs (text escaping scroll clipping, blurred shadows erasing what is under them) cost the most time. Iced has no layout direction, so RTL is mirrored by hand.",
+      "linux": {
+        "readyMs": 147,
+        "rssMb": 35.7,
+        "sizeMb": 12,
+        "build": "3 min 36 s clean release (-j4); ~75 s incremental",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "e02a1d6a871a0caf"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "6fc7af8364e716cc"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-action-run.webp",
+          "caption": "Dependency check exits 127 in a terminal tab",
+          "sha": "006384417bb05c76"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-setup-running.webp",
+          "caption": "Setup running with live step status (test bundle)",
+          "sha": "fda0764bc20abc64"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-rtl-he.webp",
+          "caption": "Hebrew, right-to-left",
+          "sha": "7051fa8f61989413"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-dark.webp",
+          "caption": "Dark theme, Microarray page",
+          "sha": "f4fbb13aefc18f5f"
+        }
+      ]
+    },
+    {
+      "id": "tkinter",
+      "name": "Tkinter",
+      "language": "Python",
+      "kind": "Python GUI",
+      "status": "done",
+      "wave": 3,
+      "mayId": "tkinter",
+      "mayVisual": 3,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 3.5,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Rounded controls come from Pillow-generated 9-slice ttk images, giving a look close to the reference with the smallest memory use so far.",
+      "lessons": "uv's Python ships Tk without Xft (bitmap fonts only), so it runs on conda-forge Tk. Tk 8.6 has no bidi, so Hebrew and Arabic text renders in logical order.",
+      "linux": {
+        "readyMs": 332,
+        "rssMb": 74.4,
+        "sizeMb": 240,
+        "build": "0.6 s (pixi install; nothing compiled)",
+        "note": "Size is the app-local conda-forge Python, Tk and Pillow."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "520bcad6a1e9b0cb"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "106a8256ec9901c5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-running.webp",
+          "caption": "Dependency check exits 127 in a terminal tab",
+          "sha": "4ad4c5b3bc5a2096"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-setup-running.webp",
+          "caption": "Setup and commands running (test bundle)",
+          "sha": "eee02015299f3bf4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-hebrew.webp",
+          "caption": "Hebrew, right-to-left layout",
+          "sha": "749b7bb62fe1a0e0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-dark.webp",
+          "caption": "Dark theme",
+          "sha": "f1e88b5e7a75330f"
+        }
+      ]
+    },
+    {
+      "id": "gtk4-adw",
+      "name": "GTK4 / libadwaita (Python)",
+      "language": "Python",
+      "kind": "Python GUI",
+      "status": "done",
+      "wave": 3,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 0.8,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "About 3,900 lines of Python on the system PyGObject, with native Adwaita widgets styled with CSS to match the reference.",
+      "lessons": "The harness's GTK_THEME broke libadwaita, and RTL windows land off-screen without a window manager. Memory is the weak spot: about 250 MB with software GL.",
+      "linux": {
+        "readyMs": 1291,
+        "rssMb": 254.9,
+        "sizeMb": 8.8,
+        "build": "15 s clean; nothing compiled",
+        "note": "Measured at load average ~10; 707–985 ms on repeat runs."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "072e26d42401f19e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "fff8039e8434f9c8"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-demo-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "6b789c8e9131a3f3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "3dff21f8b49c2abd"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-wgs-action.webp",
+          "caption": "Dependency check exits 127 in a terminal tab",
+          "sha": "edc1a990f21c061d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-dark.webp",
+          "caption": "Dark theme",
+          "sha": "1c853834593c2b44"
+        }
+      ]
+    },
+    {
+      "id": "fyne",
+      "name": "Fyne",
+      "language": "Go",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 4,
+      "mayId": "fyne",
+      "mayVisual": 3,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Very close to the reference, though Fyne's stock widgets only got part of the way: buttons, tooltips, the modal and most layouts are custom.",
+      "lessons": "Fyne has one fixed look, theme padding everywhere and no flex-wrap. It has no native file dialogs on Linux and no paragraph bidi.",
+      "linux": {
+        "readyMs": 301,
+        "rssMb": 215.7,
+        "sizeMb": 26,
+        "build": "2 min 9 s cold (go build -p 2); 1.4 s incremental",
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "9668df9c35944c11"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "ff92402324689676"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-demo-action-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "1a5b0d70f23f48cd"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "6a6e510c9475b8a9"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "c91fcc08610efee0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-microarray-dark.webp",
+          "caption": "Dark theme, Microarray page",
+          "sha": "2e6e7bd944b39784"
+        }
+      ]
+    },
+    {
+      "id": "gio",
+      "name": "Gio",
+      "language": "Go",
+      "kind": "Cross-platform native",
+      "status": "done",
+      "wave": 4,
+      "mayId": "gio",
+      "mayVisual": 2,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.0,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Very close to the reference down to colours and spacing, though Gio's few stock widgets meant the dropdown, tooltips, table, modal and layouts are all custom.",
+      "lessons": "Layout constraints and linear-space colour blending cost the most time. Gio has no folder picker on Linux, so it shells out to zenity or kdialog.",
+      "linux": {
+        "readyMs": 359,
+        "rssMb": 274.4,
+        "sizeMb": 9.4,
+        "build": "14 s cold (-p 2); ~2 s incremental",
+        "note": "RSS is mostly software GL (llvmpipe) and NVIDIA EGL libraries under the harness."
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "5a582b0668dad99d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-page-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "16748c570eae74a8"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-demo-action-streaming.webp",
+          "caption": "Streaming output (demo bundle)",
+          "sha": "ece80ecca36a6a47"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "889a8bd7c41d85b0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "381b222a4ef74c7c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-dark-theme.webp",
+          "caption": "Dark theme, Library page",
+          "sha": "3d71ff989402a593"
+        }
+      ]
+    },
+    {
+      "id": "toga",
+      "name": "Toga / BeeWare",
+      "language": "Python",
+      "kind": "Python GUI",
+      "status": "building",
+      "wave": 4,
+      "mayId": "toga",
+      "mayVisual": 3,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "textual",
+      "name": "Textual",
+      "language": "Python",
+      "kind": "Terminal",
+      "status": "building",
+      "wave": 4,
+      "mayId": "textual",
+      "mayVisual": 3,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "gpui",
+      "name": "GPUI",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "building",
+      "wave": 5,
+      "mayId": "gpui",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "makepad",
+      "name": "Makepad",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 5,
+      "mayId": "makepad",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "dioxus",
+      "name": "Dioxus Native (Blitz)",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 5,
+      "mayId": "dioxus",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "xilem",
+      "name": "Xilem / Vello",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 5,
+      "mayId": "xilem-vello",
+      "mayVisual": 1,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "moonframe",
+      "name": "Moonframe",
+      "language": "Rust + Luau",
+      "kind": "Cross-platform native",
+      "status": "building",
+      "wave": 5,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "zenbu-ui",
+      "name": "Zenbu UI",
+      "language": "C",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 5,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "freya",
+      "name": "Freya",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 6,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "floem",
+      "name": "Floem",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 6,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "qt-widgets",
+      "name": "Qt Widgets",
+      "language": "C++",
+      "kind": "Cross-platform native",
+      "status": "queued",
+      "wave": 6,
+      "mayId": null,
+      "mayVisual": null,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "imgui-cpp",
+      "name": "Dear ImGui (C++)",
+      "language": "C++",
+      "kind": "Immediate mode",
+      "status": "queued",
+      "wave": 6,
+      "mayId": "imgui-cpp",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "imgui-rust",
+      "name": "Dear ImGui (Rust)",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "status": "queued",
+      "wave": 7,
+      "mayId": "imgui",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "raygui-rust",
+      "name": "Raygui (Rust)",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "status": "queued",
+      "wave": 7,
+      "mayId": "raygui",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    },
+    {
+      "id": "raygui-c",
+      "name": "Raygui (C)",
+      "language": "C",
+      "kind": "Immediate mode",
+      "status": "queued",
+      "wave": 7,
+      "mayId": "raygui-c",
+      "mayVisual": 2,
+      "selfVisual": null,
+      "completeness": null,
+      "difficulty": null,
+      "activeHours": null,
+      "myVisual": null,
+      "myNotes": null,
+      "userVisual": null,
+      "userNotes": null,
+      "features": null,
+      "summary": null,
+      "lessons": null,
+      "linux": {
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "build": null,
+        "note": null
+      },
+      "windows": {
+        "status": null,
+        "readyMs": null,
+        "rssMb": null,
+        "sizeMb": null,
+        "notes": null
+      },
+      "shots": []
+    }
+  ]
+}
