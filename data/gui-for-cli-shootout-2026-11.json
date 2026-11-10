@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T21:35:08Z",
+  "generatedAt": "2026-11-10T22:13:00Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,11 +17,11 @@
   ],
   "stats": {
     "total": 29,
-    "done": 16,
+    "done": 17,
     "building": 4,
-    "queued": 9,
+    "queued": 8,
     "failed": 0,
-    "activeHours": 24.0,
+    "activeHours": 25.5,
     "meanSelfVisual": 4.03,
     "meanMyVisual": 4.62,
     "meanUserVisual": null,
@@ -1406,7 +1406,7 @@
       "name": "Dioxus Native (Blitz)",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 5,
       "mayId": "dioxus",
       "mayVisual": 2,
@@ -1478,27 +1478,37 @@
       "name": "Moonframe",
       "language": "Rust + Luau",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": null,
       "mayVisual": null,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.5,
       "myVisual": null,
       "myNotes": null,
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "The whole window is Luau mods on Moonframe's GPUI renderer, fed by Rust providers for the bundle, processes and terminal; it matches the reference closely in layout and light theme.",
+      "lessons": "Luau live reload made iteration fast: after a handful of Rust builds, every layout and style change was a Luau edit and a recapture in seconds. GPUI needed a vendored lavapipe to run under Xvfb, and the library owns the command line and the terminal, so both needed workarounds.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 1194,
+        "rssMb": 352.6,
+        "sizeMb": 86,
+        "build": "18 min clean release (-j2, no lease); ~10 s incremental; Luau changes need no rebuild",
+        "note": "Ready time measured at load ~7 (~740 ms on a quieter run). Size includes 15 MB of vendored lavapipe, needed only under Xvfb."
       },
       "windows": {
         "status": null,
@@ -1507,7 +1517,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "5d02d8c385987d1d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-demo-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "09447ffab37bb7c4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-cancelled.webp",
+          "caption": "A cancelled command, clicked through under Xvfb (demo bundle)",
+          "sha": "f287b35ab2747401"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "8c416b99f37b602e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "2518edcb9fdfe502"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-dark.webp",
+          "caption": "Dark theme, demo settings after setup",
+          "sha": "44be269f93f7ddf8"
+        }
+      ]
     },
     {
       "id": "zenbu-ui",
