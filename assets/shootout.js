@@ -14,6 +14,9 @@ const sort = { key: "order", dir: 1 };
 const filters = { kind: "all", status: "all" };
 const expanded = new Set();
 const lb = { list: [], index: 0 };
+// Offer the slider only when both screenshots have (nearly) the same framing.
+const SLIDER_TOLERANCE = 0.04;
+const prefs = { slider: false };
 
 function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
@@ -107,6 +110,90 @@ function shotList(t) {
   }));
 }
 
+function compareItem(t) {
+  return { compare: t, title: t.name, caption: "May 2026 → November 2026", meta: `${t.language} · before and after` };
+}
+
+function lightboxList(t) {
+  return [...shotList(t), ...(t.may ? [compareItem(t)] : [])];
+}
+
+function afterShot(t) {
+  return t.status === "done" ? t.shots[0] ?? null : null;
+}
+
+function compareLabels(t) {
+  const best = bestRating(t);
+  const may = t.may.visual === "failed" ? "no UI" : typeof t.may.visual === "number" ? `visual ${t.may.visual}/5` : "not rated";
+  const after = !afterShot(t) ? (t.status === "queued" ? "not started" : "in progress")
+    : best ? `${SOURCE_LABEL[best.key]} ${fmtNum(best.value)}/5` : "not rated yet";
+  return { before: `May 2026 · ${may}`, after: `November 2026 · ${after}` };
+}
+
+function comparePane(src, alt, label, empty) {
+  return h("figure", { class: "cmp-side" },
+    src ? h("img", { src: BASE + src, alt, loading: "lazy" }) : h("div", { class: "cmp-empty" }, empty),
+    h("figcaption", {}, label));
+}
+
+function sliderView(t, before, after, labels, ratio) {
+  const wrap = h("div", { class: "cmp-slider", style: `--pos: 50%; --ratio: ${ratio}` },
+    h("img", { class: "cmp-after", src: BASE + after.src, alt: `${t.name}, November 2026 build: ${after.caption}` }),
+    h("img", { class: "cmp-before", src: BASE + before, alt: `${t.name}, May 2026 build` }),
+    h("span", { class: "cmp-tag cmp-tag-before", "aria-hidden": "true" }, labels.before),
+    h("span", { class: "cmp-tag cmp-tag-after", "aria-hidden": "true" }, labels.after),
+    h("span", { class: "cmp-handle", "aria-hidden": "true" }));
+  wrap.append(h("input", {
+    type: "range", min: "0", max: "100", value: "50", class: "cmp-range",
+    "aria-label": `Compare ${t.name}: May 2026 on the left of the divider, November 2026 on the right`,
+    oninput: (e) => wrap.style.setProperty("--pos", `${e.target.value}%`),
+    onkeydown: (e) => e.stopPropagation(),
+    onclick: (e) => e.stopPropagation(),
+  }));
+  return wrap;
+}
+
+function loaded(img) {
+  if (img.complete) return Promise.resolve();
+  return new Promise((resolve) => {
+    img.addEventListener("load", resolve, { once: true });
+    img.addEventListener("error", resolve, { once: true });
+  });
+}
+
+// May 2026 next to November 2026, plus a slider when both are framed alike.
+function compareView(t, lightbox = false) {
+  const before = t.may?.screenshot ?? null;
+  const after = afterShot(t);
+  const labels = compareLabels(t);
+  const empty = !after ? (t.status === "queued" ? "After: not started" : "After: in progress") : null;
+  const pair = h("div", { class: "cmp-pair" },
+    comparePane(before, `${t.name}, May 2026 build`, labels.before, "May: no UI"),
+    comparePane(after?.src, after && `${t.name}, November 2026 build: ${after.caption}`, labels.after, empty));
+  const root = h("div", { class: `cmp${lightbox ? " cmp-lb" : ""}`, role: "group", "aria-label": `${t.name}: May 2026 and November 2026` }, pair);
+  if (!before || !after) return root;
+  const imgs = [...pair.querySelectorAll("img")];
+  Promise.all(imgs.map(loaded)).then(() => {
+    const [a, b] = imgs.map((img) => img.naturalWidth / img.naturalHeight);
+    if (!a || !b || Math.abs(a - b) / b > SLIDER_TOLERANCE) return;
+    const slider = sliderView(t, before, after, labels, b);
+    const buttons = {};
+    const show = (useSlider) => {
+      prefs.slider = useSlider;
+      pair.hidden = useSlider;
+      slider.hidden = !useSlider;
+      buttons.side.setAttribute("aria-pressed", String(!useSlider));
+      buttons.slider.setAttribute("aria-pressed", String(useSlider));
+    };
+    buttons.side = h("button", { type: "button", onclick: (e) => { e.stopPropagation(); show(false); } }, "Side by side");
+    buttons.slider = h("button", { type: "button", onclick: (e) => { e.stopPropagation(); show(true); } }, "Slider");
+    root.prepend(h("div", { class: "cmp-modes", role: "group", "aria-label": "Comparison view" }, buttons.side, buttons.slider));
+    root.append(slider);
+    show(prefs.slider);
+  });
+  return root;
+}
+
 function windowsFacts(w) {
   return [
     w.readyMs != null && `ready ${fmtMs(w.readyMs)}`,
@@ -140,7 +227,8 @@ function detailRow(t) {
       h("span", { class: "dot", "aria-hidden": "true" }), h("span", {}, label),
       h("span", { class: "visually-hidden" }, `: ${FEATURE_LABEL[t.features[i]]}`)))) : null;
   return h("tr", { class: "detail", id: `detail-${t.id}` },
-    h("td", { colspan: "14" }, h("div", { class: "detail-body" }, features, h("div", { class: "detail-text" }, facts))));
+    h("td", { colspan: "14" }, h("div", { class: "detail-body" }, features, h("div", { class: "detail-text" }, facts),
+      t.may ? compareView(t) : null)));
 }
 
 function renderTable() {
@@ -148,13 +236,14 @@ function renderTable() {
   const body = [];
   for (const t of rows) {
     const main = t.shots[0];
-    const open = main ? () => openLightbox(shotList(t), 0) : null;
+    const list = lightboxList(t);
+    const open = list.length ? () => openLightbox(lightboxList(t), 0) : null;
     const isOpen = expanded.has(t.id);
     body.push(h("tr", {
-      class: [`row-${t.status}`, main ? "" : "no-shot"].join(" ").trim(),
-      tabindex: main ? "0" : null,
+      class: [`row-${t.status}`, open ? "" : "no-shot"].join(" ").trim(),
+      tabindex: open ? "0" : null,
       onclick: open,
-      onkeydown: main ? (e) => { if (e.key === "Enter" && e.target === e.currentTarget) open(); } : null,
+      onkeydown: open ? (e) => { if (e.key === "Enter" && e.target === e.currentTarget) open(); } : null,
     },
     h("td", {}, h("div", { class: "tk" },
       h("button", {
@@ -199,12 +288,40 @@ function renderGallery() {
   document.getElementById("gallery").replaceChildren(...[...ref, ...rated].map((t) => {
     const best = bestRating(t);
     return h("figure", { class: "shot" },
-      h("button", { type: "button", class: "shot-open", onclick: () => openLightbox(shotList(t), 0), "aria-label": `Open ${t.name} screenshots` },
+      h("button", { type: "button", class: "shot-open", onclick: () => openLightbox(lightboxList(t), 0), "aria-label": `Open ${t.name} screenshots` },
         h("img", { src: BASE + t.shots[0].src, alt: `${t.name}: ${t.shots[0].caption}`, loading: "lazy" })),
       h("figcaption", {},
         t.status === "reference" ? h("span", { class: "score ref" }, "Ref") : best ? score(best.value, best.key === "selfVisual" ? "provisional" : "") : dash(),
         " ", h("b", {}, t.name), ` · ${t.language}`,
         best && t.status !== "reference" ? h("small", {}, ` ${SOURCE_LABEL[best.key]}`) : null));
+  }));
+}
+
+function renderBeforeAfter() {
+  const gain = (t) => {
+    const best = bestRating(t);
+    return afterShot(t) && best ? best.value - (t.may.visual === "failed" ? 0 : t.may.visual ?? 0) : null;
+  };
+  const cards = data.toolkits.filter((t) => t.may)
+    .sort((a, b) => (gain(b) ?? -99) - (gain(a) ?? -99) || a.name.localeCompare(b.name));
+  document.getElementById("before-after").replaceChildren(...cards.map((t) => {
+    const after = afterShot(t);
+    const best = bestRating(t);
+    const thumb = (src, alt, empty) => (src ? h("img", { src: BASE + src, alt, loading: "lazy" }) : h("span", { class: "ba-empty" }, empty));
+    const g = gain(t);
+    return h("figure", { class: "ba-card" },
+      h("button", { type: "button", class: "ba-open", onclick: () => openLightbox([compareItem(t)], 0), "aria-label": `Compare ${t.name}: May 2026 and November 2026` },
+        h("span", { class: "ba-pair" },
+          thumb(t.may.screenshot, `${t.name}, May 2026`, "May: no UI"),
+          h("span", { class: "ba-arrow", "aria-hidden": "true" }, "→"),
+          thumb(after?.src, after && `${t.name}, November 2026`, t.status === "queued" ? "After: not started" : "After: in progress"))),
+      h("figcaption", {},
+        h("b", {}, t.name),
+        h("span", { class: "ba-scores" },
+          score(t.may.visual ?? null), h("span", { "aria-hidden": "true" }, " → "),
+          after && best ? score(best.value, best.key === "selfVisual" ? "provisional" : "") : h("span", { class: "missing" }, "in progress"),
+          g != null ? h("span", { class: `delta ${g > 0 ? "up" : g < 0 ? "down" : "same"}` }, g > 0 ? `+${fmtNum(g)}` : g < 0 ? fmtNum(g) : "=") : null),
+        after && best && best.key !== "myVisual" ? h("small", {}, SOURCE_LABEL[best.key]) : null));
   }));
 }
 
@@ -290,6 +407,7 @@ function renderAll() {
   renderHeader();
   renderTable();
   renderGallery();
+  renderBeforeAfter();
   renderVsMay();
   renderLive();
 }
@@ -300,8 +418,17 @@ function openLightbox(list, i) {
   lb.index = (i + list.length) % list.length;
   const s = list[lb.index];
   const img = document.getElementById("lightbox-img");
-  img.src = BASE + s.src;
-  img.alt = `${s.title}: ${s.caption}`;
+  const compare = document.getElementById("lightbox-compare");
+  img.hidden = Boolean(s.compare);
+  compare.hidden = !s.compare;
+  if (s.compare) {
+    img.removeAttribute("src");
+    compare.replaceChildren(compareView(s.compare, true));
+  } else {
+    compare.replaceChildren();
+    img.src = BASE + s.src;
+    img.alt = `${s.title}: ${s.caption}`;
+  }
   document.getElementById("lightbox-caption").replaceChildren(
     h("span", {}, `${s.title}: ${s.caption}`), h("small", {}, s.meta));
   const dialog = document.getElementById("lightbox");
@@ -328,7 +455,8 @@ function wire() {
   dialog.querySelector(".lb-prev").addEventListener("click", () => step(-1));
   dialog.querySelector(".lb-next").addEventListener("click", () => step(1));
   dialog.querySelector(".lb-close").addEventListener("click", () => dialog.close());
-  dialog.addEventListener("click", (e) => { if (e.target === dialog || e.target.tagName === "FIGURE") dialog.close(); });
+  const frame = dialog.querySelector("figure");
+  dialog.addEventListener("click", (e) => { if (e.target === dialog || e.target === frame) dialog.close(); });
   dialog.addEventListener("keydown", (e) => { if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
 }
 

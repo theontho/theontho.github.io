@@ -66,6 +66,12 @@ def main() -> int:
                     errors.append(f"shootout-2026-11 {toolkit['id']}: {shot['src']} is not WebP")
                 if not path.is_file():
                     errors.append(f"shootout-2026-11 {toolkit['id']}: missing screenshot {shot['src']}")
+            may_shot = (toolkit.get("may") or {}).get("screenshot")
+            if may_shot:
+                path = ROOT / may_shot
+                referenced.add(path.resolve())
+                if not path.is_file():
+                    errors.append(f"shootout-2026-11 {toolkit['id']}: missing May screenshot {may_shot}")
 
     on_disk = {p.resolve() for p in (ROOT / "screenshots").rglob("*") if p.is_file()}
     for orphan in sorted(on_disk - referenced):

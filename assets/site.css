@@ -445,3 +445,57 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 @media (prefers-reduced-motion: reduce) {
   .live-dot, .status-building::before { animation: none; }
 }
+
+/* Shootout 2026-11: May vs November comparisons */
+.cmp { display: flex; flex-direction: column; gap: 10px; }
+.detail-body .cmp { grid-column: 1 / -1; max-width: 960px; }
+.cmp-modes { display: flex; gap: 6px; }
+.cmp-modes button {
+  font: inherit; font-size: .8rem; cursor: pointer; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--text);
+}
+.cmp-modes button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #17130a; }
+.cmp-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
+.cmp-side .cmp-empty { flex: 1; aspect-ratio: auto; min-height: 120px; }
+.cmp-side { margin: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cmp-side img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); background: var(--bg-2); }
+.cmp-side figcaption { font-size: .82rem; color: var(--muted); font-weight: 600; }
+.cmp-empty, .ba-empty {
+  display: grid; place-items: center; aspect-ratio: 16 / 10; width: 100%; border-radius: 8px; padding: 8px; text-align: center;
+  border: 1px dashed var(--line); color: var(--muted); font-size: .85rem; font-weight: 600; background: var(--bg-2);
+}
+.cmp-slider { position: relative; width: 100%; aspect-ratio: var(--ratio); border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
+.cmp-slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
+.cmp-slider .cmp-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.cmp-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: var(--accent); pointer-events: none; box-shadow: 0 0 0 1px rgba(0, 0, 0, .35); }
+.cmp-handle::after {
+  content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--accent); color: #17130a; font-weight: 800; box-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+}
+.cmp-tag { position: absolute; top: 8px; padding: 3px 9px; border-radius: 6px; background: rgba(8, 10, 16, .82); color: #e6e9f2; font-size: .75rem; font-weight: 600; pointer-events: none; }
+.cmp-tag-before { left: 8px; }
+.cmp-tag-after { right: 8px; }
+.cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.cmp-slider:focus-within { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+.lb-compare { flex: 1 1 auto; min-height: 0; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+.lb-compare .cmp-pair { align-items: center; }
+.lb-compare .cmp-side img { max-height: calc(100vh - 190px); object-fit: contain; border-color: rgba(255, 255, 255, .15); }
+.lb-compare .cmp-side figcaption { color: #cfd5e2; text-align: center; }
+.lb-compare .cmp-modes { justify-content: center; }
+.lb-compare .cmp-slider { width: min(100%, calc((100vh - 200px) * var(--ratio))); margin: 0 auto; }
+.lb-compare .cmp-empty { min-height: 40vh; border-color: rgba(255, 255, 255, .25); color: #cfd5e2; background: transparent; }
+.ba-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+.ba-card { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.ba-open { display: block; width: 100%; padding: 10px 10px 0; border: 0; background: none; cursor: zoom-in; color: inherit; font: inherit; }
+.ba-pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 6px; align-items: center; }
+.ba-pair img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border-radius: 6px; border: 1px solid var(--line); background: var(--bg-2); }
+.ba-pair .ba-empty { font-size: .75rem; }
+.ba-arrow { color: var(--accent); font-weight: 800; }
+.ba-card figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 8px 12px 10px; font-size: .88rem; }
+.ba-scores { display: inline-flex; align-items: center; gap: 4px; }
+.ba-card figcaption small { flex-basis: 100%; color: var(--muted); font-size: .75rem; }
+@media (max-width: 720px) {
+  .cmp-pair { grid-template-columns: 1fr; }
+  .lb-compare { justify-content: flex-start; overflow-y: auto; }
+  .lb-compare .cmp-side img { max-height: calc(50vh - 110px); }
+}
