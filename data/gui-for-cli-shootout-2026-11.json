@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T21:17:32Z",
+  "generatedAt": "2026-11-10T21:25:07Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 29,
-    "done": 14,
+    "done": 15,
     "building": 4,
-    "queued": 11,
+    "queued": 10,
     "failed": 0,
-    "activeHours": 22.0,
-    "meanSelfVisual": 4.11,
+    "activeHours": 23.0,
+    "meanSelfVisual": 4.1,
     "meanMyVisual": 4.79,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.67,
+    "meanMayVisualDone": 2.69,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -44,10 +44,10 @@
         "worse": 0
       },
       "selfVisual": {
-        "n": 12,
+        "n": 13,
         "newMean": 4.12,
-        "mayMean": 2.67,
-        "better": 10,
+        "mayMean": 2.69,
+        "better": 11,
         "same": 2,
         "worse": 0
       }
@@ -1180,27 +1180,37 @@
       "name": "Toga / BeeWare",
       "language": "Python",
       "kind": "Python GUI",
-      "status": "building",
+      "status": "done",
       "wave": 4,
       "mayId": "toga",
       "mayVisual": 3,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.0,
       "myVisual": null,
       "myNotes": null,
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Toga's GTK 3 backend renders the whole workflow very close to the reference, with one app-wide GTK stylesheet and a few native escape hatches doing the styling.",
+      "lessons": "Toga's Pack layout has no borders, radii, tooltips, label wrapping or checkbox, so text is pre-broken with Pango and switches stand in for checkboxes. Modal dialogs are faked with a second window.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 683,
+        "rssMb": 116.5,
+        "sizeMb": 4.1,
+        "build": "0.65 s (uv venv on system PyGObject; nothing compiled)",
+        "note": "Size excludes the system Python, PyGObject and GTK 3."
       },
       "windows": {
         "status": null,
@@ -1209,7 +1219,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-main-private.webp",
+          "caption": "First launch with the setup dialog (private workspace)",
+          "sha": "afee989eee841a87"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "e8d786f4ac50b64e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-demo-run.webp",
+          "caption": "Streaming output (demo bundle)",
+          "sha": "aa25de70174691c8"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "2363b6f6e7dd4609"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-rtl.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "559bbac29b4ad3bf"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-dark.webp",
+          "caption": "Dark theme",
+          "sha": "40d33eb065be5574"
+        }
+      ]
     },
     {
       "id": "textual",
@@ -1288,7 +1329,7 @@
       "name": "Makepad",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 5,
       "mayId": "makepad",
       "mayVisual": 2,
