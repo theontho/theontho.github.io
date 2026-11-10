@@ -67,6 +67,7 @@ def main() -> int:
     out.mkdir(parents=True)
     shutil.copy2(ROOT / "index.html", out / "index.html")
     shutil.copytree(ROOT / "assets", out / "assets")
+    shutil.copytree(ROOT / "gui-for-cli", out / "gui-for-cli")
     shutil.copytree(ROOT / "screenshots", out / "screenshots")
     if (private_dir / "screenshots").is_dir():
         shutil.copytree(private_dir / "screenshots", out / "screenshots", dirs_exist_ok=True)
@@ -75,6 +76,7 @@ def main() -> int:
     merged["profile"] = {**public["profile"], "local": True}
     merged["projects"] = public["projects"] + private
     (out / "data").mkdir()
+    shutil.copy2(ROOT / "data" / "gui-for-cli-eval.json", out / "data" / "gui-for-cli-eval.json")
     (out / "data" / "projects.json").write_text(json.dumps(merged, indent=2, ensure_ascii=False) + "\n")
 
     public_stats = json.loads((ROOT / "data" / "stats.json").read_text())

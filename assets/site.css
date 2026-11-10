@@ -220,6 +220,7 @@ dialog::backdrop { background: rgba(5, 7, 12, .72); backdrop-filter: blur(3px); 
 .link-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0 !important; }
 .link-list a { display: inline-block; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text); font-size: .9rem; }
 .link-list a:hover { border-color: var(--accent); text-decoration: none; }
+.link-list a.primary { background: var(--accent); border-color: var(--accent); color: #17130a; font-weight: 600; }
 .dialog-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 18px; }
 .dialog-shots button { padding: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: zoom-in; background: var(--bg-2); }
 .dialog-shots img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
@@ -278,3 +279,46 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* GUI for CLI evaluation sub-page */
+.eval-page .hero h1 { font-size: clamp(1.8rem, 4.2vw, 2.9rem); max-width: 900px; }
+.eval-page .eyebrow a { color: inherit; }
+.era { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 0 0 26px; max-width: 980px; }
+.era div { background: color-mix(in srgb, var(--card) 80%, transparent); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+.era dt { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+.era dd { margin: 4px 0 0; font-size: .95rem; }
+.eval-section { margin-top: 46px; }
+.eval-section h2 { margin: 0 0 6px; font-size: 1.5rem; }
+.lessons { margin: 10px 0 0; padding-left: 20px; max-width: 900px; }
+.lessons li { margin-bottom: 10px; }
+.eval-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; }
+.eval-count { color: var(--muted); font-size: .85rem; }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.eval-table { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 900px; }
+.eval-table th, .eval-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.eval-table thead th { background: var(--bg-2); color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.eval-table th[data-sort] { cursor: pointer; }
+.eval-table th[aria-sort="descending"]::after { content: " ▾"; }
+.eval-table th[aria-sort="ascending"]::after { content: " ▴"; }
+.eval-table tbody tr { cursor: zoom-in; }
+.eval-table tbody tr:hover { background: var(--card-hover); }
+.eval-table .num { text-align: right; white-space: nowrap; }
+.eval-table td small { display: block; color: var(--muted); font-size: .72rem; }
+.eval-table .tk { display: flex; align-items: center; gap: 10px; min-width: 210px; }
+.eval-table .tk img { width: 64px; height: 42px; object-fit: cover; object-position: top left; border-radius: 6px; border: 1px solid var(--line); flex: none; }
+.eval-table .tk b { display: block; }
+.eval-table .verdict { color: var(--muted); min-width: 240px; font-size: .82rem; }
+#windows-table { min-width: 640px; }
+.score {
+  display: inline-grid; place-items: center; min-width: 26px; height: 22px; padding: 0 6px; border-radius: 6px;
+  font-weight: 700; font-size: .8rem; color: #111;
+}
+.score.s5 { background: #4ade80; } .score.s4 { background: #a3e635; } .score.s3 { background: #facc15; }
+.score.s2 { background: #fb923c; } .score.s1 { background: #f87171; }
+.score.diff.s1 { background: #4ade80; } .score.diff.s2 { background: #a3e635; } .score.diff.s3 { background: #facc15; }
+.score.diff.s4 { background: #fb923c; } .score.diff.s5 { background: #f87171; }
+.score.ref { background: var(--accent-2); color: #fff; }
+.score.none { background: transparent; color: var(--muted); font-weight: 500; }
+.footnote { color: var(--muted); font-size: .82rem; margin-top: 10px; max-width: 900px; }
+.eval-links { margin-top: 18px; }
+#eval-gallery .shot figcaption { display: flex; align-items: center; gap: 6px; }

@@ -1,0 +1,743 @@
+{
+  "title": "GUI for CLI: one app, about 30 UI stacks, built by AI",
+  "period": "7–26 May 2026",
+  "models": "GPT-5.5 in GitHub Copilot CLI for most sessions, with GPT-5.4 and Claude Opus 4.7 (including code reviews)",
+  "branch": "https://github.com/WGSExtract/gui-for-cli-outdated/tree/old-experimental",
+  "links": [
+    {
+      "label": "old-experimental branch",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/tree/old-experimental"
+    },
+    {
+      "label": "Platform lessons article",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/site_src/platform-lessons.md"
+    },
+    {
+      "label": "Difficulty & visual ratings report",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/docs/ai/reports/platform-implementation-difficulty.md"
+    },
+    {
+      "label": "Experiment inventory",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/docs/desktop-gui-experiments.md"
+    },
+    {
+      "label": "Benchmark findings",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/docs/ai/benchmark-findings.md"
+    },
+    {
+      "label": "macOS benchmark run (15 May)",
+      "url": "https://github.com/WGSExtract/gui-for-cli-outdated/blob/old-experimental/docs/ai/macos-benchmark-and-screenshot-run-2026-05-15.md"
+    },
+    {
+      "label": "Where it went: WGS Extract desktop app",
+      "url": "https://github.com/WGSExtract/wgsextract-cli/tree/main/gui"
+    }
+  ],
+  "windows": [
+    {
+      "name": "C# / WinUI 3 (NativeAOT)",
+      "readyMs": 161.6,
+      "metric": "window ready",
+      "memory": "109.6 MB working set",
+      "size": "153.4 MB self-contained (9 MB .exe)"
+    },
+    {
+      "name": "Flutter",
+      "readyMs": 184.1,
+      "metric": "window ready",
+      "memory": "72.6 MB working set",
+      "size": "27.6 MB"
+    },
+    {
+      "name": "Gio (thin shell)",
+      "readyMs": 128.0,
+      "metric": "first frame",
+      "memory": "70.7 MB working set",
+      "size": "8.4 MB"
+    },
+    {
+      "name": "Slint",
+      "readyMs": 6.2,
+      "metric": "internal UI ready",
+      "memory": "28.1 MB working set",
+      "size": "11.4 MB"
+    },
+    {
+      "name": "TypeScript TUI",
+      "readyMs": 243.3,
+      "metric": "one-shot render",
+      "memory": "42.4 MB working set",
+      "size": "Node runtime (65 MB)"
+    },
+    {
+      "name": "NodeGui / Qt",
+      "readyMs": 557.1,
+      "metric": "window shown",
+      "memory": "103.7 MB working set",
+      "size": "~510 MB Qt payload"
+    },
+    {
+      "name": "Dioxus WebUI",
+      "readyMs": 1240,
+      "metric": "rendered",
+      "memory": "436.2 MB working set",
+      "size": "88.9 MB"
+    },
+    {
+      "name": "Electron WebUI",
+      "readyMs": 1640,
+      "metric": "rendered",
+      "memory": "414.0 MB working set",
+      "size": "351.1 MB"
+    },
+    {
+      "name": "Tauri WebUI",
+      "readyMs": 1850,
+      "metric": "rendered",
+      "memory": "429.6 MB working set",
+      "size": "92.2 MB"
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "swiftui-macos",
+      "name": "SwiftUI (macOS)",
+      "language": "Swift",
+      "kind": "Native platform",
+      "visual": "ref",
+      "difficulty": 3,
+      "completeness": 5,
+      "activeHours": 10.2,
+      "batch": false,
+      "verdict": "Kept as the native Apple frontend. Slow startup turned out to be app work before the first window, not SwiftUI.",
+      "screenshot": "screenshots/gui-for-cli/eval/swiftui-macos.webp",
+      "macos": {
+        "readyMs": 196.6,
+        "metric": "window appeared",
+        "rssMb": 116.1,
+        "artifactMb": 9.753
+      }
+    },
+    {
+      "id": "webui",
+      "name": "WebUI (reference)",
+      "language": "TypeScript",
+      "kind": "Reference",
+      "visual": "ref",
+      "difficulty": 2,
+      "completeness": 5,
+      "activeHours": 12.2,
+      "batch": false,
+      "verdict": "The reference behaviour model every WebUI shell reuses. Easiest way to stay complete.",
+      "screenshot": "screenshots/gui-for-cli/eval/webui.webp"
+    },
+    {
+      "id": "tauri",
+      "name": "Tauri WebUI",
+      "language": "TypeScript + Rust",
+      "kind": "WebUI shell",
+      "visual": 5,
+      "difficulty": 4,
+      "completeness": 5,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Kept as the portable packaged frontend; it is what WGS Extract ships today. Packaging, updater and signing were the hard part.",
+      "screenshot": "screenshots/gui-for-cli/eval/tauri.webp",
+      "macos": {
+        "readyMs": 44.0,
+        "metric": "web app rendered",
+        "rssMb": 172.5,
+        "artifactMb": 123.985
+      }
+    },
+    {
+      "id": "electron",
+      "name": "Electron WebUI",
+      "language": "TypeScript",
+      "kind": "WebUI shell",
+      "visual": 5,
+      "difficulty": 3,
+      "completeness": 5,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Same UX as the WebUI, but much bigger and hungrier than Tauri. Comparison point only.",
+      "screenshot": "screenshots/gui-for-cli/eval/electron.webp",
+      "macos": {
+        "readyMs": 496.7,
+        "metric": "web app rendered",
+        "rssMb": 537.1,
+        "artifactMb": 282.321
+      }
+    },
+    {
+      "id": "webview-shell",
+      "name": "WKWebView shell",
+      "language": "Swift + TypeScript",
+      "kind": "WebUI shell",
+      "visual": 5,
+      "difficulty": 2,
+      "completeness": 4,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Leanest macOS WebUI shell, but macOS-only and custom.",
+      "screenshot": "screenshots/gui-for-cli/eval/webview-shell.webp",
+      "macos": {
+        "readyMs": 573.9,
+        "metric": "web app rendered",
+        "rssMb": 93.1,
+        "artifactMb": 114.459
+      }
+    },
+    {
+      "id": "browser-webui",
+      "name": "Browser WebUI",
+      "language": "TypeScript",
+      "kind": "WebUI shell",
+      "visual": 5,
+      "difficulty": 2,
+      "completeness": 5,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Great for preview with a browser already open; a cold browser launch costs too much memory.",
+      "screenshot": "screenshots/gui-for-cli/eval/browser-webui.webp",
+      "macos": {
+        "readyMs": 41.5,
+        "metric": "web app rendered",
+        "rssMb": 1048.0,
+        "artifactMb": 0.66
+      }
+    },
+    {
+      "id": "tui",
+      "name": "TypeScript TUI",
+      "language": "TypeScript",
+      "kind": "Terminal",
+      "visual": 3,
+      "difficulty": 2,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Low-overhead terminal workflow; not a desktop GUI.",
+      "screenshot": "screenshots/gui-for-cli/eval/tui.webp",
+      "macos": {
+        "readyMs": 189.9,
+        "metric": "render",
+        "rssMb": 66.4,
+        "artifactMb": 0.112
+      }
+    },
+    {
+      "id": "textual",
+      "name": "Python Textual",
+      "language": "Python",
+      "kind": "Terminal",
+      "visual": 3,
+      "difficulty": 3,
+      "completeness": 2,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Recognisable terminal UI, narrow parity.",
+      "screenshot": "screenshots/gui-for-cli/eval/textual.webp",
+      "macos": {
+        "readyMs": 256.2,
+        "metric": "UI ready",
+        "rssMb": 82.6,
+        "artifactMb": 0.219
+      }
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter",
+      "language": "Dart",
+      "kind": "Cross-platform native",
+      "visual": 4,
+      "difficulty": 5,
+      "completeness": 4,
+      "activeHours": 8.2,
+      "batch": false,
+      "verdict": "The strongest rewrite: near-complete after a deep parity pass, and the best Windows numbers, but toolchain-heavy.",
+      "screenshot": "screenshots/gui-for-cli/eval/flutter.webp",
+      "macos": {
+        "readyMs": 635.8,
+        "metric": "external content ready",
+        "rssMb": 132.4,
+        "artifactMb": 42.206
+      }
+    },
+    {
+      "id": "compose-desktop",
+      "name": "Compose Desktop",
+      "language": "Kotlin",
+      "kind": "Cross-platform native",
+      "visual": 4,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 6.4,
+      "batch": false,
+      "verdict": "Looked good; JVM/Gradle startup and packaging kept it as research.",
+      "screenshot": "screenshots/gui-for-cli/eval/compose-desktop.webp",
+      "macos": {
+        "readyMs": 602.4,
+        "metric": "UI ready",
+        "rssMb": 107.6,
+        "artifactMb": 0.584
+      }
+    },
+    {
+      "id": "wx",
+      "name": "wxPython",
+      "language": "Python",
+      "kind": "Python GUI",
+      "visual": 4,
+      "difficulty": 3,
+      "completeness": 2,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Surprisingly recognisable screens from the shared Python runtime.",
+      "screenshot": "screenshots/gui-for-cli/eval/wx.webp",
+      "macos": {
+        "readyMs": 718.4,
+        "metric": "UI ready",
+        "rssMb": 167.2,
+        "artifactMb": 0.179
+      }
+    },
+    {
+      "id": "appkit-macos",
+      "name": "Swift AppKit",
+      "language": "Swift",
+      "kind": "Native platform",
+      "visual": 4,
+      "difficulty": 5,
+      "completeness": 3,
+      "activeHours": 4.4,
+      "batch": false,
+      "verdict": "Native and fast, but hand-built generic UI was fragile; a later pass produced a blank content tree.",
+      "screenshot": "screenshots/gui-for-cli/eval/appkit-macos.webp",
+      "macos": {
+        "readyMs": 102.9,
+        "metric": "window appeared",
+        "rssMb": 112.7,
+        "artifactMb": 5.548
+      }
+    },
+    {
+      "id": "objc-appkit-macos",
+      "name": "Objective-C AppKit",
+      "language": "Objective-C",
+      "kind": "Native platform",
+      "visual": 2,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 4.6,
+      "batch": false,
+      "verdict": "Small and native, but layout-heavy and short of parity.",
+      "screenshot": "screenshots/gui-for-cli/eval/objc-appkit-macos.webp",
+      "macos": {
+        "readyMs": 647.1,
+        "metric": "window appeared",
+        "rssMb": 105.8,
+        "artifactMb": 3.282
+      }
+    },
+    {
+      "id": "ios-swiftui-simulator",
+      "name": "iOS SwiftUI (Simulator)",
+      "language": "Swift",
+      "kind": "Mobile",
+      "visual": 3,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Real mobile app markers worked once simulator boot was separated from startup.",
+      "screenshot": "screenshots/gui-for-cli/eval/ios-swiftui-simulator.webp",
+      "macos": {
+        "readyMs": 533.3,
+        "metric": "window appeared",
+        "rssMb": 295.0,
+        "artifactMb": 15.656
+      }
+    },
+    {
+      "id": "android-compose",
+      "name": "Android Compose (Emulator)",
+      "language": "Kotlin",
+      "kind": "Mobile",
+      "visual": 3,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 6.4,
+      "batch": false,
+      "verdict": "Worked, with Android SDK and Gradle setup loops.",
+      "screenshot": "screenshots/gui-for-cli/eval/android-compose.webp",
+      "macos": {
+        "readyMs": 10338.2,
+        "metric": "UI ready (emulator)",
+        "rssMb": 102.8,
+        "artifactMb": 17.145
+      }
+    },
+    {
+      "id": "fyne",
+      "name": "Fyne",
+      "language": "Go",
+      "kind": "Cross-platform native",
+      "visual": 3,
+      "difficulty": null,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Recognisable partial app; built in the parallel renderer batch.",
+      "screenshot": "screenshots/gui-for-cli/eval/fyne.webp",
+      "macos": {
+        "readyMs": 591.8,
+        "metric": "first frame",
+        "rssMb": 360.5,
+        "artifactMb": 24.107
+      }
+    },
+    {
+      "id": "qt-qml",
+      "name": "Qt 6 / QML",
+      "language": "C++ + QML",
+      "kind": "Cross-platform native",
+      "visual": 3,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Ran cleanly after fixing C++ type mismatches and QML runtime conflicts.",
+      "screenshot": "screenshots/gui-for-cli/eval/qt-qml.webp",
+      "macos": {
+        "readyMs": 321.0,
+        "metric": "UI ready",
+        "rssMb": 95.7,
+        "artifactMb": 0.448
+      }
+    },
+    {
+      "id": "tkinter",
+      "name": "Tkinter",
+      "language": "Python",
+      "kind": "Python GUI",
+      "visual": 3,
+      "difficulty": 3,
+      "completeness": 2,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Stdlib GUI over the shared Python runtime; partial.",
+      "screenshot": "screenshots/gui-for-cli/eval/tkinter.webp",
+      "macos": {
+        "readyMs": 789.7,
+        "metric": "UI ready",
+        "rssMb": 207.0,
+        "artifactMb": 0.182
+      }
+    },
+    {
+      "id": "toga",
+      "name": "Toga / BeeWare",
+      "language": "Python",
+      "kind": "Python GUI",
+      "visual": 3,
+      "difficulty": 3,
+      "completeness": 2,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Partial; slowest Python start.",
+      "screenshot": "screenshots/gui-for-cli/eval/toga.webp",
+      "macos": {
+        "readyMs": 1003.1,
+        "metric": "UI ready",
+        "rssMb": 200.7,
+        "artifactMb": 0.236
+      }
+    },
+    {
+      "id": "gio",
+      "name": "Gio",
+      "language": "Go",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 9.5,
+      "batch": false,
+      "verdict": "Small and fast, but still felt incomplete after more active time than it looked.",
+      "screenshot": "screenshots/gui-for-cli/eval/gio.webp",
+      "macos": {
+        "readyMs": 332.5,
+        "metric": "first frame",
+        "rssMb": 208.4,
+        "artifactMb": 6.961
+      }
+    },
+    {
+      "id": "slint",
+      "name": "Slint",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": 5,
+      "completeness": 3,
+      "activeHours": 7.6,
+      "batch": false,
+      "verdict": "Excellent footprint numbers; deep parity stayed costly and visibly incomplete.",
+      "screenshot": "screenshots/gui-for-cli/eval/slint.webp",
+      "macos": {
+        "readyMs": 429.0,
+        "metric": "UI ready",
+        "rssMb": 31.3,
+        "artifactMb": 13.388
+      }
+    },
+    {
+      "id": "raygui",
+      "name": "Raygui (Rust)",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "visual": 2,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 4.5,
+      "batch": false,
+      "verdict": "Tiny and fast; layout, terminal and accessibility were all custom work.",
+      "screenshot": "screenshots/gui-for-cli/eval/raygui.webp",
+      "macos": {
+        "readyMs": 568.8,
+        "metric": "content ready",
+        "rssMb": 90.8,
+        "artifactMb": 2.387
+      }
+    },
+    {
+      "id": "raygui-c",
+      "name": "Raygui (C)",
+      "language": "C",
+      "kind": "Immediate mode",
+      "visual": 2,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 2.4,
+      "batch": false,
+      "verdict": "Quick first port; C memory/runtime and CMake issues made parity fragile.",
+      "screenshot": "screenshots/gui-for-cli/eval/raygui-c.webp",
+      "macos": {
+        "readyMs": 452.7,
+        "metric": "UI ready",
+        "rssMb": 85.9,
+        "artifactMb": 1.118
+      }
+    },
+    {
+      "id": "imgui",
+      "name": "Dear ImGui (Rust)",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "visual": 2,
+      "difficulty": 3,
+      "completeness": 2,
+      "activeHours": 2.3,
+      "batch": false,
+      "verdict": "Benchmark gold, limited product parity.",
+      "screenshot": "screenshots/gui-for-cli/eval/imgui.webp",
+      "macos": {
+        "readyMs": 19.6,
+        "metric": "UI ready",
+        "rssMb": 11.4,
+        "artifactMb": 3.781
+      }
+    },
+    {
+      "id": "imgui-cpp",
+      "name": "Dear ImGui (C++)",
+      "language": "C++",
+      "kind": "Immediate mode",
+      "visual": 2,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": 4.2,
+      "batch": false,
+      "verdict": "Fastest and smallest run of all; still missing config, setup and confirmations.",
+      "screenshot": "screenshots/gui-for-cli/eval/imgui-cpp.webp",
+      "macos": {
+        "readyMs": 3.6,
+        "metric": "UI ready",
+        "rssMb": 10.0,
+        "artifactMb": 1.409
+      }
+    },
+    {
+      "id": "egui",
+      "name": "egui",
+      "language": "Rust",
+      "kind": "Immediate mode",
+      "visual": 2,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Fast; part of the parallel renderer batch.",
+      "screenshot": "screenshots/gui-for-cli/eval/egui.webp",
+      "macos": {
+        "readyMs": 20.7,
+        "metric": "UI ready",
+        "rssMb": 11.4,
+        "artifactMb": 7.218
+      }
+    },
+    {
+      "id": "iced",
+      "name": "Iced",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Fast; part of the parallel renderer batch.",
+      "screenshot": "screenshots/gui-for-cli/eval/iced.webp",
+      "macos": {
+        "readyMs": 20.5,
+        "metric": "UI ready",
+        "rssMb": 11.6,
+        "artifactMb": 9.762
+      }
+    },
+    {
+      "id": "makepad",
+      "name": "Makepad",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Fast; part of the parallel renderer batch.",
+      "screenshot": "screenshots/gui-for-cli/eval/makepad.webp",
+      "macos": {
+        "readyMs": 21.0,
+        "metric": "UI ready",
+        "rssMb": 11.3,
+        "artifactMb": 8.525
+      }
+    },
+    {
+      "id": "gtk4",
+      "name": "GTK4 / libadwaita",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": 3,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Rust GTK ownership errors, and a screenshot harness fix to capture it at all.",
+      "screenshot": "screenshots/gui-for-cli/eval/gtk4.webp",
+      "macos": {
+        "readyMs": 19.6,
+        "metric": "UI ready",
+        "rssMb": 14.6,
+        "artifactMb": 2.036
+      }
+    },
+    {
+      "id": "gpui",
+      "name": "GPUI",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 2,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Shared-core runner with limited UI.",
+      "screenshot": "screenshots/gui-for-cli/eval/gpui.webp",
+      "macos": {
+        "readyMs": 217.5,
+        "metric": "UI ready",
+        "rssMb": 74.8,
+        "artifactMb": 6.391
+      }
+    },
+    {
+      "id": "dioxus",
+      "name": "Dioxus WebUI",
+      "language": "Rust",
+      "kind": "WebUI shell",
+      "visual": 2,
+      "difficulty": 3,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Smaller than Tauri, but instrumentation and visuals fell short.",
+      "screenshot": "screenshots/gui-for-cli/eval/dioxus.webp",
+      "macos": {
+        "readyMs": 460.9,
+        "metric": "window shown",
+        "rssMb": 159.7,
+        "artifactMb": 120.455
+      }
+    },
+    {
+      "id": "nodegui",
+      "name": "NodeGui / Qt",
+      "language": "TypeScript",
+      "kind": "Cross-platform native",
+      "visual": 1,
+      "difficulty": 4,
+      "completeness": 3,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Appealing shared-TypeScript idea; huge Qt payload (~510 MB on Windows).",
+      "screenshot": "screenshots/gui-for-cli/eval/nodegui.webp",
+      "macos": {
+        "readyMs": 713.3,
+        "metric": "window shown",
+        "rssMb": 277.8,
+        "artifactMb": 0.064
+      }
+    },
+    {
+      "id": "avalonia",
+      "name": "Avalonia",
+      "language": "C#",
+      "kind": "Cross-platform native",
+      "visual": 1,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": true,
+      "verdict": "Rated lowest: the captured window showed a configuration error.",
+      "screenshot": "screenshots/gui-for-cli/eval/avalonia.webp",
+      "macos": {
+        "readyMs": 1210.4,
+        "metric": "first render",
+        "rssMb": 187.0,
+        "artifactMb": 109.759
+      }
+    },
+    {
+      "id": "xilem-vello",
+      "name": "Xilem / Vello",
+      "language": "Rust",
+      "kind": "Cross-platform native",
+      "visual": 1,
+      "difficulty": null,
+      "completeness": null,
+      "activeHours": null,
+      "batch": false,
+      "verdict": "Headless core while Xilem's window APIs stabilise; little real UI.",
+      "screenshot": "screenshots/gui-for-cli/eval/xilem-vello.webp",
+      "macos": {
+        "readyMs": 849.4,
+        "metric": "UI ready",
+        "rssMb": 107.0,
+        "artifactMb": 12.827
+      }
+    }
+  ]
+}

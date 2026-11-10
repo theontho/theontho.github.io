@@ -317,7 +317,7 @@ function openProject(id) {
       h("div", {}, h("h3", {}, "Highlights"), h("ul", {}, (p.highlights || []).map((x) => h("li", {}, x)))),
       h("div", {},
         links.length ? h("h3", {}, "Links") : null,
-        links.length ? h("ul", { class: "link-list" }, links.map((l) => h("li", {}, h("a", { href: l.url }, l.label)))) : null,
+        links.length ? h("ul", { class: "link-list" }, links.map((l) => h("li", {}, h("a", { href: l.url, class: l.primary ? "primary" : null }, l.label)))) : null,
         h("h3", {}, "Built with"), h("div", { class: "tags" }, (p.tech || []).map((t) => h("span", { class: "tag" }, t))))),
     prList(p, s),
     earlierVersions(p),

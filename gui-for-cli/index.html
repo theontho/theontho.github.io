@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GUI for CLI: one app on ~30 UI stacks, built by AI · Mahyar (Mac) McDonald</title>
+  <meta name="description" content="In May 2026 AI coding agents built the same data-driven desktop app on about 30 UI toolkits. Benchmarks, implementation difficulty and hand-rated screenshots for each.">
+  <meta property="og:title" content="GUI for CLI: one app on ~30 UI stacks, built by AI">
+  <meta property="og:description" content="How well AI built the same desktop app in SwiftUI, Tauri, Flutter, Slint, Gio, ImGui, Qt and two dozen more.">
+  <meta property="og:image" content="https://theontho.github.io/screenshots/gui-for-cli/eval/flutter.webp">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/eval.js" defer></script>
+</head>
+<body class="eval-page">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow"><a href="../?project=gui-for-cli">← Project showcase</a> · Evaluation</p>
+      <h1>GUI for CLI: one app, about 30 UI stacks, built by AI</h1>
+      <p class="tagline">In May 2026 I had AI coding agents build the same data-driven desktop app, GUI for CLI running the real WGS Extract bundle, on about 30 UI toolkits across a dozen languages. Then I benchmarked every real window and rated every screenshot by hand.</p>
+      <dl class="era" id="era"></dl>
+      <dl class="totals" id="eval-totals"></dl>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="eval-section">
+      <h2>What it showed</h2>
+      <ul class="lessons">
+        <li><strong>The fastest prototype was rarely the right product.</strong> C++ ImGui, Rust ImGui, GTK4, Iced, egui and Makepad were ready in 4–21 ms with ~10–15 MB of memory, and all rated 2/5 for how well they showed the actual app.</li>
+        <li><strong>Reusing a complete behaviour model beat rewriting it.</strong> Every WebUI shell (Tauri, Electron, WKWebView, browser) inherited a 5/5 experience from one TypeScript WebUI. Native rewrites had to rebuild setup, data sources, terminals, config and pickers each time.</li>
+        <li><strong>Most rewrites stalled at "opens a window".</strong> Leaving out the two reference apps and counting the WebUI shells once, the 29 experimental surfaces averaged 2.55/5, median 2.</li>
+        <li><strong>The best rewrites were Flutter, Compose Desktop, wxPython and Swift AppKit</strong> (4/5). Flutter also had the best Windows numbers, but took the longest parity work (difficulty 5/5).</li>
+        <li><strong>Infrastructure cost more than any one toolkit.</strong> About 31 active hours went to the benchmark and screenshot harness and 48 to release, updater and installer packaging, against 2–10 hours per toolkit.</li>
+        <li><strong>Outcome:</strong> SwiftUI and Tauri were kept as the product frontends. GUI for CLI later became a single Tauri app, which now ships inside <a href="https://github.com/WGSExtract/wgsextract-cli/tree/main/gui">WGS Extract</a>.</li>
+      </ul>
+    </section>
+
+    <section class="eval-section">
+      <h2>How each one did</h2>
+      <p class="section-blurb">Visual is my 1–5 rating of how effectively the AI produced the intended interface. Difficulty (1 easy – 5 very hard) and completeness (5 = product-like for the WGS Extract workflow) come from the session-history report. macOS numbers are from the 15 May benchmark run; readiness markers differ between toolkits, so compare them loosely. Click a row to see its screenshot.</p>
+      <div class="eval-controls">
+        <label class="filter"><span>Kind</span><select id="kind-filter"><option value="all">All</option></select></label>
+        <label class="filter"><span>Visual</span><select id="visual-filter">
+          <option value="all">Any</option><option value="ref">Reference</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option>
+        </select></label>
+        <span class="eval-count" id="eval-count"></span>
+      </div>
+      <div class="table-scroll">
+        <table class="eval-table" id="eval-table">
+          <thead><tr>
+            <th data-sort="name">Toolkit</th>
+            <th data-sort="visual" class="num">Visual</th>
+            <th data-sort="completeness" class="num">Complete</th>
+            <th data-sort="difficulty" class="num">Difficulty</th>
+            <th data-sort="activeHours" class="num">Active h</th>
+            <th data-sort="readyMs" class="num">macOS ready</th>
+            <th data-sort="rssMb" class="num">Memory</th>
+            <th data-sort="artifactMb" class="num">Size</th>
+            <th>Verdict</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="footnote">“Batch” toolkits were built together in one orchestrated session (about 8 active hours for seven renderers), so they have no individual difficulty score. Compose Desktop and Android share one 6.4-hour Kotlin session. Sizes are the built artifact; Python, JVM and NodeGui sizes exclude their runtimes.</p>
+    </section>
+
+    <section class="eval-section">
+      <h2>Rated screenshots</h2>
+      <p class="section-blurb">All 34 screenshots from the rating pass, best first.</p>
+      <div class="gallery" id="eval-gallery"></div>
+    </section>
+
+    <section class="eval-section">
+      <h2>Windows highlights</h2>
+      <p class="section-blurb">From the Windows benchmark hosts. Native C# was the best Windows process shape; Flutter was the fastest and smallest full GUI package.</p>
+      <div class="table-scroll">
+        <table class="eval-table" id="windows-table">
+          <thead><tr><th>Toolkit</th><th class="num">Ready</th><th>Metric</th><th>Memory</th><th>Size</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="eval-section">
+      <h2>How it was run</h2>
+      <ul class="lessons">
+        <li>Every toolkit had to load the same WGS Extract bundle: multi-step setup scripts, long-running commands with terminal output, file and folder pickers, dynamic data sources, localisation and saved config. No empty-window demos.</li>
+        <li>AI agents wrote the implementations, harnesses and reports; I prompted, ran parity audits, reviewed PRs and did the visual ratings.</li>
+        <li>Benchmarks measured real windows or terminal UIs with readiness markers; headless shortcuts were rejected.</li>
+        <li>Active time sums the gaps between session events, capped at 30 minutes, so overnight waits don't count.</li>
+        <li>These were the models of May 2026. Newer models would likely close some of these gaps; the branch is kept as a snapshot of that era.</li>
+      </ul>
+      <ul class="link-list eval-links" id="eval-links"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p><a href="../">← Back to all projects</a></p>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Screenshot viewer">
+    <figure>
+      <img id="lightbox-img" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous screenshot">‹</button>
+    <button type="button" class="lb-nav lb-next" aria-label="Next screenshot">›</button>
+    <button type="button" class="lb-close" aria-label="Close">×</button>
+  </dialog>
+</body>
+</html>

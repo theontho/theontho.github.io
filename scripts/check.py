@@ -43,6 +43,14 @@ def main() -> int:
             if not path.is_file():
                 errors.append(f"{pid}: missing screenshot file {shot['src']}")
 
+    eval_path = ROOT / "data" / "gui-for-cli-eval.json"
+    if eval_path.exists():
+        for surface in json.loads(eval_path.read_text())["surfaces"]:
+            path = ROOT / surface["screenshot"]
+            referenced.add(path.resolve())
+            if not path.is_file():
+                errors.append(f"gui-for-cli-eval: missing screenshot {surface['screenshot']}")
+
     on_disk = {p.resolve() for p in (ROOT / "screenshots").rglob("*") if p.is_file()}
     for orphan in sorted(on_disk - referenced):
         errors.append(f"unused screenshot {orphan.relative_to(ROOT)}")
