@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:18:58Z",
+  "generatedAt": "2026-11-10T22:19:10Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -23,7 +23,7 @@
     "failed": 0,
     "activeHours": 26.8,
     "meanSelfVisual": 4.03,
-    "meanMyVisual": 4.59,
+    "meanMyVisual": 4.61,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.67,
     "vsMay": {
@@ -36,10 +36,10 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 14,
-        "newMean": 4.64,
-        "mayMean": 2.71,
-        "better": 13,
+        "n": 15,
+        "newMean": 4.67,
+        "mayMean": 2.67,
+        "better": 14,
         "same": 1,
         "worse": 0
       },
@@ -1378,8 +1378,8 @@
       "completeness": 4,
       "difficulty": 4,
       "activeHours": 1.25,
-      "myVisual": null,
-      "myNotes": null,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference. RTL is not mirrored and there is no dark theme.",
       "userVisual": null,
       "userNotes": null,
       "features": [
