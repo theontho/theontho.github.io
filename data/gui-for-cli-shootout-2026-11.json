@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T22:19:10Z",
+  "generatedAt": "2026-11-10T22:37:16Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 29,
-    "done": 18,
+    "done": 20,
     "building": 4,
-    "queued": 7,
+    "queued": 5,
     "failed": 0,
-    "activeHours": 26.8,
-    "meanSelfVisual": 4.03,
-    "meanMyVisual": 4.61,
+    "activeHours": 29.6,
+    "meanSelfVisual": 4.08,
+    "meanMyVisual": 4.65,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.67,
+    "meanMayVisualDone": 2.62,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,23 +36,23 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 15,
-        "newMean": 4.67,
-        "mayMean": 2.67,
-        "better": 14,
+        "n": 16,
+        "newMean": 4.69,
+        "mayMean": 2.62,
+        "better": 15,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 15,
-        "newMean": 4.03,
-        "mayMean": 2.67,
-        "better": 12,
+        "n": 16,
+        "newMean": 4.09,
+        "mayMean": 2.62,
+        "better": 13,
         "same": 3,
         "worse": 0
       }
     },
-    "windowsDone": 0
+    "windowsDone": 1
   },
   "toolkits": [
     {
@@ -135,7 +135,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -597,11 +597,11 @@
         "note": "No .NET runtime needed at run time."
       },
       "windows": {
-        "status": null,
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 440,
+        "rssMb": 127,
+        "sizeMb": 36.9,
+        "notes": "Warm median of 5; 1349 ms first launch after VM boot. NativeAOT."
       },
       "shots": [
         {
@@ -633,6 +633,11 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-dark.webp",
           "caption": "Dark theme, Library page",
           "sha": "bde4a52343862dda"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/avalonia-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "c3ca12af635df68d"
         }
       ]
     },
@@ -1334,27 +1339,37 @@
       "name": "GPUI",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": "gpui",
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 5,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.6,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference, including dialog shadow and focus ring.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "Zed's GPUI, through gpui-kit and gpui-component, renders the whole workflow within a pixel or two of the reference, including dialog shadows, focus rings, RTL and a dark theme.",
+      "lessons": "Picking a crate is the hard part: the crates.io gpui is old, so it builds on gpui-kit, a recent Zed snapshot whose API shifts between releases. It pulls in ~800 dependencies for a 43 MB binary, and file dialogs work only through xdg-desktop-portal.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 434,
+        "rssMb": 226.0,
+        "sizeMb": 43,
+        "build": "9 min 27 s first clean build (-j4, ~600 crates); ~26 s app-only rebuild",
+        "note": "Ready time measured on a busy machine; 213–225 ms earlier on a quieter one. Built with gpui-kit (a recent Zed snapshot)."
       },
       "windows": {
         "status": null,
@@ -1363,7 +1378,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "5c1a5cb8a7cfe0c5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "fd40c1063eb9f80f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-demo-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "339a11d6a667643a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "7fcbee47d60cc356"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-rtl-ar.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "a21281badc2e7619"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-dark.webp",
+          "caption": "Dark theme, Microarray page",
+          "sha": "6d4758b84c3f7e28"
+        }
+      ]
     },
     {
       "id": "makepad",
@@ -1570,7 +1616,7 @@
           "sha": "09447ffab37bb7c4"
         },
         {
-          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-cancelled.webp",
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-drive1-cancelled.webp",
           "caption": "A cancelled command, clicked through under Xvfb (demo bundle)",
           "sha": "f287b35ab2747401"
         },
@@ -1585,7 +1631,7 @@
           "sha": "2518edcb9fdfe502"
         },
         {
-          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-dark.webp",
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-drive9-dark.webp",
           "caption": "Dark theme, demo settings after setup",
           "sha": "44be269f93f7ddf8"
         }
@@ -1596,27 +1642,37 @@
       "name": "Zenbu UI",
       "language": "C",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": null,
       "mayVisual": null,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 4,
+      "activeHours": 1.2,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "A native X11/GL window on Zenbu, a private C immediate-mode UI stack, rendering the whole WGS Extract workflow close to the reference with light and dark themes and right-to-left mirroring.",
+      "lessons": "As a private monorepo with no packaged release, Zenbu had to be built from a mirrored scratch workspace with the app overlaid. Its core is fast and its bidi text just works, but form-level widgets, RTL mirroring and wake-ups on child output were all hand-built, and images draw as black boxes under software GL.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 804,
+        "rssMb": 187.4,
+        "sizeMb": 65,
+        "build": "178 s clean optimised build (2 cores, cache warm); ~30 s incremental",
+        "note": "RSS is mostly Mesa llvmpipe and font arenas."
       },
       "windows": {
         "status": null,
@@ -1625,14 +1681,45 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": []
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "5f20f508c35e5868"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "e59959e39865f0ec"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-demo-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "c44c92d870c1d703"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "7ab10b4b64763d2f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-rtl-he.webp",
+          "caption": "Hebrew, right-to-left",
+          "sha": "ab11c269b341f89f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-dark.webp",
+          "caption": "Dark theme",
+          "sha": "28e37d3829f6607b"
+        }
+      ]
     },
     {
       "id": "freya",
       "name": "Freya",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 6,
       "mayId": null,
       "mayVisual": null,
@@ -1668,7 +1755,7 @@
       "name": "Floem",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 6,
       "mayId": null,
       "mayVisual": null,
