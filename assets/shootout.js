@@ -42,6 +42,7 @@ function bestRating(t) {
 }
 
 function score(value, cls = "") {
+  if (value === "failed") return h("span", { class: "score failed", title: "Never launched into the app" }, "No UI");
   if (value == null) return dash();
   return h("span", { class: `score s${Math.min(5, Math.max(1, Math.round(value)))} ${cls}`.trim(), title: `${fmtNum(value)} of 5` }, fmtNum(value));
 }
@@ -53,6 +54,9 @@ function statusBadge(status) {
 function delta(t) {
   const best = bestRating(t);
   if (t.mayVisual == null || !best) return null;
+  if (t.mayVisual === "failed") {
+    return h("span", { class: `delta up${best.key === "selfVisual" ? " provisional" : ""}`, title: `May never showed a UI; now ${fmtNum(best.value)} (${SOURCE_LABEL[best.key]})` }, "↑");
+  }
   const d = best.value - t.mayVisual;
   const arrow = d > 0 ? "↑" : d < 0 ? "↓" : "=";
   const text = d === 0 ? "=" : `${arrow}${fmtNum(Math.abs(d))}`;
@@ -62,8 +66,11 @@ function delta(t) {
   }, text);
 }
 
+const mayNumber = (t) => (t.mayVisual === "failed" ? 0 : t.mayVisual);
+
 function sortValue(t, key) {
   switch (key) {
+    case "mayVisual": return t.mayVisual == null ? null : mayNumber(t);
     case "order": return t._order;
     case "status": return STATUS_RANK[t.status] ?? 9;
     case "readyMs": case "rssMb": case "sizeMb": return t.linux?.[key] ?? null;
@@ -212,7 +219,7 @@ function renderVsMay() {
       h("p", {}, `${c.n} toolkits: ${c.better} better, ${c.same} the same, ${c.worse} worse.`));
   });
   const rows = data.toolkits.filter((t) => t.mayVisual != null && bestRating(t))
-    .sort((a, b) => (bestRating(b).value - b.mayVisual) - (bestRating(a).value - a.mayVisual) || a.name.localeCompare(b.name));
+    .sort((a, b) => (bestRating(b).value - mayNumber(b)) - (bestRating(a).value - mayNumber(a)) || a.name.localeCompare(b.name));
   const table = rows.length ? h("div", { class: "table-scroll" }, h("table", { class: "eval-table small-table" },
     h("thead", {}, h("tr", {}, h("th", {}, "Toolkit"), h("th", { class: "num" }, "May"), h("th", { class: "num" }, "Now"), h("th", {}, "Based on"), h("th", { class: "num" }, "Change"))),
     h("tbody", {}, rows.map((t) => {
