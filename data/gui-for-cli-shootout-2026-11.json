@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:00:17Z",
+  "generatedAt": "2026-11-11T06:02:26Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 19
+    "windowsDone": 20
   },
   "toolkits": [
     {
@@ -1900,7 +1900,7 @@
         "note": "Most of the RSS (421,680 kB) is lavapipe software Vulkan under Xvfb; a hardware GPU driver would use far less."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -1984,11 +1984,11 @@
         "note": "Ready time measured at load ~7 (~740 ms on a quieter run). Size includes 15 MB of vendored lavapipe, needed only under Xvfb."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 952,
+        "rssMb": 254,
+        "sizeMb": 36.2,
+        "notes": "Warm median of 5; GPUI on DX11/WARP; same GPUI Windows RTL text patch as the GPUI port; app declares DPI awareness itself."
       },
       "shots": [
         {
@@ -2020,6 +2020,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-drive9-dark.webp",
           "caption": "Dark theme, demo settings after setup",
           "sha": "44be269f93f7ddf8"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "4d2911c59250a465"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/moonframe-windows-rtl.webp",
+          "caption": "Windows 11, Arabic (patched GPUI text layout)",
+          "sha": "c1f16101ea8b13b3"
         }
       ],
       "may": null
