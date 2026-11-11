@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T07:01:45Z",
+  "generatedAt": "2026-11-11T07:18:20Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 26
+    "windowsDone": 27
   },
   "toolkits": [
     {
@@ -2449,11 +2449,11 @@
         "note": "Ready ranged 216–740 ms across the session under load (load average 8–11). RSS is mostly Mesa llvmpipe under Xvfb."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 448,
+        "rssMb": 56,
+        "sizeMb": 2.9,
+        "notes": "Warm median of 5; Direct3D 11 backend on Windows (no Mesa); one static .exe plus icon assets."
       },
       "shots": [
         {
@@ -2485,6 +2485,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-dark.webp",
           "caption": "Dark theme, Library page",
           "sha": "8d0cc5f75a4460ac"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "3049964b3cf00adc"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "a4637769038ee63b"
         }
       ],
       "may": {
@@ -2701,7 +2711,7 @@
         "note": "Size is a 1.6 MB statically linked binary plus 1.7 MB of fonts. RSS is mostly llvmpipe software GL under Xvfb."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
