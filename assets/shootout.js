@@ -127,7 +127,7 @@ function compareLabels(t) {
   const may = t.may.visual === "failed" ? "no UI" : typeof t.may.visual === "number" ? `visual ${t.may.visual}/5` : "not rated";
   const after = !afterShot(t) ? (t.status === "queued" ? "not started" : "in progress")
     : best ? `${SOURCE_LABEL[best.key]} ${fmtNum(best.value)}/5` : "not rated yet";
-  return { before: `May 2026 · ${may}`, after: `November 2026 · ${after}` };
+  return { before: `May 2026 · ${may}${t.may.note ? ` (${t.may.note})` : ""}`, after: `November 2026 · ${after}` };
 }
 
 function comparePane(src, alt, label, empty) {
@@ -321,7 +321,8 @@ function renderBeforeAfter() {
           score(t.may.visual ?? null), h("span", { "aria-hidden": "true" }, " → "),
           after && best ? score(best.value, best.key === "selfVisual" ? "provisional" : "") : h("span", { class: "missing" }, "in progress"),
           g != null ? h("span", { class: `delta ${g > 0 ? "up" : g < 0 ? "down" : "same"}` }, g > 0 ? `+${fmtNum(g)}` : g < 0 ? fmtNum(g) : "=") : null),
-        after && best && best.key !== "myVisual" ? h("small", {}, SOURCE_LABEL[best.key]) : null));
+        after && best && best.key !== "myVisual" ? h("small", {}, SOURCE_LABEL[best.key]) : null,
+        t.may.note ? h("small", {}, t.may.note) : null));
   }));
 }
 
