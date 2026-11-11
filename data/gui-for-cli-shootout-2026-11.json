@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T00:59:03Z",
+  "generatedAt": "2026-11-11T01:11:12Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 25,
-    "building": 5,
+    "done": 26,
+    "building": 4,
     "queued": 0,
     "failed": 0,
-    "activeHours": 39.2,
+    "activeHours": 40.2,
     "meanSelfVisual": 4.1,
-    "meanMyVisual": 4.68,
+    "meanMyVisual": 4.65,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.5,
+    "meanMayVisualDone": 2.47,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,18 +36,18 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 18,
-        "newMean": 4.72,
-        "mayMean": 2.5,
-        "better": 17,
+        "n": 19,
+        "newMean": 4.68,
+        "mayMean": 2.47,
+        "better": 18,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 18,
-        "newMean": 4.14,
-        "mayMean": 2.5,
-        "better": 15,
+        "n": 19,
+        "newMean": 4.13,
+        "mayMean": 2.47,
+        "better": 16,
         "same": 3,
         "worse": 0
       }
@@ -2163,28 +2163,38 @@
       "name": "Dear ImGui (C++)",
       "language": "C++",
       "kind": "Immediate mode",
-      "status": "building",
+      "status": "done",
       "wave": 6,
       "mayId": "imgui-cpp",
       "mayNote": null,
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.0,
+      "myVisual": 4,
+      "myNotes": "Provisional, from the main screenshot: very close, but the dialog shadow renders as a visible square box behind the modal.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "Dear ImGui 1.92 on GLFW and OpenGL 3 with no stock widgets on screen: everything is custom-drawn in the reference's palette, fonts and icons, with a modal scrim, dark theme and mirrored RTL, in a 2.6 MB static binary.",
+      "lessons": "Immediate mode has no look-and-feel layer, so every widget is drawn by hand; font sizes needed CSS em scaling, and RTL needed FriBidi because ImGui has no bidi or shaping. There is no accessibility tree and no native file dialog.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 335,
+        "rssMb": 116.0,
+        "sizeMb": 2.6,
+        "build": "71 s clean (-j2, vendor tarballs fetched); 5–20 s incremental",
+        "note": "Ready ranged 216–740 ms across the session under load (load average 8–11). RSS is mostly Mesa llvmpipe under Xvfb."
       },
       "windows": {
         "status": null,
@@ -2193,7 +2203,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "599e6ee8f5fa25bb"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "fa317ee822aa2523"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-demo-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "f65cf77f83732bf6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "4135ee6f8e292b82"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left with FriBidi",
+          "sha": "a380b4a59df48122"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-cpp-dark.webp",
+          "caption": "Dark theme, Library page",
+          "sha": "8d0cc5f75a4460ac"
+        }
+      ],
       "may": {
         "name": "Dear ImGui (C++)",
         "visual": 2,
