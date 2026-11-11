@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T07:18:20Z",
+  "generatedAt": "2026-11-11T07:36:10Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 27
+    "windowsDone": 28
   },
   "toolkits": [
     {
@@ -2543,11 +2543,11 @@
         "note": "Ready ranged 300–1600 ms under heavy machine load. About 150 MB of the RSS is Mesa software GL under Xvfb."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 915,
+        "rssMb": 72.6,
+        "sizeMb": 10.4,
+        "notes": "Warm median of 5; Direct3D 12 via dear-imgui-wgpu (no Mesa); ~500 ms is the VM's ~1 Hz virtual display, ~300 ms the bundle's PowerShell config script."
       },
       "shots": [
         {
@@ -2579,6 +2579,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-interactive-select.webp",
           "caption": "Custom select opened by a scripted click",
           "sha": "649b642c8bfdffb0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "98d7552c1faa45c5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "e465aa4132befe67"
         }
       ],
       "may": {
