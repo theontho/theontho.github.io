@@ -55,7 +55,7 @@ def load(rel: str) -> dict:
 
 
 def score_class(value: float) -> str:
-    return f"s{min(5, max(1, round(value)))}"
+    return f"s{min(5, max(1, int(value + 0.5)))}"  # round half up, like the page
 
 
 def tile(src: str, label: str | None = None, score: float | None = None) -> str:
