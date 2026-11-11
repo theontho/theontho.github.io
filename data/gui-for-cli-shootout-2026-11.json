@@ -1,10 +1,18 @@
 {
-  "generatedAt": "2026-11-11T07:39:54Z",
+  "generatedAt": "2026-11-11T07:51:22Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
   "links": [],
-  "windowsNote": "3 at a time",
+  "windowsNote": null,
+  "windowsFindings": [
+    "Every port runs on a GPU-less Azure VM (Windows 11 25H2). Direct3D toolkits fell back to Microsoft's WARP software renderer on their own, and Freya to Skia's CPU renderer.",
+    "Toolkits that only speak OpenGL needed Mesa's llvmpipe as a 55.7 MB opengl32.dll: Fyne, Zenbu UI and both raygui ports (C raygui loads it only when it finds no GPU).",
+    "Right-to-left text needed Windows-only fixes: a ~40-line patch to GPUI's DirectWrite text layout for GPUI and Moonframe (Arabic was drawn mirrored and disconnected without it), a separate Latin font for egui's mixed Arabic/Latin labels, and Textual shapes RTL words itself because Windows Terminal doesn't.",
+    "Tkinter looks better on Windows than on Linux: GDI shapes Arabic and Hebrew correctly, and the setup prompt gets its dimmed backdrop.",
+    "Toga's WinForms backend kept none of the GTK look: about 85 lines of GTK CSS became about 800 lines of WinForms drawing.",
+    "Windows ready times run high: each includes the bundle's PowerShell config script (~250–300 ms), and the VM's ~1 Hz synthetic display adds about 0.5 s of swapchain waiting for wgpu toolkits such as egui and Rust Dear ImGui. Compare Windows timings with each other rather than with Linux."
+  ],
   "features": [
     "Bundle loaded from disk",
     "Sidebar",
@@ -53,7 +61,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 29
+    "windowsDone": 30
   },
   "toolkits": [
     {
@@ -2731,11 +2739,11 @@
         "note": "Size is a 1.6 MB statically linked binary plus 1.7 MB of fonts. RSS is mostly llvmpipe software GL under Xvfb."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 573,
+        "rssMb": 146,
+        "sizeMb": 57.2,
+        "notes": "Warm median of 5; 1.6 MB without the 55.7 MB Mesa software opengl32.dll (raylib has no Direct3D backend; Mesa is loaded only when there's no GPU)."
       },
       "shots": [
         {
@@ -2767,6 +2775,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-interactive-dropdown.webp",
           "caption": "Custom dropdown opened by a scripted click",
           "sha": "086e44b3d369a7a7"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "025d5b443a48044f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "716d2019bc59b3c3"
         }
       ],
       "may": {
