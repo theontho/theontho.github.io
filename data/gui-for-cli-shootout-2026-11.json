@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T01:55:48Z",
+  "generatedAt": "2026-11-11T01:56:12Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -23,7 +23,7 @@
     "failed": 0,
     "activeHours": 46.8,
     "meanSelfVisual": 4.1,
-    "meanMyVisual": 4.68,
+    "meanMyVisual": 4.69,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.43,
     "vsMay": {
@@ -36,10 +36,10 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 20,
-        "newMean": 4.7,
-        "mayMean": 2.45,
-        "better": 19,
+        "n": 21,
+        "newMean": 4.71,
+        "mayMean": 2.43,
+        "better": 20,
         "same": 1,
         "worse": 0
       },
@@ -2434,8 +2434,8 @@
       "completeness": 4.5,
       "difficulty": 4,
       "activeHours": 1.2,
-      "myVisual": null,
-      "myNotes": null,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference, with a fully mirrored, correctly shaped Arabic layout.",
       "userVisual": null,
       "userNotes": null,
       "features": [
