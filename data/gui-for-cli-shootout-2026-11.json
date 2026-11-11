@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T00:19:42Z",
+  "generatedAt": "2026-11-11T00:25:48Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,13 +17,13 @@
   ],
   "stats": {
     "total": 30,
-    "done": 22,
+    "done": 23,
     "building": 5,
-    "queued": 3,
+    "queued": 2,
     "failed": 0,
-    "activeHours": 34.0,
+    "activeHours": 36.4,
     "meanSelfVisual": 4.11,
-    "meanMyVisual": 4.68,
+    "meanMyVisual": 4.7,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.5,
     "vsMay": {
@@ -1967,28 +1967,38 @@
       "name": "Freya",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 6,
       "mayId": null,
       "mayNote": null,
       "mayVisual": null,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 2.3,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; dark theme not applied.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Freya 0.5 (Rust on Skia, with its own reactive components and no webview) renders every page very close to the reference, with the same fonts, icons, palette and dialogs.",
+      "lessons": "Freya 0.5's own component API was easy, but its Torin layout needed workarounds and Skia didn't find some installed fonts by name. There is no layout direction for RTL, and Skia plus LTO make builds slow.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 1569,
+        "rssMb": 169.0,
+        "sizeMb": 33,
+        "build": "8 min 40 s clean release (-j2, thin LTO) at load average 8–15; ~2 min 50 s incremental",
+        "note": "Ready time ranged 1.1–2.0 s across runs at load average 8–15. RSS is the OpenGL/llvmpipe path; the software renderer uses ~56 MB."
       },
       "windows": {
         "status": null,
@@ -1997,7 +2007,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "f37b4794978c65ba"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "32a253ea97f84930"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-action.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "5f1fa959ab673f60"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "de85d9f65d9d7695"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-rtl.webp",
+          "caption": "Arabic, right-to-left (mirrored by hand)",
+          "sha": "d23526dd6209d30a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-confirm.webp",
+          "caption": "Typed confirmation dialog (demo bundle)",
+          "sha": "2f6646408d59c45c"
+        }
+      ],
       "may": null
     },
     {
@@ -2124,7 +2165,7 @@
       "name": "Dear ImGui (Rust)",
       "language": "Rust",
       "kind": "Immediate mode",
-      "status": "queued",
+      "status": "building",
       "wave": 7,
       "mayId": "imgui",
       "mayNote": null,
