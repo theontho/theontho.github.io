@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T05:08:07Z",
+  "generatedAt": "2026-11-11T05:18:11Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 16
+    "windowsDone": 17
   },
   "toolkits": [
     {
@@ -1440,11 +1440,11 @@
         "note": "Size excludes the system Python, PyGObject and GTK 3."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1876,
+        "rssMb": 171,
+        "sizeMb": 55.4,
+        "notes": "Warm median of 5 (shared VM, other builds running); WinForms backend: the GTK styling (~85 lines CSS) had to be rewritten as ~800 lines of WinForms drawing; size excludes .NET."
       },
       "shots": [
         {
@@ -1476,6 +1476,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/toga-dark.webp",
           "caption": "Dark theme",
           "sha": "40d33eb065be5574"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-windows-main.webp",
+          "caption": "Windows 11 (WinForms backend)",
+          "sha": "1d5eb467159d5f5b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/toga-windows-rtl.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "f64fa0e3504aead6"
         }
       ],
       "may": {
@@ -1618,7 +1628,7 @@
         "note": "Ready time measured on a busy machine; 213–225 ms earlier on a quieter one. Built with gpui-kit (a recent Zed snapshot)."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
