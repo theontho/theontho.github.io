@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T01:11:12Z",
+  "generatedAt": "2026-11-11T01:51:08Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 26,
-    "building": 4,
+    "done": 28,
+    "building": 2,
     "queued": 0,
     "failed": 0,
-    "activeHours": 40.2,
-    "meanSelfVisual": 4.1,
-    "meanMyVisual": 4.65,
+    "activeHours": 45.5,
+    "meanSelfVisual": 4.09,
+    "meanMyVisual": 4.68,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.47,
+    "meanMayVisualDone": 2.45,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,23 +36,23 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 19,
-        "newMean": 4.68,
-        "mayMean": 2.47,
-        "better": 18,
+        "n": 20,
+        "newMean": 4.7,
+        "mayMean": 2.45,
+        "better": 19,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 19,
-        "newMean": 4.13,
-        "mayMean": 2.47,
-        "better": 16,
+        "n": 20,
+        "newMean": 4.12,
+        "mayMean": 2.45,
+        "better": 17,
         "same": 3,
         "worse": 0
       }
     },
-    "windowsDone": 5
+    "windowsDone": 6
   },
   "toolkits": [
     {
@@ -326,11 +326,11 @@
         "note": "Size is the app-local conda-forge environment, mostly GTK and Mesa."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 525,
+        "rssMb": 69,
+        "sizeMb": 92,
+        "notes": "Warm median of 5; 13.4 s first launch after VM boot; PyPI wheel + pythonw; DPI-scaled."
       },
       "shots": [
         {
@@ -362,6 +362,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/wx-action-exit-status.webp",
           "caption": "Dependency check exits 127 with an error tab",
           "sha": "e9519734e3cea359"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "d9c2b7f557abf0c6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/wx-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "c753c785e61bbae8"
         }
       ],
       "may": {
@@ -761,7 +771,7 @@
         "note": "Size excludes the 115 MB uv-managed CPython."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -2046,28 +2056,38 @@
       "name": "Floem",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 6,
       "mayId": null,
       "mayNote": null,
       "mayVisual": null,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 4.0,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Floem from git main (vger on wgpu) renders every page from the bundle very close to the reference, using the reference's own icon font, with fine-grained signals driving the forms.",
+      "lessons": "The crates.io release is from 2024, so it builds on git main and the docs lag behind. X11 lost the first frame until repaints were forced, the stock dropdown clips at the window edge, and Taffy has no RTL.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 888,
+        "rssMb": 163.0,
+        "sizeMb": 24,
+        "build": "~4 min first build of dependencies (-j2, loaded machine); 1–1.5 min app rebuilds",
+        "note": "Ready ranged 0.6–1.5 s under load. Single 24 MB binary with the icon font embedded."
       },
       "windows": {
         "status": null,
@@ -2076,7 +2096,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "2eb3e90ca988a365"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "5ba6010e880107b6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-action-running-demo.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "5bf3575b9ae0491a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-setup-running-demo.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "6ea93fe8bb44d4eb"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-rtl-ar.webp",
+          "caption": "Arabic, right-to-left (mirrored by hand)",
+          "sha": "e7f47f306642de03"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/floem-xtest-dropdown-open.webp",
+          "caption": "Custom dropdown opened by a scripted click",
+          "sha": "19debeeea2d00472"
+        }
+      ],
       "may": null
     },
     {
@@ -2290,28 +2341,38 @@
       "name": "Raygui (Rust)",
       "language": "Rust",
       "kind": "Immediate mode",
-      "status": "building",
+      "status": "done",
       "wave": 7,
       "mayId": "raygui",
       "mayNote": null,
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 4,
+      "activeHours": 1.3,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; all rounded chrome drawn by a custom shader.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "raylib and raygui (GLFW, OpenGL) reproduce the reference closely, with all the rounded chrome drawn by a custom shader on top of raygui's square controls; May's version rated 2/5.",
+      "lessons": "raygui is an interaction layer, not a look: square controls, one integer-sized font and no icons, fallbacks or shadows, so text rendering took the most work. Its text box has no selection, undo or IME, and there is no keyboard navigation or accessibility tree.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 567,
+        "rssMb": 149.7,
+        "sizeMb": 5.9,
+        "build": "119 s clean build",
+        "note": "Size is a 2.7 MB binary plus 3.2 MB of fonts."
       },
       "windows": {
         "status": null,
@@ -2320,7 +2381,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "0d87a0bba8969b20"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "eb846f2a73a94c3b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-demo-stream.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "7dc9f773aed43675"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "e0b8349771238dd6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "683b4f872b48e906"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-dark.webp",
+          "caption": "Dark theme, Library page",
+          "sha": "93c0c0f3e39747d2"
+        }
+      ],
       "may": {
         "name": "Raygui (Rust)",
         "visual": 2,
