@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T03:50:07Z",
+  "generatedAt": "2026-11-11T03:54:19Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 10
+    "windowsDone": 11
   },
   "toolkits": [
     {
@@ -515,11 +515,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 707,
+        "rssMb": 96.4,
+        "sizeMb": 37.7,
+        "notes": "Warm median of 5; gvsbuild GTK 4.24.1/libadwaita 1.10 (MSVC); integer-only scaling on Windows (125% draws at 100%); libadwaita title bar; software cairo rendering on the GPU-less VM."
       },
       "shots": [
         {
@@ -551,6 +551,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-dark.webp",
           "caption": "Dark theme",
           "sha": "246da8a3e7c89213"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "cd5affdf89b3cb46"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-rust-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "16400021f5bb6ac1"
         }
       ],
       "may": {
@@ -1059,7 +1069,7 @@
         "note": "Size is the app-local conda-forge Python, Tk and Pillow."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
