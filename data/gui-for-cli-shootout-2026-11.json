@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T01:56:12Z",
+  "generatedAt": "2026-11-11T02:03:34Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 29,
-    "building": 1,
+    "done": 30,
+    "building": 0,
     "queued": 0,
     "failed": 0,
-    "activeHours": 46.8,
-    "meanSelfVisual": 4.1,
-    "meanMyVisual": 4.69,
+    "activeHours": 48.5,
+    "meanSelfVisual": 4.12,
+    "meanMyVisual": 4.7,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.43,
+    "meanMayVisualDone": 2.41,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,18 +36,18 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 21,
-        "newMean": 4.71,
-        "mayMean": 2.43,
-        "better": 20,
+        "n": 22,
+        "newMean": 4.73,
+        "mayMean": 2.41,
+        "better": 21,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 21,
-        "newMean": 4.14,
-        "mayMean": 2.43,
-        "better": 18,
+        "n": 22,
+        "newMean": 4.16,
+        "mayMean": 2.41,
+        "better": 19,
         "same": 3,
         "worse": 0
       }
@@ -2298,28 +2298,38 @@
       "name": "Dear ImGui (Rust)",
       "language": "Rust",
       "kind": "Immediate mode",
-      "status": "building",
+      "status": "done",
       "wave": 7,
       "mayId": "imgui",
       "mayNote": null,
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4.5,
+      "completeness": 4.5,
+      "difficulty": 3,
+      "activeHours": 1.8,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "Dear ImGui through dear-imgui-rs 0.22, on winit with a glow (OpenGL) renderer and FreeType text: nearly everything is hand-drawn with the draw list, and it is nearly identical to the reference.",
+      "lessons": "Dear ImGui has no look and no layout engine to start from, so widgets are hand-drawn and cards use the previous frame's height; it has no shaping or bidi either. The dear-imgui-rs bindings are current and safe but strict.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 499,
+        "rssMb": 183.7,
+        "sizeMb": 7.6,
+        "build": "2 min 33 s clean release build",
+        "note": "Ready ranged 300–1600 ms under heavy machine load. About 150 MB of the RSS is Mesa software GL under Xvfb."
       },
       "windows": {
         "status": null,
@@ -2328,7 +2338,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "e1755250a892ca0d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "8a176175c1ad43d4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-action-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "6af3e057ce23f03c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-setup-running.webp",
+          "caption": "Setup running (demo bundle)",
+          "sha": "b419d89a7e89144d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-rtl.webp",
+          "caption": "Hebrew, right-to-left",
+          "sha": "71d5392e1c418e8b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/imgui-rust-interactive-select.webp",
+          "caption": "Custom select opened by a scripted click",
+          "sha": "649b642c8bfdffb0"
+        }
+      ],
       "may": {
         "name": "Dear ImGui (Rust)",
         "visual": 2,
