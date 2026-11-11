@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:42:49Z",
+  "generatedAt": "2026-11-11T06:51:25Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 24
+    "windowsDone": 25
   },
   "toolkits": [
     {
@@ -2350,11 +2350,11 @@
         "note": "Single binary with icons embedded; needs the system Qt 6 (Core, Gui, Widgets, Svg)."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 666,
+        "rssMb": 62,
+        "sizeMb": 29.8,
+        "notes": "Warm median of 5; Qt 6.10.1 MSVC via windeployqt; 18.5 s clean build."
       },
       "shots": [
         {
@@ -2386,6 +2386,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-dark.webp",
           "caption": "Dark theme, Info / BAM page",
           "sha": "9959ff3cb987300c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "1069526281a5363f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "fbb0027f59104e23"
         }
       ],
       "may": null
@@ -2513,7 +2523,7 @@
         "note": "Ready ranged 300–1600 ms under heavy machine load. About 150 MB of the RSS is Mesa software GL under Xvfb."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
