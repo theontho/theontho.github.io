@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T02:33:59Z",
+  "generatedAt": "2026-11-11T03:23:36Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 7
+    "windowsDone": 8
   },
   "toolkits": [
     {
@@ -515,7 +515,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -945,11 +945,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 354,
+        "rssMb": 32.9,
+        "sizeMb": 8.0,
+        "notes": "Warm median of 5; ~250–300 ms is the bundle's PowerShell config script (demo bundle: 58 ms); single static .exe."
       },
       "shots": [
         {
@@ -981,6 +981,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/iced-dark.webp",
           "caption": "Dark theme, Microarray page",
           "sha": "f4fbb13aefc18f5f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "27c2c1a3a77d0d0e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/iced-windows-rtl-he.webp",
+          "caption": "Windows 11, Hebrew",
+          "sha": "388b0526c3387764"
         }
       ],
       "may": {
