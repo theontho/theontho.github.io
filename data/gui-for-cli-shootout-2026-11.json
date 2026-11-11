@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-11-11T02:30:16Z",
+  "generatedAt": "2026-11-11T02:33:59Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
   "links": [],
+  "windowsNote": "3 at a time",
   "features": [
     "Bundle loaded from disk",
     "Sidebar",
@@ -52,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 6
+    "windowsDone": 7
   },
   "toolkits": [
     {
@@ -598,7 +599,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -771,11 +772,11 @@
         "note": "Size excludes the 115 MB uv-managed CPython."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 718,
+        "rssMb": 95,
+        "sizeMb": 68,
+        "notes": "Warm median of 5; size excludes the Python runtime; DPI-checked at 125%."
       },
       "shots": [
         {
@@ -807,6 +808,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-dark.webp",
           "caption": "Dark theme, Info / BAM page",
           "sha": "89a023ea04146584"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "988f5558658b3c09"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/pyside6-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "712b334a828cdd69"
         }
       ],
       "may": null
@@ -850,7 +861,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -934,7 +945,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
