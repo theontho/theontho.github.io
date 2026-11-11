@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:36:30Z",
+  "generatedAt": "2026-11-11T06:42:49Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 23
+    "windowsDone": 24
   },
   "toolkits": [
     {
@@ -1910,11 +1910,11 @@
         "note": "Most of the RSS (421,680 kB) is lavapipe software Vulkan under Xvfb; a hardware GPU driver would use far less."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1097,
+        "rssMb": 150,
+        "sizeMb": 16.2,
+        "notes": "Warm median of 5; Vello crashed WARP, so Windows uses Vello Hybrid, which can't draw blurred shadows (dialog/tooltip shadows off); private bytes 546 MB from WARP."
       },
       "shots": [
         {
@@ -1946,6 +1946,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-library.webp",
           "caption": "Library page",
           "sha": "8851dfd932aa46ab"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-windows-main.webp",
+          "caption": "Windows 11 (Vello Hybrid, no shadows)",
+          "sha": "f2ff64ee065be6a4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "1fd3257bcfea1a3f"
         }
       ],
       "may": {
@@ -2419,7 +2429,7 @@
         "note": "Ready ranged 216–740 ms across the session under load (load average 8–11). RSS is mostly Mesa llvmpipe under Xvfb."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
