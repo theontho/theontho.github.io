@@ -368,8 +368,13 @@ function renderHeader() {
   bar.setAttribute("aria-valuetext", `${s.done} of ${s.total} done`);
   bar.querySelector(".run-progress-done").style.width = `${(100 * s.done) / s.total}%`;
   bar.querySelector(".run-progress-building").style.width = `${(100 * s.building) / s.total}%`;
-  document.getElementById("progress-label").textContent =
-    `${s.done} of ${s.total} done · ${s.building} building · ${s.queued} queued${s.failed ? ` · ${s.failed} failed` : ""}`;
+  const win = data.toolkits.filter((t) => t.windows?.status);
+  const winDone = win.filter((t) => t.windows.status === "done").length;
+  const winBuilding = win.filter((t) => t.windows.status === "building").length;
+  const windows = win.length ? ` · Windows: ${winDone} done${winBuilding ? `, ${winBuilding} building` : ""}` : "";
+  document.getElementById("progress-label").textContent = s.done === s.total
+    ? `All ${s.total} Linux builds done${windows}`
+    : `${s.done} of ${s.total} done · ${s.building} building · ${s.queued} queued${s.failed ? ` · ${s.failed} failed` : ""}${windows}`;
   const mean = (v) => (v == null ? "–" : fmtNum(v));
   document.getElementById("totals").replaceChildren(...[
     [`${s.done}/${s.total}`, "toolkits done"],
