@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T05:37:50Z",
+  "generatedAt": "2026-11-11T06:00:17Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 18
+    "windowsDone": 19
   },
   "toolkits": [
     {
@@ -1628,11 +1628,11 @@
         "note": "Ready time measured on a busy machine; 213–225 ms earlier on a quieter one. Built with gpui-kit (a recent Zed snapshot)."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 490,
+        "rssMb": 71.6,
+        "sizeMb": 26.5,
+        "notes": "Warm median of 5 on the busy shared VM; single .exe, DX11 on WARP; Arabic/Hebrew needed a ~40-line patch to GPUI's Windows text layout (vendored)."
       },
       "shots": [
         {
@@ -1664,6 +1664,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-dark.webp",
           "caption": "Dark theme, Microarray page",
           "sha": "6d4758b84c3f7e28"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "8b15f97b3a31f92a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gpui-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic (patched GPUI text layout)",
+          "sha": "bbbba53a7f30d8fd"
         }
       ],
       "may": {
@@ -1806,7 +1816,7 @@
         "note": "Size includes 15 MB of vendored lavapipe; most of the RSS is the lavapipe Vulkan driver under Xvfb."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
