@@ -346,7 +346,13 @@ function renderVsMay() {
         h("td", { class: "num" }, score(best.value)), h("td", {}, SOURCE_LABEL[best.key]), h("td", { class: "num" }, delta(t)));
     })))) : h("p", { class: "empty" }, "No finished toolkits with a May rating yet.");
   const newKits = data.toolkits.filter((t) => t.status !== "reference" && t.mayVisual == null).map((t) => t.name);
-  document.getElementById("vs-may").replaceChildren(h("div", { class: "vs-cards" }, cards), table,
+  // Toolkits whose May build never showed a UI but whose November build does.
+  const revived = data.toolkits.filter((t) => t.mayVisual === "failed" && afterShot(t)).map((t) => {
+    const best = bestRating(t);
+    return h("p", { class: "vs-revived" }, h("b", {}, `${t.name} launches this time.`),
+      ` In May it never showed its UI; now it runs the app${best ? `, rated ${fmtNum(best.value)}/5 (${SOURCE_LABEL[best.key]})` : ""}.`);
+  });
+  document.getElementById("vs-may").replaceChildren(...revived, h("div", { class: "vs-cards" }, cards), table,
     newKits.length ? h("p", { class: "footnote" }, `New since May, so not compared: ${newKits.join(", ")}. May's ratings were for macOS builds; May's Dioxus entry was a WebUI shell, while this run uses native Dioxus rendering.`) : null);
 }
 

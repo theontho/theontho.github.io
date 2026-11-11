@@ -436,6 +436,7 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 .vs-card .vs-big { color: var(--text); font-size: .95rem; margin-bottom: 2px; }
 .vs-card .vs-big b { font-size: 1.6rem; }
 .vs-card.pending { opacity: .7; }
+.vs-revived { max-width: 980px; margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; border-left: 3px solid var(--s-active); background: color-mix(in srgb, var(--s-active) 10%, transparent); }
 .rerun-link { margin: -6px 0 18px; }
 .rerun-link a { display: inline-block; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--accent); color: var(--text); font-weight: 600; font-size: .92rem; }
 .rerun-link a:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); text-decoration: none; }
