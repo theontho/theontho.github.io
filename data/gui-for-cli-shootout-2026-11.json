@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:12:52Z",
+  "generatedAt": "2026-11-11T06:31:25Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 21
+    "windowsDone": 22
   },
   "toolkits": [
     {
@@ -1816,11 +1816,11 @@
         "note": "Size includes 15 MB of vendored lavapipe; most of the RSS is the lavapipe Vulkan driver under Xvfb."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 895,
+        "rssMb": 150,
+        "sizeMb": 33,
+        "notes": "Warm median of 5 (busy shared VM); vello-hybrid on D3D12/WARP; single exe + 0.2 MB assets."
       },
       "shots": [
         {
@@ -1852,6 +1852,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-info-bam-dark.webp",
           "caption": "Dark theme, Info / BAM page",
           "sha": "ee6e4a70ecc306ac"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "7898502f4b443f73"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "bdea3527fc46b2c6"
         }
       ],
       "may": {
@@ -2241,7 +2251,7 @@
         "note": "Ready ranged 0.6–1.5 s under load. Single 24 MB binary with the icon font embedded."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
