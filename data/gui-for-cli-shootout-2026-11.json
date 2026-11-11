@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T04:28:44Z",
+  "generatedAt": "2026-11-11T04:34:17Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 13
+    "windowsDone": 14
   },
   "toolkits": [
     {
@@ -1069,11 +1069,11 @@
         "note": "Size is the app-local conda-forge Python, Tk and Pillow."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 832,
+        "rssMb": 75.6,
+        "sizeMb": 67.6,
+        "notes": "Warm median of 5; ~245 ms is the bundle's PowerShell config script. On Windows the setup prompt gets the dimmed backdrop and Arabic/Hebrew render correctly (unlike Linux Tk 8.6)."
       },
       "shots": [
         {
@@ -1105,6 +1105,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-dark.webp",
           "caption": "Dark theme",
           "sha": "f1e88b5e7a75330f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-windows-main.webp",
+          "caption": "Windows 11, with dimmed backdrop",
+          "sha": "cd8ecd028f8b2208"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/tkinter-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic (correct, unlike Linux)",
+          "sha": "3eae0097af18bf84"
         }
       ],
       "may": {
@@ -1153,7 +1163,7 @@
         "note": "Measured at load average ~10; 707–985 ms on repeat runs."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
