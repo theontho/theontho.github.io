@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T01:51:08Z",
+  "generatedAt": "2026-11-11T01:55:48Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 28,
-    "building": 2,
+    "done": 29,
+    "building": 1,
     "queued": 0,
     "failed": 0,
-    "activeHours": 45.5,
-    "meanSelfVisual": 4.09,
+    "activeHours": 46.8,
+    "meanSelfVisual": 4.1,
     "meanMyVisual": 4.68,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.45,
+    "meanMayVisualDone": 2.43,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -44,10 +44,10 @@
         "worse": 0
       },
       "selfVisual": {
-        "n": 20,
-        "newMean": 4.12,
-        "mayMean": 2.45,
-        "better": 17,
+        "n": 21,
+        "newMean": 4.14,
+        "mayMean": 2.43,
+        "better": 18,
         "same": 3,
         "worse": 0
       }
@@ -2425,28 +2425,38 @@
       "name": "Raygui (C)",
       "language": "C",
       "kind": "Immediate mode",
-      "status": "building",
+      "status": "done",
       "wave": 7,
       "mayId": "raygui-c",
       "mayNote": null,
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
+      "selfVisual": 4.5,
+      "completeness": 4.5,
+      "difficulty": 4,
+      "activeHours": 1.2,
       "myVisual": null,
       "myNotes": null,
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "About 6,600 lines of hand-written C11 on raylib 5.5, with raygui used only for text boxes and buttons: cards, tables, popups, tooltips, anti-aliased shapes and RTL mirroring are all custom, and it closely matches the reference.",
+      "lessons": "raygui covers little of this app (no layout, cards, tables, popup selects or icon fonts), and without reliable MSAA under Xvfb rounded shapes and shadows had to be nine-patch textures. Text was the hardest part, RTL needed a mirroring layer, and there is no accessibility support.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 801,
+        "rssMb": 129.8,
+        "sizeMb": 3.2,
+        "build": "50 s clean (2 jobs, including the vendored raylib)",
+        "note": "Size is a 1.6 MB statically linked binary plus 1.7 MB of fonts. RSS is mostly llvmpipe software GL under Xvfb."
       },
       "windows": {
         "status": null,
@@ -2455,7 +2465,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "635b4ba521cf2f3b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "832eca72f5e080d7"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-command-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "961cbc680ab4558a"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "906cbb02ba2ac4e6"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-locale-ar.webp",
+          "caption": "Arabic, right-to-left via a mirroring layer",
+          "sha": "941f8caf6961f956"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-c-interactive-dropdown.webp",
+          "caption": "Custom dropdown opened by a scripted click",
+          "sha": "086e44b3d369a7a7"
+        }
+      ],
       "may": {
         "name": "Raygui (C)",
         "visual": 2,
