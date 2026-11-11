@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T05:18:11Z",
+  "generatedAt": "2026-11-11T05:37:50Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 17
+    "windowsDone": 18
   },
   "toolkits": [
     {
@@ -1712,11 +1712,11 @@
         "note": "About 270 MB of the RSS is a bare Makepad window under software GL (llvmpipe). Size is a 9.2 MB binary, 2.9 MB of resources and ~48 MB of Makepad fonts read from the cargo registry."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 503,
+        "rssMb": 190,
+        "sizeMb": 10.8,
+        "notes": "Warm median of 5; D3D11 on WARP; exe 8 MB + 2.8 MB resources, plus ~47 MB Makepad fonts read from the cargo registry (not relocatable, same as Linux); no window icon API."
       },
       "shots": [
         {
@@ -1748,6 +1748,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-confirm.webp",
           "caption": "Confirmation dialog on the Library page",
           "sha": "35a0b5edd24f2c61"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "0ea31fe950a52a43"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/makepad-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic (not mirrored)",
+          "sha": "6d605073cb691367"
         }
       ],
       "may": {
@@ -2043,7 +2053,7 @@
         "note": "RSS is mostly Mesa llvmpipe and font arenas."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
