@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T04:34:17Z",
+  "generatedAt": "2026-11-11T04:58:39Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 14
+    "windowsDone": 15
   },
   "toolkits": [
     {
@@ -1163,11 +1163,11 @@
         "note": "Measured at load average ~10; 707–985 ms on repeat runs."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 967,
+        "rssMb": 107,
+        "sizeMb": 40.7,
+        "notes": "Warm median of 5; gvsbuild PyGObject 3.58 wheels (CPython 3.15 only); size excludes the 63 MB Python; integer-only GTK scaling; libadwaita title bar."
       },
       "shots": [
         {
@@ -1199,6 +1199,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-dark.webp",
           "caption": "Dark theme",
           "sha": "1c853834593c2b44"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "a431786b1f5b08ec"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gtk4-adw-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "d4a512d0ea28f351"
         }
       ],
       "may": null
@@ -1682,7 +1692,7 @@
         "note": "About 270 MB of the RSS is a bare Makepad window under software GL (llvmpipe). Size is a 9.2 MB binary, 2.9 MB of resources and ~48 MB of Makepad fonts read from the cargo registry."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
