@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:02:26Z",
+  "generatedAt": "2026-11-11T06:12:52Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 20
+    "windowsDone": 21
   },
   "toolkits": [
     {
@@ -2073,11 +2073,11 @@
         "note": "RSS is mostly Mesa llvmpipe and font arenas."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1007,
+        "rssMb": 183,
+        "sizeMb": 65.7,
+        "notes": "Warm median of 5; 1.7 MB exe + 55.7 MB Mesa software opengl32.dll (OpenGL 3.3 on a GPU-less VM); window kept hidden until the first frame to avoid an accessibility-adapter crash."
       },
       "shots": [
         {
@@ -2109,6 +2109,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-dark.webp",
           "caption": "Dark theme",
           "sha": "28e37d3829f6607b"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "e280e47dbaba7b50"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/zenbu-ui-windows-rtl-he.webp",
+          "caption": "Windows 11, Hebrew",
+          "sha": "e7e6e3232b5cc13c"
         }
       ],
       "may": null
@@ -2152,7 +2162,7 @@
         "note": "Ready time ranged 1.1–2.0 s across runs at load average 8–15. RSS is the OpenGL/llvmpipe path; the software renderer uses ~56 MB."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
