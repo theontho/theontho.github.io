@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T03:23:36Z",
+  "generatedAt": "2026-11-11T03:32:48Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 8
+    "windowsDone": 9
   },
   "toolkits": [
     {
@@ -599,11 +599,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 612,
+        "rssMb": 187,
+        "sizeMb": 31.3,
+        "notes": "Warm median of 5; Skia software renderer (no OpenGL on the GPU-less VM); ~300 ms is the bundle's PowerShell config script."
       },
       "shots": [
         {
@@ -635,6 +635,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/slint-dark.webp",
           "caption": "Dark theme after a failed setup",
           "sha": "f33ed689d96797d4"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "0d2dab21afa2eff1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/slint-windows-rtl.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "f78f451c31d50464"
         }
       ],
       "may": {
@@ -1202,7 +1212,7 @@
         "note": null
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
