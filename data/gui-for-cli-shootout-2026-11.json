@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T04:26:29Z",
+  "generatedAt": "2026-11-11T04:28:44Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 12
+    "windowsDone": 13
   },
   "toolkits": [
     {
@@ -1326,11 +1326,11 @@
         "note": "RSS is mostly software GL (llvmpipe) and NVIDIA EGL libraries under the harness."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 464,
+        "rssMb": 230,
+        "sizeMb": 8.7,
+        "notes": "Warm median of 5; single .exe, no DLLs; D3D11 (WARP); Japanese locale is slower (~2.5 s, Yu Gothic)."
       },
       "shots": [
         {
@@ -1362,6 +1362,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/gio-dark-theme.webp",
           "caption": "Dark theme, Library page",
           "sha": "3d71ff989402a593"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "bde96a44e4f385c3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/gio-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "31f47bfa337c4354"
         }
       ],
       "may": {
@@ -1494,7 +1504,7 @@
         "note": "About 237 MB of the RSS and 163 MB of the size are the vendored kitty terminal; the Python app alone is ~60 MB RSS and 33 MB."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
