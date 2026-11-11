@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T02:03:34Z",
+  "generatedAt": "2026-11-11T02:30:16Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -23,7 +23,7 @@
     "failed": 0,
     "activeHours": 48.5,
     "meanSelfVisual": 4.12,
-    "meanMyVisual": 4.7,
+    "meanMyVisual": 4.23,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.41,
     "vsMay": {
@@ -37,10 +37,10 @@
       },
       "myVisual": {
         "n": 22,
-        "newMean": 4.73,
+        "newMean": 4.32,
         "mayMean": 2.41,
-        "better": 21,
-        "same": 1,
+        "better": 20,
+        "same": 2,
         "worse": 0
       },
       "selfVisual": {
@@ -114,7 +114,7 @@
       "difficulty": 2,
       "activeHours": 1.0,
       "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Near pixel match to the reference.",
+      "myNotes": "Near pixel match in every state shown: setup dialog, Settings with exit-127 tab (action-exit), library confirm, dark Microarray and mirrored Hebrew (rtl-he). Only nit is tighter, heavier page-title tracking; Windows shots are equally faithful.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -208,7 +208,7 @@
       "difficulty": 2,
       "activeHours": 2.5,
       "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Near pixel match to the reference.",
+      "myNotes": "Indistinguishable from the reference across main, Settings exit-127, Library, dark VCF and a fully mirrored Arabic page (rtl-ar). Arabic text renders slightly small, which is the only visible difference; Windows shots match too.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -301,8 +301,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 2.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match; native GTK controls under the hood.",
+      "myVisual": 4,
+      "myNotes": "Layout, RTL Arabic settings and the exit-127 terminal are faithful, but buttons, selects and Retry are GTK-native gradients and the setup dialog in main.png sits on a visible light square shadow. There is no dark-theme shot; the Windows shots are close.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -396,7 +396,7 @@
       "difficulty": 2,
       "activeHours": 1.1,
       "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Main shot matches the reference closely.",
+      "myNotes": "Faithful in every state: setup dialog, Library actions, dark Microarray, mirrored Arabic (rtl-arabic) and streaming setup. Field labels sit a pixel or two high, nothing more; Windows shots match.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -490,7 +490,7 @@
       "difficulty": 2,
       "activeHours": 1.4,
       "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: Faithful layout, but the setup dialog is libadwaita-styled (centred text, blue button) rather than the reference look.",
+      "myNotes": "Layout, dark theme and mirrored Arabic are faithful, but every shot carries GTK client-side window chrome (min/max/close) and Inter instead of the reference font. The setup dialog in main.png is libadwaita-styled, with centred text and a blue Run Setup button.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -573,8 +573,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 3.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Main, dark Settings, dropdown, tooltip, confirm and Library table are near-identical. rtl.png is only partly mirrored: Load Bundle and the Main tab stay left, the action buttons run in reverse order and BAM is left-aligned.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -657,8 +657,8 @@
       "completeness": 4,
       "difficulty": 2,
       "activeHours": 1.2,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Extremely faithful over 20+ states, including dark Library, Hebrew RTL, German and confirm dialogs. The setup dialog in main.png has no drop shadow and a square focus ring on Cancel; Windows main and Settings match.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -746,8 +746,8 @@
       "completeness": 4,
       "difficulty": 2,
       "activeHours": 0.9,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Main, dark Info/BAM, Library rows, Settings exit-127 and Microarray are faithful. In rtl-ar.png the sidebar FASTQ and VCF labels are left-aligned and the Arabic line spacing is loose; section cards stop short of the right edge.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -825,8 +825,8 @@
       "completeness": 4,
       "difficulty": 2,
       "activeHours": 1.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4,
+      "myNotes": "Main, Settings exit-127, Library and Japanese are faithful, apart from labels sitting high against their fields. In rtl-ar.png the setup banner is not mirrored and Arabic punctuation is misplaced, the test-bundle shots show empty tofu boxes for icons, and dark appears only on the test bundle.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -909,8 +909,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.6,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Very faithful over many states (dark Microarray, Library table, dropdown, confirm, German). rtl-he.png is only partly mirrored: Load Bundle stays left, the Choose buttons sit beside the labels and the banner text is misplaced.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -994,7 +994,7 @@
       "difficulty": 3,
       "activeHours": 3.5,
       "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: Layout matches, but no dimmed backdrop behind dialogs and flatter controls.",
+      "myNotes": "Surprisingly faithful pages, dark FASTQ, Library and exit-127 terminal, but the setup dialog in main.png has no dimmed backdrop or shadow. hebrew.png renders every Hebrew word with its letters reversed (no bidi).",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1077,8 +1077,8 @@
       "completeness": 4,
       "difficulty": 2,
       "activeHours": 0.8,
-      "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: Faithful layout, libadwaita-styled dialog and title bar diverge from the reference.",
+      "myVisual": 3.5,
+      "myNotes": "Recognisably the app, with good dark and Library shots, but every shot has a GTK header bar (title and window buttons) and main.png has an Adwaita dialog (centred text, blue button). The page description in main.png is clipped by the card below, the demo uses an Adwaita switch for a checkbox, and there is no RTL shot.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1156,8 +1156,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Main, dark Microarray, typed confirm, dropdown, tooltip and setup progress are faithful. rtl-arabic.png is mirrored, but mixed Arabic and Latin sentences are misordered and it uses a different Arabic font.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1240,8 +1240,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: Close match to the reference.",
+      "myVisual": 4,
+      "myNotes": "Excellent breadth and fidelity in LTR (dark Library, dropdown, tooltip, confirm, German, small window). In rtl-arabic.png the Arabic glyphs are badly shaped, with wrong dots and joins, and Cancel in main.png has no focus ring.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1324,8 +1324,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.0,
-      "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: very close layout; the setup dialog has no shadow and controls are flatter.",
+      "myVisual": 3.5,
+      "myNotes": "Layout and dark FASTQ are close, but the setup dialog has square corners and no shadow, checkboxes are GTK switches (Microarray, Annotate) and sidebar icons sit above the text. In rtl.png the page title and section header stay on the left.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1409,7 +1409,7 @@
       "difficulty": 3,
       "activeHours": 1.0,
       "myVisual": 3,
-      "myNotes": "Provisional, from the main screenshot: remarkably faithful for a terminal (layout, scrim, dialog, icons), but monospace cell grid, one text size and a pixelated app icon.",
+      "myNotes": "Remarkably faithful structure for a terminal (scrim, dialog, Library table, dark theme), but the monospace cell grid has one text size, the app icon is pixelated in main.png and the settings steps are a flat list. arabic.png reverses word order.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1492,8 +1492,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.6,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference, including dialog shadow and focus ring.",
+      "myVisual": 4.5,
+      "myNotes": "Near-identical main, dark Microarray, confirm, streaming and failure states. In rtl-ar.png the Choose buttons sit between field and label and final yā' loses its dots in a few words.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1576,8 +1576,8 @@
       "completeness": 4,
       "difficulty": 4,
       "activeHours": 1.25,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference. RTL is not mirrored and there is no dark theme.",
+      "myVisual": 4,
+      "myNotes": "LTR pages and dialogs match closely, but icons sit visibly high in the sidebar and buttons, and the Library confirm has no shadow. locale-ar.png is not mirrored at all (left-aligned Arabic with doubled line spacing), and there is no dark theme.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1660,8 +1660,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 2.75,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Near-identical main, dropdown, typed confirm, dark Info/BAM and mirrored Arabic. Sidebar and section icons sit a few pixels high and the play triangles are larger than the reference's.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1744,8 +1744,8 @@
       "completeness": 4,
       "difficulty": 4,
       "activeHours": 1.75,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Every shown state (main, Library, Settings, streaming, mirrored Arabic) is near-identical to the reference. No dark-theme or exit-127 shot.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1828,8 +1828,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 1.5,
-      "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: close layout and dialog; different icon set, slightly larger scale, and a debug line left in the terminal panel.",
+      "myVisual": 3.5,
+      "myNotes": "Recognisable layout, but with a different (Lucide-style) icon set, larger type, spinner-style selects, a 'Loaded settings…' debug line in every terminal and no dark theme. In rtl-ar.png only the sidebar moves: banner, title and the truncated description stay left-aligned.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1907,8 +1907,8 @@
       "completeness": 4,
       "difficulty": 4,
       "activeHours": 1.2,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
+      "myVisual": 4,
+      "myNotes": "Close in main, dark FASTQ, Library, Microarray and Hebrew RTL, but Inter replaces the reference font and the play icons sit high. demo.png has lost its Load Bundle toolbar, and RTL labels are not bold.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -1986,8 +1986,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 2.3,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; dark theme not applied.",
+      "myVisual": 4,
+      "myNotes": "Main, Library, dialogs, Microarray and German are near-identical. In rtl.png mixed-direction sentences are misordered, info icons sit on the wrong side of labels and Load Bundle stays left; dark theme not shown.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2065,8 +2065,8 @@
       "completeness": 4,
       "difficulty": 3,
       "activeHours": 4.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
+      "myVisual": 4,
+      "myNotes": "LTR states (dropdown, tooltip, Library confirm, dark Settings, setup failure) are faithful. rtl-ar.png is broken: the title overlaps the description, Arabic text drops below the button and tab bottoms, and the banner and Load Bundle are not mirrored.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2144,8 +2144,8 @@
       "completeness": 4,
       "difficulty": 2,
       "activeHours": 1.0,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; classic scrollbar.",
+      "myVisual": 4.5,
+      "myNotes": "Faithful main, dark Info/BAM, Library, streaming and setup states. In rtl-arabic.png the sidebar FASTQ and VCF labels are left-aligned and the Arabic description line spacing is loose; cards stop short of the scrollbar.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2224,7 +2224,7 @@
       "difficulty": 3,
       "activeHours": 1.0,
       "myVisual": 4,
-      "myNotes": "Provisional, from the main screenshot: very close, but the dialog shadow renders as a visible square box behind the modal.",
+      "myNotes": "Faithful layout across many states (dark Library, typed confirm, data sources, exit 127), but main.png shows a visible grey square shadow behind the modal. Error text and paths wrap or overflow mid-word (main, rtl-arabic), and text is slightly soft.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2307,8 +2307,8 @@
       "completeness": 4.5,
       "difficulty": 3,
       "activeHours": 1.8,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
+      "myVisual": 4.5,
+      "myNotes": "Near-identical in main, dark FASTQ, typed confirm, Library rows, tooltips and Japanese. In rtl.png the info icons sit right of the labels and the error text and Retry are not mirrored; icons sit a little high.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2391,8 +2391,8 @@
       "completeness": 4,
       "difficulty": 4,
       "activeHours": 1.3,
-      "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; all rounded chrome drawn by a custom shader.",
+      "myVisual": 4.5,
+      "myNotes": "Very close in main, dark Library, Japanese, dropdown, confirm and streaming. In rtl-arabic.png the error text is left-aligned, Retry sits beside the label and BAM is left-aligned.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2476,7 +2476,7 @@
       "difficulty": 4,
       "activeHours": 1.2,
       "myVisual": 5,
-      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference, with a fully mirrored, correctly shaped Arabic layout.",
+      "myNotes": "Indistinguishable from the reference in main, dark FASTQ, Library table, dropdown, typed confirm and failure tooltip, with a fully mirrored, correctly shaped Arabic Settings page (locale-ar). Only nit: the warning icon touches the error text.",
       "userVisual": null,
       "userNotes": null,
       "features": [
@@ -2560,7 +2560,7 @@
       "difficulty": 3,
       "activeHours": 1.9,
       "myVisual": 4,
-      "myNotes": "Provisional: renders the real app on both platforms. Linux close to the reference (dialog without shadow); Windows has some mismatched sidebar icons and a raw PowerShell error dump in the data-source error.",
+      "myNotes": "Faithful Linux layout, but with Inter, taller text fields, a setup dialog without a shadow, and in rtl-ar.png a left-aligned description and error with an inverted terminal tab strip; no dark shot. Windows has mismatched sidebar icons (VCF eye, Annotate check) and a raw PowerShell error dump.",
       "userVisual": null,
       "userNotes": null,
       "features": [
