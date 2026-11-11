@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T03:54:19Z",
+  "generatedAt": "2026-11-11T04:26:29Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 11
+    "windowsDone": 12
   },
   "toolkits": [
     {
@@ -1232,11 +1232,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 697,
+        "rssMb": 178,
+        "sizeMb": 81.5,
+        "notes": "Warm median of 5; ships Mesa llvmpipe opengl32.dll (55.7 MB) because Fyne needs OpenGL 2.1 and the VM has no GPU; cgo via MinGW-w64."
       },
       "shots": [
         {
@@ -1268,6 +1268,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-microarray-dark.webp",
           "caption": "Dark theme, Microarray page",
           "sha": "2e6e7bd944b39784"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "f14e6ac239a96ba3"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/fyne-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "5c8e36e49d5b5450"
         }
       ],
       "may": {
@@ -1400,7 +1410,7 @@
         "note": "Size excludes the system Python, PyGObject and GTK 3."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
