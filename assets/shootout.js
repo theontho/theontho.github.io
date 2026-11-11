@@ -371,7 +371,9 @@ function renderHeader() {
   const win = data.toolkits.filter((t) => t.windows?.status);
   const winDone = win.filter((t) => t.windows.status === "done").length;
   const winBuilding = win.filter((t) => t.windows.status === "building").length;
-  const windows = win.length ? ` · Windows: ${winDone} done${winBuilding ? `, ${winBuilding} building` : ""}` : "";
+  const windows = win.length
+    ? ` · Windows: ${winDone} done${winBuilding ? `, ${winBuilding} building${data.windowsNote ? ` (${data.windowsNote})` : ""}` : ""}`
+    : "";
   document.getElementById("progress-label").textContent = s.done === s.total
     ? `All ${s.total} Linux builds done${windows}`
     : `${s.done} of ${s.total} done · ${s.building} building · ${s.queued} queued${s.failed ? ` · ${s.failed} failed` : ""}${windows}`;
