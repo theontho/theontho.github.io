@@ -17,6 +17,7 @@ const lb = { list: [], index: 0 };
 // Offer the slider only when both screenshots have (nearly) the same framing.
 const SLIDER_TOLERANCE = 0.04;
 const prefs = { slider: false };
+const winSort = { key: "winReady", dir: 1 };
 
 function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
@@ -326,6 +327,37 @@ function renderBeforeAfter() {
   }));
 }
 
+function renderWindows() {
+  const rows = data.toolkits.filter((t) => t.windows?.status === "done").map((t) => ({
+    t, name: t.name, winReady: t.windows.readyMs, linReady: t.linux?.readyMs, winMem: t.windows.rssMb, winSize: t.windows.sizeMb,
+  }));
+  rows.sort((a, b) => {
+    const va = a[winSort.key], vb = b[winSort.key];
+    if (va == null || vb == null) return (va == null) - (vb == null);
+    return (typeof va === "string" ? va.localeCompare(vb) : va - vb) * winSort.dir || a.name.localeCompare(b.name);
+  });
+  document.querySelector("#windows-table tbody").replaceChildren(...rows.map((r) => {
+    const shots = r.t.shots.map((s, i) => [s, i]).filter(([s]) => s.caption.startsWith("Windows"));
+    const open = shots.length ? () => openLightbox(shotList(r.t), shots[0][1]) : null;
+    return h("tr", {
+      class: open ? null : "static", tabindex: open ? "0" : null, onclick: open, title: r.t.windows.notes || null,
+      onkeydown: open ? (e) => { if (e.key === "Enter") open(); } : null,
+    },
+    h("td", {}, h("b", {}, r.name), h("small", {}, r.t.language)),
+    h("td", { class: "num" }, or(fmtMs(r.winReady))),
+    h("td", { class: "num" }, or(fmtMs(r.linReady))),
+    h("td", { class: "num" }, or(fmtMb(r.winMem))),
+    h("td", { class: "num" }, or(fmtMb(r.winSize))));
+  }));
+  document.querySelectorAll("#windows-table th[data-wsort]").forEach((th) => {
+    th.setAttribute("aria-sort", th.dataset.wsort === winSort.key ? (winSort.dir < 0 ? "descending" : "ascending") : "none");
+  });
+  document.getElementById("windows-findings").replaceChildren(...(data.windowsFindings || []).map((f) => h("li", {}, f)));
+  const real = data.toolkits.filter((t) => t.status !== "reference").length;
+  document.getElementById("windows-count").textContent =
+    `${rows.length} of ${real} toolkits ported. Hover a row for its notes; click it for its Windows screenshots.`;
+}
+
 function renderVsMay() {
   const s = data.stats.vsMay;
   const cards = ["userVisual", "myVisual", "selfVisual"].map((key) => {
@@ -374,7 +406,10 @@ function renderHeader() {
   const windows = win.length
     ? ` · Windows: ${winDone} done${winBuilding ? `, ${winBuilding} building${data.windowsNote ? ` (${data.windowsNote})` : ""}` : ""}`
     : "";
-  document.getElementById("progress-label").textContent = s.done === s.total
+  const owner = s.meanUserVisual != null ? "owner ratings in" : "awaiting the owner's ratings";
+  document.getElementById("progress-label").textContent = s.done === s.total && winDone === s.total
+    ? `All ${s.total} built on Linux and Windows 11; ${owner}`
+    : s.done === s.total
     ? `All ${s.total} Linux builds done${windows}`
     : `${s.done} of ${s.total} done · ${s.building} building · ${s.queued} queued${s.failed ? ` · ${s.failed} failed` : ""}${windows}`;
   const mean = (v) => (v == null ? "–" : fmtNum(v));
@@ -422,6 +457,7 @@ function renderAll() {
   renderTable();
   renderGallery();
   renderBeforeAfter();
+  renderWindows();
   renderVsMay();
   renderLive();
 }
@@ -458,6 +494,17 @@ function wire() {
       if (sort.key === key) sort.dir *= -1;
       else { sort.key = key; sort.dir = ASCENDING.includes(key) ? 1 : -1; }
       renderTable();
+    };
+    th.addEventListener("click", go);
+    th.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+  document.querySelectorAll("#windows-table th[data-wsort]").forEach((th) => {
+    th.tabIndex = 0;
+    const go = () => {
+      const key = th.dataset.wsort;
+      if (winSort.key === key) winSort.dir *= -1;
+      else { winSort.key = key; winSort.dir = 1; }
+      renderWindows();
     };
     th.addEventListener("click", go);
     th.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });

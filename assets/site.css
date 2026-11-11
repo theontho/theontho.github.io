@@ -321,6 +321,9 @@ body.local-copy .hero .eyebrow { color: #f87171; }
 .eval-table .tk b { display: block; }
 .eval-table .verdict { color: var(--muted); min-width: 240px; font-size: .82rem; }
 #windows-table { min-width: 640px; }
+#windows-table th[data-wsort] { cursor: pointer; }
+#windows-table th[aria-sort="descending"]::after { content: " ▾"; }
+#windows-table th[aria-sort="ascending"]::after { content: " ▴"; }
 .eval-table tr.child td { background: color-mix(in srgb, var(--bg-2) 55%, transparent); }
 .eval-table tr.child .tk { padding-left: 34px; position: relative; }
 .eval-table tr.child .tk img { width: 54px; height: 36px; }

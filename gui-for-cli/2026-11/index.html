@@ -35,7 +35,7 @@
         <span class="live-badge" id="live-badge"><span class="live-dot" aria-hidden="true"></span><b>Live</b> <span id="live-updated">loading…</span></span>
       </p>
       <h1>November 2026: the GUI shootout, again</h1>
-      <p class="tagline">In May 2026 AI agents built the same desktop app, GUI for CLI running the real WGS Extract bundle, on about 30 UI toolkits. Six months on, I'm rerunning it with a newer model: one agent per toolkit, from scratch, on 30 toolkits, mostly for the Linux desktop, followed by a Windows pass. Even React Native, which never showed its UI in May, launches this time, on Linux and on Windows. All 30 Linux builds are done; the Windows ports now run three at a time, and this page updates as each one lands.</p>
+      <p class="tagline">In May 2026 AI agents built the same desktop app, GUI for CLI running the real WGS Extract bundle, on about 30 UI toolkits. Six months on, I'm rerunning it with a newer model: one agent per toolkit, from scratch, on 30 toolkits, mostly for the Linux desktop, followed by a Windows pass. Even React Native, which never showed its UI in May, launches this time, on Linux and on Windows. All 30 built on Linux and Windows 11; awaiting the owner's ratings.</p>
       <dl class="era" id="era"></dl>
       <div class="run-progress">
         <div class="run-progress-bar" id="progress-bar" role="progressbar" aria-label="Toolkits finished" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0">
@@ -80,6 +80,25 @@
         </table>
       </div>
       <p class="footnote">Self-reported values come from each agent's report. Sizes exclude system libraries (GTK, Qt, the JVM where it is shared); Python sizes include an app-local environment when the agent made one. Ratings marked “–” have not been given yet.</p>
+    </section>
+
+    <section class="eval-section" id="windows">
+      <h2>Windows 11 results</h2>
+      <p class="section-blurb">Each Linux build was then ported to Windows 11 by an agent and measured on a GPU-less Azure VM: warm median of five launches, working-set memory and on-disk size. Click a column to sort.</p>
+      <ul class="lessons" id="windows-findings"></ul>
+      <div class="table-scroll">
+        <table class="eval-table small-table" id="windows-table">
+          <thead><tr>
+            <th data-wsort="name">Toolkit</th>
+            <th data-wsort="winReady" class="num">Windows ready</th>
+            <th data-wsort="linReady" class="num">Linux ready</th>
+            <th data-wsort="winMem" class="num">Windows working set</th>
+            <th data-wsort="winSize" class="num">Size</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="footnote" id="windows-count"></p>
     </section>
 
     <section class="eval-section">
