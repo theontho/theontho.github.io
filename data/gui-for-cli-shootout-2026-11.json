@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T03:32:48Z",
+  "generatedAt": "2026-11-11T03:50:07Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 9
+    "windowsDone": 10
   },
   "toolkits": [
     {
@@ -871,11 +871,11 @@
         "note": null
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1135,
+        "rssMb": 67,
+        "sizeMb": 10.2,
+        "notes": "Warm median of 5 (1020 when the VM was quieter); wgpu on D3D12 (WARP); ~500 ms is a swapchain reconfigure on the VM's ~1 Hz virtual display, ~290 ms the bundle's PowerShell config script."
       },
       "shots": [
         {
@@ -907,6 +907,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/egui-test-cancel.webp",
           "caption": "Cancelled command, dark theme",
           "sha": "2418c9728fa288d5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "0ee4a23ff0aa02a1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/egui-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "c8b68cef50dad3d7"
         }
       ],
       "may": {
@@ -1296,7 +1306,7 @@
         "note": "RSS is mostly software GL (llvmpipe) and NVIDIA EGL libraries under the harness."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
