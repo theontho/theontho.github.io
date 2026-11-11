@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T07:36:10Z",
+  "generatedAt": "2026-11-11T07:39:54Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 28
+    "windowsDone": 29
   },
   "toolkits": [
     {
@@ -2637,11 +2637,11 @@
         "note": "Size is a 2.7 MB binary plus 3.2 MB of fonts."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 679,
+        "rssMb": 132,
+        "sizeMb": 60.6,
+        "notes": "Warm median of 5; 4.4 MB exe + 55.7 MB Mesa software opengl32.dll (raylib needs OpenGL; the VM has no GPU)."
       },
       "shots": [
         {
@@ -2673,6 +2673,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-dark.webp",
           "caption": "Dark theme, Library page",
           "sha": "93c0c0f3e39747d2"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "6da35054c3fd814d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/raygui-rust-windows-rtl-arabic.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "69999fcb621ac53c"
         }
       ],
       "may": {
