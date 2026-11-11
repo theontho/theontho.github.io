@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T00:04:56Z",
+  "generatedAt": "2026-11-11T00:19:42Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 21,
+    "done": 22,
     "building": 5,
-    "queued": 4,
+    "queued": 3,
     "failed": 0,
-    "activeHours": 31.3,
-    "meanSelfVisual": 4.07,
-    "meanMyVisual": 4.67,
+    "activeHours": 34.0,
+    "meanSelfVisual": 4.11,
+    "meanMyVisual": 4.68,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.53,
+    "meanMayVisualDone": 2.5,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,23 +36,23 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 17,
-        "newMean": 4.71,
-        "mayMean": 2.53,
-        "better": 16,
+        "n": 18,
+        "newMean": 4.72,
+        "mayMean": 2.5,
+        "better": 17,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 17,
-        "newMean": 4.09,
-        "mayMean": 2.53,
-        "better": 14,
+        "n": 18,
+        "newMean": 4.14,
+        "mayMean": 2.5,
+        "better": 15,
         "same": 3,
         "worse": 0
       }
     },
-    "windowsDone": 3
+    "windowsDone": 4
   },
   "toolkits": [
     {
@@ -63,6 +63,7 @@
       "status": "reference",
       "wave": 0,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": null,
       "completeness": null,
@@ -106,6 +107,7 @@
       "status": "done",
       "wave": 1,
       "mayId": "flutter",
+      "mayNote": null,
       "mayVisual": 4,
       "selfVisual": 4.5,
       "completeness": 4,
@@ -187,7 +189,8 @@
       "may": {
         "name": "Flutter",
         "visual": 4,
-        "screenshot": "screenshots/gui-for-cli/eval/flutter.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/flutter.webp",
+        "note": null
       }
     },
     {
@@ -198,6 +201,7 @@
       "status": "done",
       "wave": 1,
       "mayId": "compose-desktop",
+      "mayNote": null,
       "mayVisual": 4,
       "selfVisual": 4,
       "completeness": 4,
@@ -228,11 +232,11 @@
         "note": "Measured at load average ~7.4; 862–935 ms at normal load."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1022,
+        "rssMb": 205,
+        "sizeMb": 171,
+        "notes": "Warm median of 5; bundled JRE with CDS; 5.3 s first launch after VM boot."
       },
       "shots": [
         {
@@ -264,12 +268,23 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/compose-dark.webp",
           "caption": "Dark theme",
           "sha": "5e2b9206ca2f89f2"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "8bd64dcdfd12afa5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/compose-windows-running.webp",
+          "caption": "Windows 11, command streaming (demo bundle)",
+          "sha": "ca25a4cc1b09b119"
         }
       ],
       "may": {
         "name": "Compose Desktop",
         "visual": 4,
-        "screenshot": "screenshots/gui-for-cli/eval/compose-desktop.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/compose-desktop.webp",
+        "note": null
       }
     },
     {
@@ -280,6 +295,7 @@
       "status": "done",
       "wave": 1,
       "mayId": "wx",
+      "mayNote": null,
       "mayVisual": 4,
       "selfVisual": 4,
       "completeness": 4,
@@ -310,7 +326,7 @@
         "note": "Size is the app-local conda-forge environment, mostly GTK and Mesa."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
@@ -351,7 +367,8 @@
       "may": {
         "name": "wxPython",
         "visual": 4,
-        "screenshot": "screenshots/gui-for-cli/eval/wx.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/wx.webp",
+        "note": null
       }
     },
     {
@@ -362,6 +379,7 @@
       "status": "done",
       "wave": 1,
       "mayId": "qt-qml",
+      "mayNote": null,
       "mayVisual": 3,
       "selfVisual": 4,
       "completeness": 4,
@@ -443,7 +461,8 @@
       "may": {
         "name": "Qt 6 / QML",
         "visual": 3,
-        "screenshot": "screenshots/gui-for-cli/eval/qt-qml.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/qt-qml.webp",
+        "note": null
       }
     },
     {
@@ -454,6 +473,7 @@
       "status": "done",
       "wave": 2,
       "mayId": "gtk4",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 4,
       "completeness": 4,
@@ -525,7 +545,8 @@
       "may": {
         "name": "GTK4 / libadwaita",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/gtk4.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/gtk4.webp",
+        "note": null
       }
     },
     {
@@ -536,6 +557,7 @@
       "status": "done",
       "wave": 2,
       "mayId": "slint",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 4,
       "completeness": 4,
@@ -607,7 +629,8 @@
       "may": {
         "name": "Slint",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/slint.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/slint.webp",
+        "note": null
       }
     },
     {
@@ -618,6 +641,7 @@
       "status": "done",
       "wave": 2,
       "mayId": "avalonia",
+      "mayNote": null,
       "mayVisual": 1,
       "selfVisual": 4,
       "completeness": 4,
@@ -694,7 +718,8 @@
       "may": {
         "name": "Avalonia",
         "visual": 1,
-        "screenshot": "screenshots/gui-for-cli/eval/avalonia.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/avalonia.webp",
+        "note": null
       }
     },
     {
@@ -705,6 +730,7 @@
       "status": "done",
       "wave": 2,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": 4,
       "completeness": 4,
@@ -783,6 +809,7 @@
       "status": "done",
       "wave": 3,
       "mayId": "egui",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 5,
       "completeness": 4,
@@ -854,7 +881,8 @@
       "may": {
         "name": "egui",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/egui.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/egui.webp",
+        "note": null
       }
     },
     {
@@ -865,6 +893,7 @@
       "status": "done",
       "wave": 3,
       "mayId": "iced",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 4,
       "completeness": 4,
@@ -936,7 +965,8 @@
       "may": {
         "name": "Iced",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/iced.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/iced.webp",
+        "note": null
       }
     },
     {
@@ -947,6 +977,7 @@
       "status": "done",
       "wave": 3,
       "mayId": "tkinter",
+      "mayNote": null,
       "mayVisual": 3,
       "selfVisual": 4,
       "completeness": 4,
@@ -1018,7 +1049,8 @@
       "may": {
         "name": "Tkinter",
         "visual": 3,
-        "screenshot": "screenshots/gui-for-cli/eval/tkinter.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/tkinter.webp",
+        "note": null
       }
     },
     {
@@ -1029,6 +1061,7 @@
       "status": "done",
       "wave": 3,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": 4,
       "completeness": 4,
@@ -1107,6 +1140,7 @@
       "status": "done",
       "wave": 4,
       "mayId": "fyne",
+      "mayNote": null,
       "mayVisual": 3,
       "selfVisual": 4,
       "completeness": 4,
@@ -1178,7 +1212,8 @@
       "may": {
         "name": "Fyne",
         "visual": 3,
-        "screenshot": "screenshots/gui-for-cli/eval/fyne.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/fyne.webp",
+        "note": null
       }
     },
     {
@@ -1189,6 +1224,7 @@
       "status": "done",
       "wave": 4,
       "mayId": "gio",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 4,
       "completeness": 4,
@@ -1260,7 +1296,8 @@
       "may": {
         "name": "Gio",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/gio.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/gio.webp",
+        "note": null
       }
     },
     {
@@ -1271,6 +1308,7 @@
       "status": "done",
       "wave": 4,
       "mayId": "toga",
+      "mayNote": null,
       "mayVisual": 3,
       "selfVisual": 4,
       "completeness": 4,
@@ -1342,7 +1380,8 @@
       "may": {
         "name": "Toga / BeeWare",
         "visual": 3,
-        "screenshot": "screenshots/gui-for-cli/eval/toga.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/toga.webp",
+        "note": null
       }
     },
     {
@@ -1353,6 +1392,7 @@
       "status": "done",
       "wave": 4,
       "mayId": "textual",
+      "mayNote": null,
       "mayVisual": 3,
       "selfVisual": 3,
       "completeness": 4,
@@ -1424,7 +1464,8 @@
       "may": {
         "name": "Python Textual",
         "visual": 3,
-        "screenshot": "screenshots/gui-for-cli/eval/textual.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/textual.webp",
+        "note": null
       }
     },
     {
@@ -1435,6 +1476,7 @@
       "status": "done",
       "wave": 5,
       "mayId": "gpui",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 5,
       "completeness": 4,
@@ -1506,7 +1548,8 @@
       "may": {
         "name": "GPUI",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/gpui.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/gpui.webp",
+        "note": null
       }
     },
     {
@@ -1517,6 +1560,7 @@
       "status": "done",
       "wave": 5,
       "mayId": "makepad",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": 4,
       "completeness": 4,
@@ -1588,7 +1632,8 @@
       "may": {
         "name": "Makepad",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/makepad.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/makepad.webp",
+        "note": null
       }
     },
     {
@@ -1596,27 +1641,38 @@
       "name": "Dioxus Native (Blitz)",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": "dioxus",
+      "mayNote": "May's Dioxus was a WebUI webview shell; this is native Blitz rendering",
       "mayVisual": 2,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 5,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 2.75,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "dioxus-native: Blitz lays out real HTML and CSS and draws it with Vello's hybrid renderer on wgpu, with no webview or browser engine, so the reference's design ported almost directly. (May's Dioxus entry was a WebUI webview shell.)",
+      "lessons": "Blitz has no select, placeholder or title tooltips yet, so those are components, and it fires only input events, not change. A spawn dies with its component, so long-lived work needs spawn_forever; Xvfb needs a vendored lavapipe.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 530,
+        "rssMb": 294.7,
+        "sizeMb": 48,
+        "build": "~7 min clean release (-j4, ~640 crates); ~11 min with -j3 on the loaded machine",
+        "note": "Size includes 15 MB of vendored lavapipe; most of the RSS is the lavapipe Vulkan driver under Xvfb."
       },
       "windows": {
         "status": null,
@@ -1625,11 +1681,43 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "b29b2061a12433e0"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "451e79a4660bda05"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-demo-stream-running.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "16abebf4214a6837"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "dac4678638f1edd1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left via CSS dir=rtl",
+          "sha": "c53c148d1ab5e047"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/dioxus-info-bam-dark.webp",
+          "caption": "Dark theme, Info / BAM page",
+          "sha": "ee6e4a70ecc306ac"
+        }
+      ],
       "may": {
         "name": "Dioxus WebUI",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/dioxus.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/dioxus.webp",
+        "note": "May's Dioxus was a WebUI webview shell; this is native Blitz rendering"
       }
     },
     {
@@ -1640,6 +1728,7 @@
       "status": "done",
       "wave": 5,
       "mayId": "xilem-vello",
+      "mayNote": null,
       "mayVisual": 1,
       "selfVisual": 4,
       "completeness": 4,
@@ -1711,7 +1800,8 @@
       "may": {
         "name": "Xilem / Vello",
         "visual": 1,
-        "screenshot": "screenshots/gui-for-cli/eval/xilem-vello.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/xilem-vello.webp",
+        "note": null
       }
     },
     {
@@ -1722,6 +1812,7 @@
       "status": "done",
       "wave": 5,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": 4,
       "completeness": 4,
@@ -1800,6 +1891,7 @@
       "status": "done",
       "wave": 5,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": 4,
       "completeness": 4,
@@ -1878,6 +1970,7 @@
       "status": "building",
       "wave": 6,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": null,
       "completeness": null,
@@ -1915,6 +2008,7 @@
       "status": "building",
       "wave": 6,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": null,
       "completeness": null,
@@ -1952,6 +2046,7 @@
       "status": "building",
       "wave": 6,
       "mayId": null,
+      "mayNote": null,
       "mayVisual": null,
       "selfVisual": null,
       "completeness": null,
@@ -1986,9 +2081,10 @@
       "name": "Dear ImGui (C++)",
       "language": "C++",
       "kind": "Immediate mode",
-      "status": "queued",
+      "status": "building",
       "wave": 6,
       "mayId": "imgui-cpp",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": null,
       "completeness": null,
@@ -2019,7 +2115,8 @@
       "may": {
         "name": "Dear ImGui (C++)",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/imgui-cpp.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/imgui-cpp.webp",
+        "note": null
       }
     },
     {
@@ -2030,6 +2127,7 @@
       "status": "queued",
       "wave": 7,
       "mayId": "imgui",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": null,
       "completeness": null,
@@ -2060,7 +2158,8 @@
       "may": {
         "name": "Dear ImGui (Rust)",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/imgui.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/imgui.webp",
+        "note": null
       }
     },
     {
@@ -2071,6 +2170,7 @@
       "status": "queued",
       "wave": 7,
       "mayId": "raygui",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": null,
       "completeness": null,
@@ -2101,7 +2201,8 @@
       "may": {
         "name": "Raygui (Rust)",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/raygui.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/raygui.webp",
+        "note": null
       }
     },
     {
@@ -2112,6 +2213,7 @@
       "status": "queued",
       "wave": 7,
       "mayId": "raygui-c",
+      "mayNote": null,
       "mayVisual": 2,
       "selfVisual": null,
       "completeness": null,
@@ -2142,7 +2244,8 @@
       "may": {
         "name": "Raygui (C)",
         "visual": 2,
-        "screenshot": "screenshots/gui-for-cli/eval/raygui-c.webp"
+        "screenshot": "screenshots/gui-for-cli/eval/raygui-c.webp",
+        "note": null
       }
     },
     {
@@ -2153,6 +2256,7 @@
       "status": "building",
       "wave": 8,
       "mayId": "react-native",
+      "mayNote": null,
       "mayVisual": "failed",
       "selfVisual": null,
       "completeness": null,
@@ -2183,7 +2287,8 @@
       "may": {
         "name": "React Native (macOS / Windows)",
         "visual": "failed",
-        "screenshot": null
+        "screenshot": null,
+        "note": null
       }
     }
   ]
