@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T00:41:10Z",
+  "generatedAt": "2026-11-11T00:59:03Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,13 +17,13 @@
   ],
   "stats": {
     "total": 30,
-    "done": 24,
+    "done": 25,
     "building": 5,
-    "queued": 1,
+    "queued": 0,
     "failed": 0,
-    "activeHours": 37.4,
+    "activeHours": 39.2,
     "meanSelfVisual": 4.1,
-    "meanMyVisual": 4.71,
+    "meanMyVisual": 4.68,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.5,
     "vsMay": {
@@ -52,7 +52,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 4
+    "windowsDone": 5
   },
   "toolkits": [
     {
@@ -2292,7 +2292,7 @@
       "name": "Raygui (C)",
       "language": "C",
       "kind": "Immediate mode",
-      "status": "queued",
+      "status": "building",
       "wave": 7,
       "mayId": "raygui-c",
       "mayNote": null,
@@ -2335,37 +2335,73 @@
       "name": "React Native (desktop)",
       "language": "TypeScript",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 8,
       "mayId": "react-native",
       "mayNote": null,
       "mayVisual": "failed",
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 3,
+      "activeHours": 1.9,
+      "myVisual": 4,
+      "myNotes": "Provisional: renders the real app on both platforms. Linux close to the reference (dialog without shadow); Windows has some mismatched sidebar icons and a raw PowerShell error dump in the data-source error.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": "Linux renderer if one is credible, otherwise Windows via react-native-windows.",
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "summary": "One ~5,000-line TypeScript React Native codebase on two renderers: on Linux react-native-gtkx 0.4 draws RN's components as real GTK4 widgets (it implements RN's components and APIs, not Meta's runtime), and on Windows react-native-windows 0.85 runs Fabric and Hermes. May's version never showed a UI; this one hit the same blank window on Windows until a Metro resolver bug was fixed.",
+      "lessons": "Writing the app was quick because it is plain React Native; the platform layers took the time, with four gtkx workarounds on Linux and six toolchain and config problems on Windows. Windows has no Node, so files, processes and pickers come from a ~450-line C++ native module.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 1437,
+        "rssMb": 416.8,
+        "sizeMb": 6.7,
+        "build": "33 s clean build.sh (GIR codegen and vite, 2 cores; npm ci not included); 10 s rebuild",
+        "note": "Ready is the median of 5 warm runs (1.4–2.4 s). RSS (426,800 kB) is Node, V8 and GTK. Size is dist/ only; Node 26 (144 MB) and the system GTK 4.24 are not counted."
       },
       "windows": {
-        "status": null,
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 632,
+        "rssMb": 148,
+        "sizeMb": 163,
+        "notes": "Warm median of 5; 3.96 s first launch; includes Windows App SDK."
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/react-native-main.webp",
+          "caption": "Linux (react-native-gtkx): first launch with the setup dialog",
+          "sha": "ca3d14a05363fcf2"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/react-native-running.webp",
+          "caption": "Linux: streaming output with Cancel (demo bundle)",
+          "sha": "90401da84876b42d"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/react-native-rtl-ar.webp",
+          "caption": "Linux: Arabic, right-to-left",
+          "sha": "b54767f1a4239289"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/react-native-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "167816f88bb75a54"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/react-native-windows-running.webp",
+          "caption": "Windows 11, command streaming (demo bundle)",
+          "sha": "0dd895491c191590"
+        }
+      ],
       "may": {
         "name": "React Native (macOS / Windows)",
         "visual": "failed",
