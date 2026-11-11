@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T23:42:27Z",
+  "generatedAt": "2026-11-11T00:04:56Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,15 +17,15 @@
   ],
   "stats": {
     "total": 30,
-    "done": 20,
+    "done": 21,
     "building": 5,
-    "queued": 5,
+    "queued": 4,
     "failed": 0,
-    "activeHours": 29.6,
-    "meanSelfVisual": 4.08,
-    "meanMyVisual": 4.65,
+    "activeHours": 31.3,
+    "meanSelfVisual": 4.07,
+    "meanMyVisual": 4.67,
     "meanUserVisual": null,
-    "meanMayVisualDone": 2.62,
+    "meanMayVisualDone": 2.53,
     "vsMay": {
       "userVisual": {
         "n": 0,
@@ -36,18 +36,18 @@
         "worse": 0
       },
       "myVisual": {
-        "n": 16,
-        "newMean": 4.69,
-        "mayMean": 2.62,
-        "better": 15,
+        "n": 17,
+        "newMean": 4.71,
+        "mayMean": 2.53,
+        "better": 16,
         "same": 1,
         "worse": 0
       },
       "selfVisual": {
-        "n": 16,
+        "n": 17,
         "newMean": 4.09,
-        "mayMean": 2.62,
-        "better": 13,
+        "mayMean": 2.53,
+        "better": 14,
         "same": 3,
         "worse": 0
       }
@@ -1637,27 +1637,37 @@
       "name": "Xilem / Vello",
       "language": "Rust",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 5,
       "mayId": "xilem-vello",
       "mayVisual": 1,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 4,
+      "activeHours": 1.75,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "partial",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Xilem and Masonry from git main, drawn by Vello on wgpu, render the whole workflow very close to the reference, a big step from May's near-empty window.",
+      "lessons": "The crates.io release is a year behind, so it builds on git main; the light look is a full re-theme, and the dropdown, tooltip and log views had to be written by hand. Masonry has no RTL, and wrapped text is sometimes measured as one line.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 893,
+        "rssMb": 411.8,
+        "sizeMb": 38,
+        "build": "36 min 41 s clean release (-j2) at load average 20–30; a few minutes on an idle machine",
+        "note": "Most of the RSS (421,680 kB) is lavapipe software Vulkan under Xvfb; a hardware GPU driver would use far less."
       },
       "windows": {
         "status": null,
@@ -1666,7 +1676,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "2bbc8f69b2b21e47"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "7f1b71f9ccfe8837"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-demo-streaming.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "d081d72e8941c097"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-demo-setup.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "ba3d7bbc4cd17a90"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-rtl-ar.webp",
+          "caption": "Arabic, right-to-left (mirrored by hand)",
+          "sha": "8ac70d4880fc37d5"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/xilem-library.webp",
+          "caption": "Library page",
+          "sha": "8851dfd932aa46ab"
+        }
+      ],
       "may": {
         "name": "Xilem / Vello",
         "visual": 1,
@@ -1908,7 +1949,7 @@
       "name": "Qt Widgets",
       "language": "C++",
       "kind": "Cross-platform native",
-      "status": "queued",
+      "status": "building",
       "wave": 6,
       "mayId": null,
       "mayVisual": null,
