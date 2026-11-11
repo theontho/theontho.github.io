@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T06:31:25Z",
+  "generatedAt": "2026-11-11T06:36:30Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 22
+    "windowsDone": 23
   },
   "toolkits": [
     {
@@ -2172,11 +2172,11 @@
         "note": "Ready time ranged 1.1–2.0 s across runs at load average 8–15. RSS is the OpenGL/llvmpipe path; the software renderer uses ~56 MB."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 411,
+        "rssMb": 45,
+        "sizeMb": 26.9,
+        "notes": "Warm median of 5; single .exe; Skia fell back to CPU rendering on the GPU-less VM by itself (no Mesa DLL); Arabic shaped correctly."
       },
       "shots": [
         {
@@ -2208,6 +2208,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/freya-confirm.webp",
           "caption": "Typed confirmation dialog (demo bundle)",
           "sha": "2f6646408d59c45c"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-windows-main.webp",
+          "caption": "Windows 11",
+          "sha": "2af4b516865a4e47"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/freya-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "d7d0d99c4631eb84"
         }
       ],
       "may": null
@@ -2330,7 +2340,7 @@
         "note": "Single binary with icons embedded; needs the system Qt 6 (Core, Gui, Widgets, Svg)."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
