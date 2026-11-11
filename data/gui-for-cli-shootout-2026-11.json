@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T04:58:39Z",
+  "generatedAt": "2026-11-11T05:08:07Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -53,7 +53,7 @@
         "worse": 0
       }
     },
-    "windowsDone": 15
+    "windowsDone": 16
   },
   "toolkits": [
     {
@@ -1524,11 +1524,11 @@
         "note": "About 237 MB of the RSS and 163 MB of the size are the vendored kitty terminal; the Python app alone is ~60 MB RSS and 33 MB."
       },
       "windows": {
-        "status": "building",
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "notes": null
+        "status": "done",
+        "readyMs": 1136,
+        "rssMb": 153,
+        "sizeMb": 71.5,
+        "notes": "Warm median of 5; runs in a pinned portable Windows Terminal 1.25 (whole-tree memory; the Python app alone is ~60 MB); size excludes Python."
       },
       "shots": [
         {
@@ -1560,6 +1560,16 @@
           "src": "screenshots/gui-for-cli/shootout-2026-11/textual-dark.webp",
           "caption": "Dark theme",
           "sha": "da42c8ea2abcd0cc"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-windows-main.webp",
+          "caption": "Windows 11, in Windows Terminal",
+          "sha": "8d74b178973ff83f"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/textual-windows-rtl-ar.webp",
+          "caption": "Windows 11, Arabic",
+          "sha": "d3eb7e3314f2123a"
         }
       ],
       "may": {
@@ -1944,7 +1954,7 @@
         "note": "Ready time measured at load ~7 (~740 ms on a quieter run). Size includes 15 MB of vendored lavapipe, needed only under Xvfb."
       },
       "windows": {
-        "status": null,
+        "status": "building",
         "readyMs": null,
         "rssMb": null,
         "sizeMb": null,
