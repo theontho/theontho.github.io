@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T00:25:48Z",
+  "generatedAt": "2026-11-11T00:41:10Z",
   "title": "November 2026: the GUI shootout, again",
   "period": "November 2026",
   "model": "Claude Opus 5.5 (high effort), one agent per toolkit, in OpenCode",
@@ -17,13 +17,13 @@
   ],
   "stats": {
     "total": 30,
-    "done": 23,
+    "done": 24,
     "building": 5,
-    "queued": 2,
+    "queued": 1,
     "failed": 0,
-    "activeHours": 36.4,
-    "meanSelfVisual": 4.11,
-    "meanMyVisual": 4.7,
+    "activeHours": 37.4,
+    "meanSelfVisual": 4.1,
+    "meanMyVisual": 4.71,
     "meanUserVisual": null,
     "meanMayVisualDone": 2.5,
     "vsMay": {
@@ -2084,28 +2084,38 @@
       "name": "Qt Widgets",
       "language": "C++",
       "kind": "Cross-platform native",
-      "status": "building",
+      "status": "done",
       "wave": 6,
       "mayId": null,
       "mayNote": null,
       "mayVisual": null,
-      "selfVisual": null,
-      "completeness": null,
-      "difficulty": null,
-      "activeHours": null,
-      "myVisual": null,
-      "myNotes": null,
+      "selfVisual": 4,
+      "completeness": 4,
+      "difficulty": 2,
+      "activeHours": 1.0,
+      "myVisual": 5,
+      "myNotes": "Provisional, from the main screenshot: nearly identical to the reference; classic scrollbar.",
       "userVisual": null,
       "userNotes": null,
-      "features": null,
-      "summary": null,
-      "lessons": null,
+      "features": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "partial"
+      ],
+      "summary": "Classic Qt 6 Widgets in C++20 (no QML, no webview) laid out to match the reference, with the whole WGS Extract workflow and RTL working, in a 1.1 MB binary.",
+      "lessons": "QSS fights you: its min-height overrides fixed sizes, it has no line-height, and the gtk3 platform theme forces its own fonts. Widgets don't re-render on their own, so small host containers rebuild only the data-driven parts to keep focus.",
       "linux": {
-        "readyMs": null,
-        "rssMb": null,
-        "sizeMb": null,
-        "build": null,
-        "note": null
+        "readyMs": 406,
+        "rssMb": 104.1,
+        "sizeMb": 1.1,
+        "build": "37 s clean (CMake + Make, 2 jobs); ~90 s under heavy load",
+        "note": "Single binary with icons embedded; needs the system Qt 6 (Core, Gui, Widgets, Svg)."
       },
       "windows": {
         "status": null,
@@ -2114,7 +2124,38 @@
         "sizeMb": null,
         "notes": null
       },
-      "shots": [],
+      "shots": [
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-main.webp",
+          "caption": "First launch with the setup dialog",
+          "sha": "91a517d9745822c1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-settings.webp",
+          "caption": "Settings with the setup steps",
+          "sha": "63917f53524d3df1"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-demo-streaming.webp",
+          "caption": "Streaming output with Cancel (demo bundle)",
+          "sha": "3faa2f1e026e070e"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-demo-setup-running.webp",
+          "caption": "Setup in progress (demo bundle)",
+          "sha": "1e44e2cdd10c1234"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-rtl-arabic.webp",
+          "caption": "Arabic, right-to-left",
+          "sha": "d82f2ffdf17feeaa"
+        },
+        {
+          "src": "screenshots/gui-for-cli/shootout-2026-11/qt-widgets-dark.webp",
+          "caption": "Dark theme, Info / BAM page",
+          "sha": "9959ff3cb987300c"
+        }
+      ],
       "may": null
     },
     {
@@ -2208,7 +2249,7 @@
       "name": "Raygui (Rust)",
       "language": "Rust",
       "kind": "Immediate mode",
-      "status": "queued",
+      "status": "building",
       "wave": 7,
       "mayId": "raygui",
       "mayNote": null,
