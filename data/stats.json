@@ -1,49 +1,49 @@
 {
-  "generated_at": "2026-11-11T17:08:38+00:00",
+  "generated_at": "2026-11-12T17:36:53+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-11T16:59:10Z",
+      "pushed_at": "2026-11-12T17:28:14Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 42,
+      "open_issues": 39,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
       "release": {
-        "tag": "v0.8.6",
-        "published_at": "2026-11-10T03:39:11Z"
+        "tag": "v0.8.7",
+        "published_at": "2026-11-12T00:10:21Z"
       }
     },
     "gui-for-cli": {
       "stars": 7,
       "forks": 0,
       "language": "TypeScript",
-      "pushed_at": "2026-11-11T03:10:47Z",
+      "pushed_at": "2026-11-12T04:03:22Z",
       "created_at": "2026-05-07T18:39:48Z",
       "open_issues": 0,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/gui-for-cli-outdated",
       "release": {
-        "tag": "v0.8.6",
-        "published_at": "2026-11-10T04:44:08Z"
+        "tag": "v0.8.7",
+        "published_at": "2026-11-12T00:58:10Z"
       }
     },
     "desktop-ui-eval": {
       "stars": 7,
       "forks": 0,
       "language": "TypeScript",
-      "pushed_at": "2026-11-11T03:10:47Z",
+      "pushed_at": "2026-11-12T04:03:22Z",
       "created_at": "2026-05-07T18:39:48Z",
       "open_issues": 0,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/gui-for-cli-outdated",
       "release": {
-        "tag": "v0.8.6",
-        "published_at": "2026-11-10T04:44:08Z"
+        "tag": "v0.8.7",
+        "published_at": "2026-11-12T00:58:10Z"
       }
     },
     "gui-shootout-2026-11": {},
@@ -51,15 +51,15 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-11T16:59:10Z",
+      "pushed_at": "2026-11-12T17:28:14Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 42,
+      "open_issues": 39,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
       "release": {
-        "tag": "v0.8.6",
-        "published_at": "2026-11-10T03:39:11Z"
+        "tag": "v0.8.7",
+        "published_at": "2026-11-12T00:10:21Z"
       }
     },
     "dawnbreakers": {
@@ -199,12 +199,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2270,
-      "forks": 198,
+      "stars": 2284,
+      "forks": 200,
       "language": "Rust",
-      "pushed_at": "2026-11-11T16:31:07Z",
+      "pushed_at": "2026-11-12T17:02:44Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 166,
+      "open_issues": 148,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
@@ -468,24 +468,15 @@
       "stars": 4,
       "forks": 3,
       "language": "JavaScript",
-      "pushed_at": "2026-11-11T01:16:51Z",
+      "pushed_at": "2026-11-12T17:13:25Z",
       "created_at": "2026-09-15T18:30:27Z",
       "open_issues": 1,
       "archived": false,
       "private": false,
       "url": "https://github.com/portlandiator/PI_browser",
       "merged_prs": 0,
-      "open_prs": 1,
-      "pull_requests": [
-        {
-          "number": 53,
-          "title": "Word study, translation research and a concordance of authorized renderings",
-          "url": "https://github.com/portlandiator/PI_browser/pull/53",
-          "state": "open",
-          "created_at": "2026-11-06T03:46:27Z",
-          "merged_at": null
-        }
-      ]
+      "open_prs": 0,
+      "pull_requests": []
     },
     "yleaf": {
       "stars": 40,

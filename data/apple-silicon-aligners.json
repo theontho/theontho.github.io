@@ -1,9 +1,9 @@
 {
   "title": "Apple Silicon genome aligner hillclimb",
   "release": {
-    "tag": "macos-aligners-14",
-    "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-14",
-    "publishedAt": "2026-11-10T04:01:09Z"
+    "tag": "macos-aligners-16",
+    "url": "https://github.com/WGSExtract/wgsextract-cli/releases/tag/macos-aligners-16",
+    "publishedAt": "2026-11-12T13:04:37Z"
   },
   "period": "4–10 November 2026",
   "models": "Claude Opus 5.5 in GitHub Copilot CLI for most of the work, with GPT-6 Astra and GPT-6.1 Sol on the first day",
