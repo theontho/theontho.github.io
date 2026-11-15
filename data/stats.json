@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-14T15:50:12+00:00",
+  "generated_at": "2026-11-15T16:22:54+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-14T15:46:31Z",
+      "pushed_at": "2026-11-15T16:20:15Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 85,
+      "open_issues": 68,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -51,9 +51,9 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-14T15:46:31Z",
+      "pushed_at": "2026-11-15T16:20:15Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 85,
+      "open_issues": 68,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -199,12 +199,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2296,
-      "forks": 201,
+      "stars": 2305,
+      "forks": 202,
       "language": "Rust",
-      "pushed_at": "2026-11-14T07:58:12Z",
+      "pushed_at": "2026-11-15T11:27:58Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 147,
+      "open_issues": 146,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
@@ -212,16 +212,16 @@
         "tag": "v20261109.1",
         "published_at": "2026-11-10T05:58:20Z"
       },
-      "merged_prs": 17,
-      "open_prs": 1,
+      "merged_prs": 18,
+      "open_prs": 0,
       "pull_requests": [
         {
           "number": 1323,
           "title": "fix: keep showing this computer's GPU usage after a slow sample",
           "url": "https://github.com/sheprd-labs/sheprd/pull/1323",
-          "state": "open",
+          "state": "merged",
           "created_at": "2026-11-14T07:44:24Z",
-          "merged_at": null
+          "merged_at": "2026-11-15T05:04:19Z"
         },
         {
           "number": 1005,
@@ -476,7 +476,7 @@
       "stars": 4,
       "forks": 3,
       "language": "JavaScript",
-      "pushed_at": "2026-11-14T01:07:12Z",
+      "pushed_at": "2026-11-14T21:54:01Z",
       "created_at": "2026-09-15T18:30:27Z",
       "open_issues": 0,
       "archived": false,
