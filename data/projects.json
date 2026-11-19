@@ -544,14 +544,14 @@
       "id": "ssi-lights",
       "name": "SSI Fixture DB",
       "category": "side",
-      "when": "August–October 2026",
+      "when": "August–November 2026",
       "repo": "theontho/ssi-lights",
       "role": "author",
       "status": "finished",
-      "progress": "A research snapshot from 14 October 2026, built with AI agents from manufacturer pages and independent reviews. One SQLite file is the source of truth; a script embeds it into a single static page.",
-      "summary": "A searchable comparison of 177 LED film lights from 50 brands, ranked by Spectral Similarity Index (SSI) at daylight and tungsten, with price, output, efficiency and a source for every number.",
+      "progress": "Last refreshed 18 November 2026, built with AI agents from manufacturer pages and independent reviews. One SQLite file is the source of truth; a script embeds it into a single static page.",
+      "summary": "A searchable comparison of 183 LED film lights from 49 brands, ranked by Spectral Similarity Index (SSI) at daylight and tungsten, with price, output, efficiency and a source for every number.",
       "highlights": [
-        "SSI scores for 103 lights at daylight (D55/D56) and 94 at tungsten (P3200), each labelled with the type of evidence behind it",
+        "SSI scores for 106 lights at daylight (D55/D56) and 97 at tungsten (P3200), each labelled with the type of evidence behind it",
         "Filter by price, minimum SSI, form factor and colour engine; sort by lux per dollar or lux per watt",
         "Table and photo-grid views, side-by-side comparison, and the original SSI and spectral charts on hover",
         "Spectral curves for 45 lights, digitized from published charts"
