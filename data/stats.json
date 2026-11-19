@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-19T02:54:47+00:00",
+  "generated_at": "2026-11-19T18:18:37+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-19T02:44:25Z",
+      "pushed_at": "2026-11-19T18:11:21Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 36,
+      "open_issues": 57,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
       "release": {
-        "tag": "v0.8.7",
-        "published_at": "2026-11-12T00:10:21Z"
+        "tag": "v0.8.8",
+        "published_at": "2026-11-19T04:35:53Z"
       }
     },
     "gui-for-cli": {
       "stars": 7,
       "forks": 0,
       "language": "TypeScript",
-      "pushed_at": "2026-11-14T14:03:59Z",
+      "pushed_at": "2026-11-19T13:34:50Z",
       "created_at": "2026-05-07T18:39:48Z",
       "open_issues": 1,
       "archived": false,
@@ -35,7 +35,7 @@
       "stars": 7,
       "forks": 0,
       "language": "TypeScript",
-      "pushed_at": "2026-11-14T14:03:59Z",
+      "pushed_at": "2026-11-19T13:34:50Z",
       "created_at": "2026-05-07T18:39:48Z",
       "open_issues": 1,
       "archived": false,
@@ -51,15 +51,15 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-19T02:44:25Z",
+      "pushed_at": "2026-11-19T18:11:21Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 36,
+      "open_issues": 57,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
       "release": {
-        "tag": "v0.8.7",
-        "published_at": "2026-11-12T00:10:21Z"
+        "tag": "v0.8.8",
+        "published_at": "2026-11-19T04:35:53Z"
       }
     },
     "dawnbreakers": {
@@ -221,12 +221,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2354,
-      "forks": 210,
+      "stars": 2364,
+      "forks": 213,
       "language": "Rust",
-      "pushed_at": "2026-11-19T02:27:14Z",
+      "pushed_at": "2026-11-19T18:16:10Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 170,
+      "open_issues": 181,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
