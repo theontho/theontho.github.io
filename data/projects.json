@@ -584,6 +584,44 @@
       ]
     },
     {
+      "id": "spectrometer-mac",
+      "name": "SpectrometerMac",
+      "category": "minor",
+      "when": "August 2026",
+      "repo": "theontho/spectrometer-mac",
+      "role": "author",
+      "status": "beta",
+      "progress": "Built in August 2026 to measure my own lights with one monochrome USB camera and a diffraction grating. The LED light designer and spectrum library draw on the SSI Fixture DB.",
+      "summary": "A native macOS and iOS light spectrometer for a USB camera and a diffraction grating, with an LED light simulator for designing new lights from real emitters and phosphors.",
+      "highlights": [
+        "Design a light channel by channel: pick commercial LED emitters, quantities, drive current and phosphor coatings, and see the spectrum, CCT, SSI D55/P3400 and wall-plug efficiency update",
+        "Presets reconstruct real fixtures (bi-color, RGBWW, RGBACL, BLAIR, SunLike) and AM1.5G sunlight simulators, overlaid on their measured curves",
+        "Spectrum library of 49 measured curves for 45 film and photo lights, digitized from published charts",
+        "Live spectrum with click-to-calibrate lines, dark references, snapshots, PNG/CSV export and Quick Look",
+        "Hover help, an Apple Help Book, and a UI translated into 14 languages"
+      ],
+      "tech": [
+        "Swift",
+        "SwiftUI",
+        "AVFoundation",
+        "XcodeGen",
+        "Lighting"
+      ],
+      "links": [],
+      "screenshots": [
+        {
+          "src": "screenshots/spectrometer-mac/led-light-simulator.webp",
+          "caption": "LED Light Simulator designing an AM1.5G sunlight fixture",
+          "source": "App capture (macOS)"
+        },
+        {
+          "src": "screenshots/spectrometer-mac/spectrum-library.webp",
+          "caption": "Spectrum Library: measured amaran 200x S curve",
+          "source": "App capture (macOS)"
+        }
+      ]
+    },
+    {
       "id": "reddit-zst-to-parquet",
       "name": "Reddit ZST to Parquet",
       "category": "minor",

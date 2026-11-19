@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-19T01:39:30+00:00",
+  "generated_at": "2026-11-19T02:28:15+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-19T01:16:28Z",
+      "pushed_at": "2026-11-19T01:44:56Z",
       "created_at": "2026-05-02T02:30:04Z",
       "open_issues": 36,
       "archived": false,
@@ -51,7 +51,7 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-19T01:16:28Z",
+      "pushed_at": "2026-11-19T01:44:56Z",
       "created_at": "2026-05-02T02:30:04Z",
       "open_issues": 36,
       "archived": false,
@@ -77,7 +77,7 @@
       "stars": 9,
       "forks": 1,
       "language": "TypeScript",
-      "pushed_at": "2026-10-25T08:35:41Z",
+      "pushed_at": "2026-11-19T02:19:18Z",
       "created_at": "2025-10-27T05:31:57Z",
       "open_issues": 2,
       "archived": false,
@@ -98,6 +98,17 @@
       "archived": false,
       "private": false,
       "url": "https://github.com/theontho/ssi-lights"
+    },
+    "spectrometer-mac": {
+      "stars": 0,
+      "forks": 0,
+      "language": "Swift",
+      "pushed_at": "2026-11-19T02:27:18Z",
+      "created_at": "2026-11-19T02:27:11Z",
+      "open_issues": 0,
+      "archived": false,
+      "private": false,
+      "url": "https://github.com/theontho/spectrometer-mac"
     },
     "reddit-zst-to-parquet": {
       "stars": 1,
@@ -210,12 +221,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2353,
+      "stars": 2354,
       "forks": 210,
       "language": "Rust",
-      "pushed_at": "2026-11-19T01:03:59Z",
+      "pushed_at": "2026-11-19T02:27:14Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 169,
+      "open_issues": 170,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
