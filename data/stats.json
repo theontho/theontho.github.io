@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-18T18:05:45+00:00",
+  "generated_at": "2026-11-19T01:38:35+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-18T17:25:33Z",
+      "pushed_at": "2026-11-19T01:16:28Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 33,
+      "open_issues": 36,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -51,9 +51,9 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-18T17:25:33Z",
+      "pushed_at": "2026-11-19T01:16:28Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 33,
+      "open_issues": 36,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -87,6 +87,17 @@
         "tag": "v1.12.0",
         "published_at": "2026-09-14T04:49:57Z"
       }
+    },
+    "ssi-lights": {
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "pushed_at": "2026-11-19T01:36:48Z",
+      "created_at": "2026-11-19T01:36:41Z",
+      "open_issues": 0,
+      "archived": false,
+      "private": false,
+      "url": "https://github.com/theontho/ssi-lights"
     },
     "reddit-zst-to-parquet": {
       "stars": 1,
@@ -199,12 +210,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2342,
+      "stars": 2353,
       "forks": 210,
       "language": "Rust",
-      "pushed_at": "2026-11-18T17:01:19Z",
+      "pushed_at": "2026-11-19T01:03:59Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 165,
+      "open_issues": 169,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
