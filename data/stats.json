@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-22T17:10:34+00:00",
+  "generated_at": "2026-11-23T21:27:37+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-22T17:06:30Z",
+      "pushed_at": "2026-11-23T21:24:58Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 125,
+      "open_issues": 111,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -51,9 +51,9 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-22T17:06:30Z",
+      "pushed_at": "2026-11-23T21:24:58Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 125,
+      "open_issues": 111,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -180,7 +180,7 @@
       "stars": 0,
       "forks": 0,
       "language": "Python",
-      "pushed_at": "2026-11-22T08:06:11Z",
+      "pushed_at": "2026-11-23T00:42:58Z",
       "created_at": "2026-05-05T17:52:51Z",
       "open_issues": 3,
       "archived": false,
@@ -221,22 +221,46 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2374,
-      "forks": 216,
+      "stars": 2378,
+      "forks": 218,
       "language": "Rust",
-      "pushed_at": "2026-11-22T08:13:38Z",
+      "pushed_at": "2026-11-23T19:22:59Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 167,
+      "open_issues": 188,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
       "release": {
-        "tag": "v20261118.1",
-        "published_at": "2026-11-18T02:52:37Z"
+        "tag": "v20261123.1",
+        "published_at": "2026-11-23T09:30:19Z"
       },
       "merged_prs": 18,
-      "open_prs": 0,
+      "open_prs": 3,
       "pull_requests": [
+        {
+          "number": 1568,
+          "title": "fix: read all of an SSH command's output on Windows instead of only its first write",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/1568",
+          "state": "open",
+          "created_at": "2026-11-23T01:25:39Z",
+          "merged_at": null
+        },
+        {
+          "number": 1567,
+          "title": "test: check that ChildGuard reaps its child without Unix tools on Windows",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/1567",
+          "state": "open",
+          "created_at": "2026-11-23T01:13:03Z",
+          "merged_at": null
+        },
+        {
+          "number": 1560,
+          "title": "feat: show CPU, memory, GPU, and listening ports of Windows SSH hosts",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/1560",
+          "state": "open",
+          "created_at": "2026-11-22T22:45:33Z",
+          "merged_at": null
+        },
         {
           "number": 1323,
           "title": "fix: keep showing this computer's GPU usage after a slow sample",
