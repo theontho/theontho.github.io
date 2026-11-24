@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-23T21:27:37+00:00",
+  "generated_at": "2026-11-24T20:10:44+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-23T21:24:58Z",
+      "pushed_at": "2026-11-24T20:10:03Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 111,
+      "open_issues": 80,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -51,9 +51,9 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-23T21:24:58Z",
+      "pushed_at": "2026-11-24T20:10:03Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 111,
+      "open_issues": 80,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -74,7 +74,7 @@
       "url": "https://github.com/theontho/dawnbreakers"
     },
     "amaran-cli": {
-      "stars": 9,
+      "stars": 10,
       "forks": 1,
       "language": "TypeScript",
       "pushed_at": "2026-11-19T02:19:18Z",
@@ -221,12 +221,12 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2378,
-      "forks": 218,
+      "stars": 2381,
+      "forks": 219,
       "language": "Rust",
-      "pushed_at": "2026-11-23T19:22:59Z",
+      "pushed_at": "2026-11-24T20:05:38Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 188,
+      "open_issues": 175,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
@@ -234,24 +234,32 @@
         "tag": "v20261123.1",
         "published_at": "2026-11-23T09:30:19Z"
       },
-      "merged_prs": 18,
-      "open_prs": 3,
+      "merged_prs": 21,
+      "open_prs": 1,
       "pull_requests": [
+        {
+          "number": 1603,
+          "title": "fix(moonframe): show the GPU, honor the status bar button settings, and drag the window from the sidebar",
+          "url": "https://github.com/sheprd-labs/sheprd/pull/1603",
+          "state": "merged",
+          "created_at": "2026-11-24T01:43:32Z",
+          "merged_at": "2026-11-24T07:54:10Z"
+        },
         {
           "number": 1568,
           "title": "fix: read all of an SSH command's output on Windows instead of only its first write",
           "url": "https://github.com/sheprd-labs/sheprd/pull/1568",
-          "state": "open",
+          "state": "merged",
           "created_at": "2026-11-23T01:25:39Z",
-          "merged_at": null
+          "merged_at": "2026-11-24T07:54:28Z"
         },
         {
           "number": 1567,
           "title": "test: check that ChildGuard reaps its child without Unix tools on Windows",
           "url": "https://github.com/sheprd-labs/sheprd/pull/1567",
-          "state": "open",
+          "state": "merged",
           "created_at": "2026-11-23T01:13:03Z",
-          "merged_at": null
+          "merged_at": "2026-11-24T07:54:58Z"
         },
         {
           "number": 1560,
