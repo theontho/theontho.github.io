@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-25T19:17:44+00:00",
+  "generated_at": "2026-11-26T19:00:42+00:00",
   "projects": {
     "wgsextract-cli": {
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-25T19:05:22Z",
+      "pushed_at": "2026-11-26T18:57:39Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 64,
+      "open_issues": 57,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -51,9 +51,9 @@
       "stars": 8,
       "forks": 1,
       "language": "Python",
-      "pushed_at": "2026-11-25T19:05:22Z",
+      "pushed_at": "2026-11-26T18:57:39Z",
       "created_at": "2026-05-02T02:30:04Z",
-      "open_issues": 64,
+      "open_issues": 57,
       "archived": false,
       "private": false,
       "url": "https://github.com/WGSExtract/wgsextract-cli",
@@ -180,7 +180,7 @@
       "stars": 0,
       "forks": 0,
       "language": "Python",
-      "pushed_at": "2026-11-25T19:12:03Z",
+      "pushed_at": "2026-11-26T18:15:20Z",
       "created_at": "2026-05-05T17:52:51Z",
       "open_issues": 4,
       "archived": false,
@@ -221,21 +221,21 @@
       "url": "https://github.com/theontho/apple-template"
     },
     "sheprd": {
-      "stars": 2386,
+      "stars": 2384,
       "forks": 220,
       "language": "Rust",
-      "pushed_at": "2026-11-25T19:17:04Z",
+      "pushed_at": "2026-11-26T18:19:34Z",
       "created_at": "2026-09-20T05:22:39Z",
-      "open_issues": 181,
+      "open_issues": 171,
       "archived": false,
       "private": false,
       "url": "https://github.com/sheprd-labs/sheprd",
       "release": {
-        "tag": "v20261123.1",
-        "published_at": "2026-11-23T09:30:19Z"
+        "tag": "v20261126.1",
+        "published_at": "2026-11-26T10:27:08Z"
       },
-      "merged_prs": 21,
-      "open_prs": 1,
+      "merged_prs": 22,
+      "open_prs": 0,
       "pull_requests": [
         {
           "number": 1603,
@@ -265,9 +265,9 @@
           "number": 1560,
           "title": "feat: show CPU, memory, GPU, and listening ports of Windows SSH hosts",
           "url": "https://github.com/sheprd-labs/sheprd/pull/1560",
-          "state": "open",
+          "state": "merged",
           "created_at": "2026-11-22T22:45:33Z",
-          "merged_at": null
+          "merged_at": "2026-11-26T08:47:51Z"
         },
         {
           "number": 1323,
